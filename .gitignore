@@ -1,0 +1,6 @@
+video/*.mp4
+video/*.mov
+video/intermediario/
+__pycache__/
+*.pyc
+.venv/
