@@ -73,119 +73,81 @@ No estilo consagrado por animações de comédia adulta para TV (Rick and Morty,
 
 ---
 
-## 3. ESPECIFICAÇÃO TÉCNICA DO MOTOR DE CENA VIVA (`CenaViva`)
+## 3. STATUS DE PRODUÇÃO: PARTE 1 VALIDADA E ENTREGUE
 
-O novo motor em Python substitui completamente a abordagem antiga de renderização estática:
-
-### 3.1 Separação de Camadas e Inpainting Difusivo
-- Para cada personagem ou objeto que se move, é traçada uma máscara poligonal precisa.
-- O fundo por trás do recorte é reconstruído uma única vez na inicialização da cena usando **Inpainting Difusivo Bounded** (filtros uniformes iterativos nas bordas conhecidas), preenchendo a silhueta oculta.
-- Isso permite que o personagem se incline, respire, salte e gesticule sem revelar um buraco negro ou distorcer o cenário ao redor.
-
-### 3.2 Atuação Corporal (Puppet Engine)
-- **Respiração Orgânica:** Modulação sutil de escala vertical `scale_y = 1.0 + 0.006 * sin(2π * 0.45 * t)` ancorada na base do corpo de cada personagem.
-- **Piscada de Olhos (Eye Blink):**
-  - Duração de 0.14s (4 frames a 30fps): 2 frames fechando pálpebras via squash vertical na máscara dos olhos, 1 frame fechado, 1 frame abrindo.
-  - Intervalos assíncronos e orgânicos (ex: Caramelo pisca a cada 4.2s com expressão de tédio).
-- **Atuação Mecânica e Gestual:**
-  - *Homem do Boleto (002):* Tremor de alta frequência nas mãos e cabeça `dx = 1.8 * sin(2π * 6.5 * t)`, folhas de conta tremendo no vento.
-  - *Devoto no Bueiro (002):* Balanço pendular de oração `rot = 2.6° * sin(2π * 0.45 * t)` ancorado nos joelhos.
-  - *Dona Cida (005):* Inclinação enfática em direção à rua `rot = -2.0° * envelope_fala`, tronco avançando, mão em concha na boca.
-  - *Caramelo Andando (005):* Salto elástico de passo `dy = 5.0 * |sin(2π * 1.9 * t)|` e balanço defasado da sacola de pão `rot_sacola = 12° * sin(2π * 1.9 * t - 0.8)` com pivô no focinho.
-
-### 3.3 Sincronia Labial Anatômica (Lip Sync)
-- **Filtro de Falante Ativo:**
-  ```python
-  if bloco.personagem != CENA_FALANTE_EM_TELA[cena_id]:
-      # PERSONAGEM NÃO ESTÁ FALANDO (ex: voz do Narrador em off)
-      # Boca permanece 100% original; atuações corporais e faciais ativas.
-      envelope_boca = 0.0
-  ```
-- **Ancoragem nos Lábios Originais:**
-  - As coordenadas de ancoragem bucal foram extraídas diretamente dos pixels da arte original.
-  - Ao abrir, a mandíbula inferior sofre um campo de deslocamento vertical (Jaw Drop) via `scipy.ndimage.map_coordinates`, puxando o queixo e bochechas para baixo proporcionalmente à energia da fala.
-  - A cavidade bucal (com contorno escuro, dentes superiores e língua) é desenhada internamente entre os cantos da boca do personagem, respeitando a sua proporção estilística.
-  - Em momentos de pausa ou silêncio (`envelope < 0.10`), os pixels originais da arte desenhada são mantidos intactos.
-
-### 3.4 Efeitos Visuais Ambientais (VFX Procedural)
-- **Grelha de Churrasco:** Emissor de fumaça cinza-quente com dispersão senoidal ascendente a 55 px/s e vento lateral a -18 px/s.
-- **Vapor de Bueiro:** Coluna de vapor esbranquiçado semitransparente que se expande e desvanece no ar.
-- **Ventilador de Parede:** Hélice circular com máscara que gira a 1.5 rotações por segundo com desfoque de movimento perceptivo.
-- **Lâmpada de Teto e Flicker:** Oscilação pendular suave do cabo e pulso de luminosidade quente com micro-quedas estocásticas (estilo fluorescente de boteco).
-- **Varal e Tecidos:** Deformação senoidal contínua horizontal no eixo X das roupas estendidas.
-- **Shimmer de Calor:** Distorção horizontal nas linhas do asfalto da praça sob o sol do meio-dia.
-- **Letras Zzz:** Letras estilizadas que brotam do focinho do cão dormindo e flutuam em curva senoidal ascendente com transparência gradativa.
-- **Gotas de Suor e Lágrimas:** Gotas no estilo clássico de animação que brotam na têmpora do cidadão desesperado com o boleto e escorrem em velocidade acelerada.
-
-### 3.5 Sonoplastia e Mixagem de Curta-Metragem
-O projeto conta com biblioteca completa de trilhas e foleys recuperados:
-- **Camas Musicais (Beds):** `tema.mp3`, `cotidiano.mp3`, `bueiro.mp3`, `comicio.mp3`, `drama.mp3`, `fabinho.mp3`, `final.mp3`, `forro.mp3`, `jingle.mp3`, `suspense.mp3`, `tensao.mp3`.
-- **Efeitos Sonoros (SFX):** `churrasqueira.mp3`, `crowd.mp3`, `agua.mp3`, `celular.mp3`, `flash.mp3`, `fogos.mp3`, `grilos.mp3`, `latido.mp3`, `moscas.mp3`, `sinos.mp3`, `ventilador.mp3`, `vento.mp3`.
-- **Mixagem Master:**
-  - Pista de Voz (Diálogos/Narração): normalizada a -1.0 dBFS com presença frontal nítida.
-  - Pista de Trilha Sonora: posicionada a -18.0 dBFS para suporte emocional sem cobrir os textos.
-  - Pista de SFX: inserida pontualmente (ex: chiado de churrasco na grelha do bloco 002 a -14.0 dBFS).
+A **Parte 1 (Cold Open: Cenas 001 a 005)** foi totalmente renderizada, aprovada e comitada no branch de produção:
+- **Arquivo:** `video/parte_01.mp4` (52.93s, 1080p30, 50.85 MB)
+- **Commit:** `278b167`
+- **Resultados de QC:** Zero segundos estáticos (100% dos segundos com movimento contínuo e acting); Lip sync orgânico na Dona Cida com Jaw Drop; Fumaça na grelha, ventilador girando, lâmpada oscilando, vapor no bueiro e letras Zzz.
 
 ---
 
-## 4. MAPEAMENTO DE CENAS E ANIMAÇÃO: PARTE 1 (BLOCOS 001 A 005)
+## 4. ESPECIFICAÇÃO COMPLETA: PARTE 2 (BLOCOS 006 A 013)
 
-| Bloco | Cena | Falante | Personagens em Tela | Ações de Animação e Atuação (Acting) | Elementos Vivos do Cenário (VFX) | Áudio e SFX |
-|---|---|---|---|---|---|---|
-| **Título** | `T_titulo` | N/A | Cartela de Título | Respiração de lente, vinheta dinâmica, revelação cinematográfica | Nuvens crepusculares derivando suavemente no topo | Trilha: `tema.mp3` com fade in |
-| **001** | `001.jpg` | NARRADOR | Vista Aérea de Migalhópolis | Urubus empoleirados na fiação elétrica acenando a cabeça; 1 urubu voando no céu em asa batente | Nuvens em deriva lenta, faixa municipal ondulando ao vento, fumaça sutil em chaminés, partículas de poeira dourada ao sol | Trilha: `tema.mp3` transicionando para `cotidiano.mp3` |
-| **002** | `002.jpg` | NARRADOR | Painel Triplo: Povo do Churrasco, Homem do Boleto, Devoto no Bueiro | **Painel Esq:** Churrasqueiro vira espeto, povo rindo com o corpo e cabeças em fases alternadas.<br>**Painel Meio:** Homem treme as mãos com o boleto, cabeça oscila de pânico, gotas de suor escorrem da testa.<br>**Painel Dir:** Homem ajoelhado balança o tronco em oração devota, lágrimas escorrem. *(NENHUMA BOCA MEXE NA NARRAÇÃO)* | **Painel Esq:** Fumaça volumétrica subindo da churrasqueira, roupas balançando no varal.<br>**Painel Meio:** Ventilador de parede girando as hélices, lâmpada oscilando no teto com flicker de energia.<br>**Painel Dir:** Vapor quente subindo do bueiro. | Narração oficial + SFX: `churrasqueira.mp3` e `crowd.mp3` sutil em segundo plano |
-| **003** | `003.jpg` | NARRADOR | Praça central, cão dormindo no pote sobre o pedestal | Cachorro dormindo com respiração rítmica no abdômen, orelhas com micro-espasmo a cada 3s, pálpebras fechadas | Letras "Zzz" animadas subindo em curva senoidal, shimmer de calor térmico ondulando o asfalto sob o sol do meio-dia | Trilha: `cotidiano.mp3` + som de cigarras/vento leve |
-| **004** | `004.jpg` | NARRADOR | Caramelo no gabinete (close-up) | Caramelo com expressão burocrática de desdém, pisca lentamente com as pálpebras a cada 4.2s, orelha direita tem reflexo sutil, folhas de despacho na pata tremulam com a brisa da janela *(BOCA FECHADA NA NARRAÇÃO)* | Notas adesivas na parede balançando suavemente, micro-oscilação de luz na veneziana da janela | Trilha: `cotidiano.mp3` |
-| **005** | `005.jpg` | **CIDA** | Dona Cida (porta do mercadinho) e Caramelo (trotando na calçada) | **Dona Cida:** ATUAÇÃO COMPLETA DE FALA. Inclinação do tronco para a frente, braço/mão gesticulando em concha, maxilar inferior abrindo organicamente sincronizado com o áudio dela.<br>**Caramelo:** Caminha trotando na calçada com bounce vertical elástico nos passos, sacola de pão na boca oscilando como pêndulo físico. | Reflexos de luz brilhando nas garrafas do mercadinho, brisa de rua | Voz frontal da Cida gritando na porta + Trilha `cotidiano.mp3` + SFX ambiente de rua |
+A **Parte 2** cobre a continuação imediata do episódio, introduzindo Dona Marta na igreja, Seu Jorge na fila da praça, o ritual noturno da linguiça no guindaste, o bueiro subterrâneo com os operários jogando cartas e a retrospectiva histórica do escândalo de 1997 com o churrasco do Xerxes Pardal.
 
----
+### 4.1 Mapeamento Plano a Plano da Parte 2:
 
-## 5. ROTEIRO DE PRODUÇÃO PARA AS PARTES SUBSEQUENTES (PARTE 2 A 10)
-
-O mesmo rigor de recorte, acting secundário, sincronia labial restrita ao falante e cenários dinâmicos será aplicado nas 9 partes seguintes que compõem o curta-metragem:
-
-- **Parte 2 (Blocos 006 a 013):**
-  - *Marta na Igreja (006):* Bíblia na mão, celular vibrando notificações, boca da Marta sincronizada, ventilador de teto da paróquia girando.
-  - *Seu Jorge no Bar (007):* Garfo na mão, espetinho, cerveja com espuma borbulhando, Seu Jorge falando com a boca dele sincronizada.
-  - *Noite e Bueiro (008 a 013):* Luzes da cidade acendendo, névoa noturna, vapor denso de bueiro com iluminação volumétrica verde/amarela, grilos noturnos.
-- **Parte 3 (Blocos 014 a 020):**
-  - *Gabinete e Conspiração:* Caramelo e Seu Jorge negociando; introdução de Zeca (o cachorro advogado de terno com seis dedos). Zeca gesticulando com a pasta executiva.
-- **Parte 4 (Blocos 021 a 028):**
-  - *Entrada de Xerxes Pardal:* O ex-prefeito tentando puxar assunto e exibindo crachás. Atuação cômica de desespero político, gravata torta oscilando.
-- **Parte 5 (Blocos 029 a 035):**
-  - *Comício e Coletiva da TV Migalha:* Repórter com microfone tremendo, flash de câmeras fotográficas estourando em tela, multidão com cartazes balançando.
-- **Parte 6 (Blocos 036 a 043):**
-  - *Tensão no Tribunal de Contas:* Caramelo encarando auditores com calma impassível; papéis voando na mesa, ventilador no máximo.
-- **Parte 7 (Blocos 044 a 053):**
-  - *A Revelação do Pote e a Madrugada:* Planos cinematográficos com sombras longas, iluminação dramática contrastada, fumaça e neblina.
-- **Parte 8 (Blocos 054 a 063):**
-  - *Encontro com Fabinho:* O garoto de 8 anos andando de bicicleta pela praça, rodas girando, Caramelo observando do pedestal.
-- **Parte 9 (Blocos 064 a 072):**
-  - *O Grande Clímax Político de Migalhópolis:* Conflito verbal entre Caramelo, Pardal e Marta; chuva de papel picado, bandeiras e tensão máxima.
-- **Parte 10 (Blocos 073 a 079 + Créditos):**
-  - *Desfecho Irônico e Créditos Finais:* O retorno ao status quo do bairro. Fade out com o troféu reaparecendo misteriosamente no lixo; créditos finais com trilha completa e cartaz oficial.
+| Bloco | Cena | Falante | Duração | Personagens em Tela | Ações de Animação e Atuação (Puppet Acting) | Cenário Vivo e Efeitos Visuais (VFX) | Trilha Sonora e Efeitos de Foley (SFX) |
+|---|---|---|---|---|---|---|---|
+| **006** | `006.jpg` | **MARTA** | 12.79s | Dona Marta pregando na escadaria da igreja para três beatas | **Dona Marta:** LIP SYNC ANATÔMICO COM JAW DROP. Tronco gesticulando com a Bíblia levantada na mão esquerda; smartphone na mão direita vibrando notificações; brincos de argola dourada balançando com inércia física.<br>**Beatas:** As três senhoras acenam com a cabeça em uníssono concordando ("amém"). | Faixa de arrecadação da igreja com folha de maconha ondulando ao vento; reflexo de luz na cruz da fachada; folhas de árvore caindo suavemente. | Voz frontal da Marta pregando enfática + Trilha `cotidiano.mp3` transicionando para `bueiro.mp3` + som de notificação de celular vibrando. |
+| **007** | `007.jpg` | **SEU_JORGE** | 9.38s | Seu Jorge sentado na cadeira de plástico na fila da praça | **Seu Jorge:** LIP SYNC ANATÔMICO PRÓPRIO. O garfo de plástico na mão dele aponta e oscila com a ênfase de cada frase; o chapéu de catador tem micro-movimento; respiração no peito magro.<br>**Fila do Povo:** Pessoas ao fundo fazendo bobs lentos de cansaço às 5h da manhã. | Vapor quente subindo do copinho de café descartável; neblina matinal roxa da alvorada derivando no horizonte. | Voz cansada e firme do Seu Jorge + Cama sutil de amanhecer + som de talheres de plástico batendo ao fundo. |
+| **008** | `008.jpg` | NARRADOR | 10.21s | Povo ajoelhado na praça olhando para o alto; vereador na sacada | **NENHUMA BOCA MEXE (Voz do Narrador em off).**<br>**Vereador:** Na sacada do prédio, mexe os braços ajustando o binóculo; reflexo da lua pisca nas lentes do binóculo.<br>**Povo:** Ondulação coletiva de corpos de joelhos olhando para cima. | **Linguiça no Guindaste:** Uma linguiça gigante suspensa por cabo de aço balança no vento noturno como um pêndulo solene; facho de luz lunar dramático cortando o céu; estrelas cintilando; partículas de poeira noturna flutuando. | Voz de documentário morto-vivo do Narrador + Trilha dramática `tensao.mp3` + som de vento noturno uivando (`vento.mp3`). |
+| **009** | `009.jpg` | NARRADOR | 10.03s | Terça-feira ritual: multidão prostrada diante do Caramelo no pote | **NENHUMA BOCA MEXE (Voz do Narrador em off).**<br>**Caramelo:** Deitado no pote com a faixa verde, pisca lentamente com as pálpebras em tédio e vergonha alheia; orelha direita tem espasmo sutil de pulga.<br>**Multidão:** Onda senoidal de reverência com troncos baixando e subindo. | Estátua de santo caída na grama com folhinhas de grama balançando ao redor; nuvens do meio-dia derivando suavemente no céu europeizado da praça. | Narração oficial + Trilha `tensao.mp3` desacelerando + murmúrio solene de multidão (`crowd.mp3` filtrado em passa-baixa). |
+| **010** | `010.jpg` | NARRADOR | 8.75s | Subsolo: túnel de esgoto de concreto 12 metros abaixo da praça | **NENHUMA BOCA MEXE (Voz do Narrador em off).**<br>**Operário Trabalhando:** Golpes de picareta rítmicos na parede do túnel com faíscas minúsculas estalando.<br>**Operários Jogando Cartas:** Braço de um deles joga uma carta na mesa improvisada em cima do tubo; o outro leva a caneca de café à boca. | Lâmpadas fluorescentes industriais piscando com micro-cortes e flicker verde-água; vapor quente saindo da água escura do esgoto; esgoto correndo no canal com pequenas ondas reflexivas. | Narração + Trilha de ambiente `bueiro.mp3` + gotejamento de água ecoando no túnel (`agua.mp3`). |
+| **011** | `011.jpg` | NARRADOR | 5.22s | Cartela de capítulo: cinejornal vintage de 1997 ("O Progresso") | **EFEITO VISUAL DE PELÍCULA ANTIGA (Cinejornal 1997):**<br>Prefeito e autoridade estadual sorrindo artificialmente enquanto seguram o cheque de papelão gigante. | Riscos verticais pretos e brancos passando aleatoriamente pela imagem (scratch film); granulação pesada (film grain 35mm); oscilação de quadro (film gate weave jitter ±2px); flash fotográfico estourando na entrega do cheque. | Narração em tom irônico + Trilha de comício/fanfarra antiga com filtro passa-faixa telefônico (som de TV analógica antiga) + estalo de flash fotográfico (`flash.mp3`). |
+| **012** | `012.jpg` | NARRADOR | 14.84s | Cheque gigante de 200 mil reais ao lado de canteiro de obra abandonado | **NENHUMA BOCA MEXE (Voz do Narrador em off).**<br>Plano amplo desolado do canteiro abandonado. | Vento da decadência soprando o capim seco e a poeira de terra batida; a placa enferrujada "OBRA PARALISADA" oscila na haste de madeira; um urubu solitário plana no horizonte desértico. | Narração com ritmo cômico sobre o bueiro que nunca existiu + Trilha de violão seco / solidão (`forro.mp3` lento ou `suspense.mp3`) + vento desértico (`vento.mp3`). |
+| **013** | `013.jpg` | NARRADOR | 7.16s | Churrasco da eleição: montanha de linguiça e Xerxes Pardal no palanque | **NENHUMA BOCA MEXE (Voz do Narrador em off).**<br>**Xerxes Pardal:** No palanque, com coroa de linguiça e botão 29, ergue os dois braços em comemoração populista oscilando o tronco.<br>**Palanque e Povo:** Multidão ao redor agitando cartazes de campanha do 29 em ritmo acelerado. | Fumaça densa e volumétrica saindo da churrasqueira gigante ao fundo; chuva contínua de confetes coloridos caindo sobre o palanque; bandeiras eleitorais tremulando. | Narração arrematando o clímax da Parte 2 + Trilha animada de campanha eleitoral (`comicio.mp3` / `forro.mp3`) + euforia de multidão e aplausos (`crowd.mp3`) + chiado de linguiça assando (`churrasqueira.mp3`). |
 
 ---
 
-## 6. ONDE PARAMOS E PRÓXIMOS PASSOS IMEDIATOS
+## 5. ESPECIFICAÇÕES DOS RIGS DE PERSONAGEM NA PARTE 2
 
-### 6.1 Onde Paramos:
-1. **Acervo Completo Recuperado:** Todos os 79 áudios oficiais, 79 imagens originais dos planos, character sheets e biblioteca de áudio incidental (beds e sfx) estão agora integrados e preservados no branch de trabalho `arena/01a0d098-migalhopolis`.
-2. **Medição Anatômica Concluída:** Os pontos de pivô, contornos poligonais dos personagens principais (Dona Cida, Caramelo Gabinete, Caramelo Andando, Homem do Boleto, Homem do Bueiro, Cão da Praça) e os emissores de partículas foram precisamente catalogados.
-3. **Refatoração do Motor de Renderização:** O script `render.py` foi reestruturado para implementar o motor `CenaViva` com recortes reais, inpainting de fundo, acting secundário, física de tecidos, partículas e sincronia labial restrita ao falante ativo.
+### 5.1 Dona Marta (Cena 006)
+- **Localização Facial:** Cantos da boca em `(x: 440..510, y: 260..305)`.
+- **Jaw Drop:** Deslocamento vertical de mandíbula ativado exclusivamente quando `bloco == 6` e `envelope > 0.08`.
+- **Props Móveis:**
+  - Smartphone na mão direita: vibração senoidal de alta frequência (`dx = 1.2 * sin(50t)`) com ícone de mensagem pulsa.
+  - Bíblia na mão esquerda: rotação de ênfase teatral (`rot = -3° * env`).
+  - Brincos de argola: pêndulo com inércia física acompanhando o movimento da cabeça.
 
-### 6.2 O Que Será Executado a Seguir:
-1. **Correção dos Shapes de Deslocamento no Script:** Ajustar o tratamento dimensional no cálculo de rotação e gradiente térmico em `render.py` para execução sem travamentos.
-2. **Geração de Quadro de Controle de Qualidade (QC Contact Sheet):** Extrair e inspecionar visualmente os fotogramas-chave da Parte 1 para verificar:
-   - Posicionamento perfeito da boca da Dona Cida durante a fala.
-   - Ausência absoluta de bocas mexendo nos blocos do Narrador.
-   - Presença viva da fumaça na grelha, ventilador girando, lâmpada oscilando, vapor no bueiro e letras Zzz.
-   - Troca de passos do Caramelo e pêndulo da sacola de pão.
-3. **Renderização Master da Parte 1 (`video/parte_01.mp4`):**
-   - Duração aproximada de 52 segundos, integrando trilha sonora (`tema.mp3`, `cotidiano.mp3`), efeito de foley (`churrasqueira.mp3`) e fades cinematográficos.
-4. **Validação de Movimento:** Execução de teste de métrica de diferença inter-quadros (frame-difference metric) para garantir que 100% da linha do tempo contenha vida e ação animada, eliminando qualquer aspecto de imagem estática.
-5. **Apresentação e Subida no GitHub:** Subir o vídeo master e os scripts atualizados no GitHub e apresentar ao usuário para aprovação antes de expandir para as partes seguintes.
+### 5.2 Seu Jorge (Cena 007)
+- **Localização Facial:** Cantos da boca em `(x: 460..540, y: 310..360)`.
+- **Jaw Drop:** Abertura orgânica da mandíbula de trabalhador cansado com dentes inferiores e língua.
+- **Props Móveis:**
+  - Garfo de plástico na mão: oscilação vertical apontando para a frente durante as palavras-chave ("sete em ponto", "garfo na mão").
+  - Copo de café: emissor de partículas de vapor sutil subindo a 30 px/s.
+
+### 5.3 O Cinejornal de 1997 (Cenas 011 e 012)
+- **Shader de Película Degradada:**
+  - Aplicação de ruído estocástico de granulação (Gaussian film grain).
+  - Três linhas verticais de riscos pretos e brancos que saltam de coordenada X a cada 2 frames.
+  - Flash de lâmpada de magnésio (flash fotográfico estourando em branco nos frames 15 a 18).
+
+### 5.4 O Comício de Linguiça do Pardal (Cena 013)
+- **Emissor de Confetes:** 35 partículas retangulares multicoloridas (vermelho, amarelo, azul, verde) girando e caindo em velocidade terminal diferenciada.
+- **Fumaça de Churrasco Eleitoral:** Emissor triplo de partículas na base da grelha de tambor.
+- **Movimento de Povo com Cartazes:** Três grupos de cartazes com o número 29 balançando em ângulos defasados.
 
 ---
-*Relatório salvo no repositório para preservação de sessão e referência de engenharia de animação.*
+
+## 6. SOUND DESIGN E MIXAGEM MULTI-PISTA DA PARTE 2
+
+1. **Pista de Diálogos / Narração:** Masterizada a -1.0 dBFS (Marta, Seu Jorge e Narrador com presença e equalização de estúdio).
+2. **Pista de Trilha Sonora:**
+   - Cenas 006-007: `cotidiano.mp3` (-18 dBFS).
+   - Cenas 008-010: `bueiro.mp3` e `tensao.mp3` (-16 dBFS).
+   - Cena 011: `comicio.mp3` com filtro de rádio AM antigo (-16 dBFS).
+   - Cena 012: `suspense.mp3` / `vento.mp3` (-17 dBFS).
+   - Cena 013: `comicio.mp3` / `forro.mp3` (-15 dBFS) em clima de festa de vitória política.
+3. **Pista de Efeitos Sonoros (SFX):**
+   - Notificações de celular e passos (006).
+   - Café e pratos plásticos (007).
+   - Vento noturno uivando e metal rangendo no guindaste (008).
+   - Goteiras e picareta no esgoto (010).
+   - Estalo de flash de máquina fotográfica (011).
+   - Vento árido (012).
+   - Chiado potente de linguiça e ovações da multidão (013).
+
+---
+*Relatório de engenharia da Parte 2 devidamente arquivado e comitado no repositório.*
