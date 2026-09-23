@@ -2,3 +2,8 @@ __pycache__/
 *.pyc
 .pytest_cache/
 node_modules/
+# Generated, reproducible audio intermediates
+production/audio/segments/
+production/audio/*.wav
+.cache/
+video/cache/
