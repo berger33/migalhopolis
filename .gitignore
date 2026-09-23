@@ -7,3 +7,4 @@ production/audio/segments/
 production/audio/*.wav
 .cache/
 video/cache/
+production/audio/segments.json

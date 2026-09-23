@@ -197,7 +197,8 @@ def processa_pacote(pac):
     if cortes is None:
         print(f"  !! {pac['nome']}: alinhamento falhou")
         return None
-    nos = [0] + cortes + [len(x)]
+    # DP retorna índices de nós (1..len(cand)); converter para amostras.
+    nos = [0] + [int((cand[i - 1][2] + cand[i - 1][3]) / 2) for i in cortes] + [len(x)]
     saida = []
     chars = np.array([max(len(t), 1) for t in textos], float)
     durs = []
