@@ -2,3 +2,8 @@ __pycache__/
 *.pyc
 .pytest_cache/
 node_modules/
+
+# intermédiários pesados (rederiváveis dos packed mp3s)
+production/audio/segments/
+production/audio/*.wav
+video/*.log

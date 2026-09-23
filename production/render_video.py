@@ -36,12 +36,13 @@ def zoompan(i, d, dur):
         x, y = "iw/2-(iw/zoom/2)", f"(ih-ih/zoom)*(1-on/{d})"
     return f"zoompan=z='{z}':x='{x}':y='{y}':d={d}:s={W}x{H}:fps={FPS}"
 
-def renderiza_segmento(caminho_img, ini, fim, saida, escurece=False):
+def renderiza_segmento(caminho_img, ini, fim, saida, escurece=False, idx=0):
     dur = fim - ini
     d = max(int(round(fim * FPS)) - int(round(ini * FPS)), 2)
-    filtro = f"scale=2400:1350,{zoompan(0, d, dur)},trim=end_frame={d},setpts=PTS-STARTPTS,format=yuv420p"
+    base = "scale=2400:1350:force_original_aspect_ratio=increase,crop=2400:1350"
+    filtro = f"{base},{zoompan(idx, d, dur)},trim=end_frame={d},setpts=PTS-STARTPTS,format=yuv420p"
     if escurece:
-        filtro = f"scale=2400:1350,colorchannelmixer=rr=0.44:gg=0.44:bb=0.44,{zoompan(1, d, dur)},trim=end_frame={d},setpts=PTS-STARTPTS,format=yuv420p"
+        filtro = f"{base},colorchannelmixer=rr=0.44:gg=0.44:bb=0.44,{zoompan(idx + 1, d, dur)},trim=end_frame={d},setpts=PTS-STARTPTS,format=yuv420p"
     sh([FF, "-y", "-loglevel", "error", "-loop", "1", "-i", caminho_img,
         "-vf", filtro, "-r", str(FPS), "-frames:v", str(d),
         "-c:v", "libx264", "-crf", "18", "-preset", "veryfast", "-pix_fmt", "yuv420p", "-an", saida])

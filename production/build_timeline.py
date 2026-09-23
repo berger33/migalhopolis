@@ -7,6 +7,7 @@ import json, os
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROD = os.path.join(RAIZ, "production")
+ESCALA_PAUSA = 0.62  # global: enxuga os beats cômicos p/ cravar ~10 min
 
 def carrega():
     roteiro = json.load(open(os.path.join(PROD, "roteiro.json"), encoding="utf-8"))
@@ -17,19 +18,22 @@ def carrega():
 def monta(roteiro, manter, segs, cartao_titulo, cartao_final, gap):
     """Cena a cena: [ini,fim] por cena; fala: [ini,fim] absoluto."""
     t = cartao_titulo
-    cenas, falas = [], []
+    cenas, falas, faltando = [], [], []
     for cena in roteiro["cenas"]:
         unidades = [f for f in cena["falas"] if f["id"] in manter]
         if not unidades:
             continue
         ini_cena = t
         for f in unidades:
-            t += f.get("pre", 0.4)
+            if f["id"] not in segs:
+                faltando.append(f["id"])
+                continue
+            t += f.get("pre", 0.4) * ESCALA_PAUSA
             d = segs[f["id"]]
             falas.append({"id": f["id"], "cena": cena["id"], "quem": f["quem"], "texto": f["texto"],
                           "ini": round(t, 3), "fim": round(t + d, 3), "dur": round(d, 3),
                           "sfx": f.get("sfx_antes", [])})
-            t += d + f.get("pos", 0.4)
+            t += d + f.get("pos", 0.4) * ESCALA_PAUSA
         cenas.append({"id": cena["id"], "numero": cena["numero"], "rotulo": cena["rotulo"],
                       "titulo": cena["titulo"], "frame": cena["frame"],
                       "bed": cena["trilha"]["bed"], "gain": cena["trilha"]["gain"],

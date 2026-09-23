@@ -1,0 +1,613 @@
+{
+ "sep": " ...\n",
+ "packs": [
+  {
+   "nome": "v00_00",
+   "voz": "voice-00",
+   "chars": 1387,
+   "arquivo": "packed/v00_00.mp3",
+   "unidades": [
+    {
+     "id": "c00-1",
+     "texto": "Migalhópolis. Eleita, por três anos consecutivos, a Cidade Mais Limpa do Brasil. Por uma revista que ninguém nunca leu. Num concurso que ninguém nunca viu. Com um troféu que sumiu no primeiro dia."
+    },
+    {
+     "id": "c00-2",
+     "texto": "Aqui, todo domingo tem churrasco. Todo boleto tem um culpado. E todo bueiro tem alguém rezando."
+    },
+    {
+     "id": "c00-4",
+     "texto": "No centro da praça tem um pedestal. Em cima do pedestal, um pote. E o nome dele é Caramelo."
+    },
+    {
+     "id": "c00-5",
+     "texto": "O Caramelo não é um cachorro. O Caramelo é uma instituição."
+    },
+    {
+     "id": "c01-2",
+     "texto": "Cidade pequena é assim: o povo se reúne para rezar, para votar e para esperar comida cair do céu. Nessa ordem, e sempre com um vereador olhando."
+    },
+    {
+     "id": "c01-3",
+     "texto": "Na terceira terça-feira de cada mês, Migalhópolis se ajoelha para um vira-lata. É mais constrangedor que rezar para santo, mas dá mais resultado."
+    },
+    {
+     "id": "c04-1",
+     "texto": "Doze metros abaixo, no buraco mais fundo de Migalhópolis, funciona o Setor de Limpeza. É o único setor que funciona."
+    },
+    {
+     "id": "c04-6",
+     "texto": "Silêncio. Mas não era um silêncio de medo. Era um silêncio de quem combinou o silêncio na semana passada."
+    },
+    {
+     "id": "c05-1",
+     "texto": "E aqui é onde a história fica... bonita."
+    },
+    {
+     "id": "c07-1",
+     "texto": "Capítulo um. O progresso."
+    },
+    {
+     "id": "c07-2",
+     "texto": "Em 1997, Migalhópolis recebeu do Governo do Estado uma verba de duzentos mil reais, destinada à construção de um bueiro."
+    },
+    {
+     "id": "c07-3",
+     "texto": "O bueiro nunca foi construído. Mas nunca é uma palavra muito forte nessa região."
+    },
+    {
+     "id": "c07-4",
+     "texto": "O dinheiro foi aplicado. Em linguiça. A linguiça foi distribuída. Durante o churrasco que elegeu o Pardal."
+    }
+   ]
+  },
+  {
+   "nome": "v00_01",
+   "voz": "voice-00",
+   "chars": 1398,
+   "arquivo": "packed/v00_01.mp3",
+   "unidades": [
+    {
+     "id": "c07-5",
+     "texto": "E é por isso que, vinte e seis anos depois, ninguém nesta cidade consegue se lembrar quem foi que começou a alimentar o cachorro."
+    },
+    {
+     "id": "c07-6",
+     "texto": "Curiosidade final: o bueiro existe. A verba é que não. E o cachorro, esse aí nunca precisou de verba nenhuma."
+    },
+    {
+     "id": "c08-1",
+     "texto": "Este é o programa eleitoral gratuito da coligação Pote, Osso e Esperança. Imagens ilustrativas. Qualquer semelhança com pessoas vivas, desaparecidas ou congeladas é mera conveniência."
+    },
+    {
+     "id": "c11-1",
+     "texto": "Boa noite. Estamos ao vivo, direto da praça central. Senhor candidato, a pergunta que o povo quer saber: o senhor vai acabar com a fome em Migalhópolis?"
+    },
+    {
+     "id": "c11-3",
+     "texto": "Como assim, senhor?"
+    },
+    {
+     "id": "c11-5",
+     "texto": "...Muito bem. E para a juventude, senhor? O senhor tem alguma proposta para a juventude?"
+    },
+    {
+     "id": "c11-7",
+     "texto": "E o senhor vai nomear secretários? Como fica a máquina pública?"
+    },
+    {
+     "id": "c11-9",
+     "texto": "E de Assuntos Externos?"
+    },
+    {
+     "id": "c12-1",
+     "texto": "O primeiro turno terminou empatado, porque os dois candidatos apresentaram exatamente o mesmo boleto."
+    },
+    {
+     "id": "c12-2",
+     "texto": "O segundo turno foi anulado porque a urna de uma das seções foi comida."
+    },
+    {
+     "id": "c12-3",
+     "texto": "E o terceiro turno não existia na lei. O que, por si só, já resolvia o problema."
+    },
+    {
+     "id": "c12-4",
+     "texto": "No dia da posse, quarenta e três mil pessoas apareceram na praça central. Migalhópolis tem onze mil habitantes."
+    },
+    {
+     "id": "c12-5",
+     "texto": "Ninguém pergunta. Aqui, ninguém nunca pergunta."
+    },
+    {
+     "id": "c13-1",
+     "texto": "É uma cena inédita na história do Brasil. Um cachorro, candidato pela coligação Migalhas Para Todos, acaba de tomar posse como prefeito de Migalhópolis."
+    }
+   ]
+  },
+  {
+   "nome": "v00_02",
+   "voz": "voice-00",
+   "chars": 963,
+   "arquivo": "packed/v00_02.mp3",
+   "unidades": [
+    {
+     "id": "c13-2",
+     "texto": "O prefeito anterior, Xerxes Pardal, segue agora na Vice-Prefeitura. E a Vice-Prefeitura, segundo o novo prefeito, fica no bueiro."
+    },
+    {
+     "id": "c13-9",
+     "texto": "Naquele momento, a praça inteira ficou em silêncio. O silêncio de quem acabou de assinar um documento sem ler."
+    },
+    {
+     "id": "c14-1",
+     "texto": "Senhor Prefeito! Senhor Prefeito, por favor! Qual é o sabor? Como é que está a carne do primeiro churrasco da gestão?"
+    },
+    {
+     "id": "c14-3",
+     "texto": "Está boa? O senhor pode nos dizer o que é?"
+    },
+    {
+     "id": "c14-5",
+     "texto": "De quê?"
+    },
+    {
+     "id": "c14-7",
+     "texto": "A repórter não fez mais nenhuma pergunta. Foi a última entrevista que ela concedeu na vida. E também a última que ela pediu para conceder."
+    },
+    {
+     "id": "c15-1",
+     "texto": "No fim, todo mundo ficou feliz. Uns na praça, com casquinha crocante. Outros no bueiro, com crachá, com macacão e com plano de carreira."
+    },
+    {
+     "id": "c15-2",
+     "texto": "E o Caramelo continuou ali, no topo da colina, no trono de linguiça dele. Com o coque apertado, o boleto pago e o melhor amigo que dinheiro nenhum nunca comprou."
+    },
+    {
+     "id": "c15-3",
+     "texto": "Migalhópolis. A cidade mais limpa do Brasil. Até que a gente consiga esquecer."
+    }
+   ]
+  },
+  {
+   "nome": "v04_03",
+   "voz": "voice-04",
+   "chars": 1230,
+   "arquivo": "packed/v04_03.mp3",
+   "unidades": [
+    {
+     "id": "c00-3",
+     "texto": "Ele desce às sete em ponto. É um cachorro pontual. Eu tô aqui desde as cinco da manhã, minha senhora, com o garfo na mão."
+    },
+    {
+     "id": "c01-1",
+     "texto": "Primeiro ele olha. Depois ele cheira. Depois ele escolhe quem come. Quem ele não escolhe... ah, meu filho. Quem ele não escolhe tem outra função."
+    },
+    {
+     "id": "c04-9",
+     "texto": "É um prazer, é uma honra, é uma dívida que a família vai herdar."
+    },
+    {
+     "id": "c04-11",
+     "texto": "É só uma formalidade, Excelência. Assina aqui, e aqui, e aqui. A formalidade é o que separa a gente dos bichos."
+    },
+    {
+     "id": "c04-13",
+     "texto": "Eu tenho quatro patas e três mandatos, Excelência. Respeite a hierarquia."
+    },
+    {
+     "id": "c05-3",
+     "texto": "Roubar caixão não é corrupção, Excelência. É logística."
+    },
+    {
+     "id": "c06-2",
+     "texto": "Excelência, não foi licitação. Foi uma associação de moradores."
+    },
+    {
+     "id": "c06-4",
+     "texto": "É uma associação de moradores... caninos, Excelência."
+    },
+    {
+     "id": "c06-6",
+     "texto": "Excelência, o senhor já perdeu pra um poste em 2016."
+    },
+    {
+     "id": "c06-8",
+     "texto": "Tem a Marta vizinha."
+    },
+    {
+     "id": "c06-10",
+     "texto": "Excelência. A Marta tem quarenta e três grupos de WhatsApp. E ela é administradora de todos."
+    },
+    {
+     "id": "c06-12",
+     "texto": "O Zeca não atende o senhor, Excelência. O Zeca atende o dono do Zeca."
+    },
+    {
+     "id": "c06-14",
+     "texto": "...O pote."
+    },
+    {
+     "id": "c10-1",
+     "texto": "Vinte e nove! Vinte e nove! É o Pardal! É o trabalho! É a continuidade! É o mesmo, mas com menos vergonha!"
+    },
+    {
+     "id": "c11-11",
+     "texto": "É sigilo. Sigilo profissional, sigilo de cliente e sigilo literalmente. Eu não conto nada pra ninguém. Nem pra mim mesmo."
+    }
+   ]
+  },
+  {
+   "nome": "v03_04",
+   "voz": "voice-03",
+   "chars": 1421,
+   "arquivo": "packed/v03_04.mp3",
+   "unidades": [
+    {
+     "id": "c02-1",
+     "texto": "Ah. Cinquenta e sete pessoas na fila. Duas grávidas, três de muleta e um vereador suando por antecipação. Eu não escolhi esse povo. Esse povo me escolheu. E é por isso que eu me sinto tão... generoso."
+    },
+    {
+     "id": "c02-2",
+     "texto": "Eu podia acabar com tudo isso numa tarde, sabe? Mas aí quem é que ia me fazer cafuné no lombo? Carinho tem que vir de mão trêmula. Senão não desce."
+    },
+    {
+     "id": "c02-3",
+     "texto": "Servir o povo é isso: você dá, você dá, você dá... e no fim do mês o povo te dá linguiça. É um ciclo. É bonito até."
+    },
+    {
+     "id": "c04-3",
+     "texto": "Bom dia, meus meninos bonitos."
+    },
+    {
+     "id": "c04-5",
+     "texto": "Eu sei. Recapitulando. Quem aqui foi visto conversando com alguém de fora?"
+    },
+    {
+     "id": "c04-7",
+     "texto": "Bom. É por isso que eu gosto de vocês. Ninguém fala. Ninguém aparece. Ninguém tinha previdência."
+    },
+    {
+     "id": "c04-8",
+     "texto": "O Zeca não conta. O Zeca é o advogado."
+    },
+    {
+     "id": "c04-10",
+     "texto": "Ó. Igualzinho advogado de verdade."
+    },
+    {
+     "id": "c04-12",
+     "texto": "...Você tem quatro patas, Zeca."
+    },
+    {
+     "id": "c05-2",
+     "texto": "Escuta essa. O Pardal é prefeito há dezoito anos. Ele roubou a merenda escolar, roubou a ambulância e roubou o caixão do velório."
+    },
+    {
+     "id": "c05-4",
+     "texto": "E agora ele quer roubar o pote. Ele quer cobrar imposto da minha comida."
+    },
+    {
+     "id": "c05-6",
+     "texto": "Tá bom, tá bom. Chorar não enche pote. A gente vai fazer isso do jeito que os humanos entendem. A gente vai fazer uma eleição."
+    },
+    {
+     "id": "c05-8",
+     "texto": "E depois a gente vai fazer uma apuração."
+    },
+    {
+     "id": "c05-10",
+     "texto": "E depois a gente vai fazer uma recontagem. E outra. E outra. Até o placar obedecer."
+    },
+    {
+     "id": "c09-2",
+     "texto": "Deixa a luz acesa, Fabinho. Eu tenho medo do escuro."
+    },
+    {
+     "id": "c09-4",
+     "texto": "Eu tenho medo de uma coisa só. Você quer saber qual?"
+    },
+    {
+     "id": "c09-6",
+     "texto": "De ser esquecido."
+    }
+   ]
+  },
+  {
+   "nome": "v03_05",
+   "voz": "voice-03",
+   "chars": 1376,
+   "arquivo": "packed/v03_05.mp3",
+   "unidades": [
+    {
+     "id": "c09-8",
+     "texto": "A Dona Cleide tentou me tirar da memória. E olha, memória é um buraco, Fabinho. Quem cai, some. Quem cava, manda."
+    },
+    {
+     "id": "c09-10",
+     "texto": "Eu sei, meu bem."
+    },
+    {
+     "id": "c09-11",
+     "texto": "...É exatamente por isso que eu nunca te levo lá embaixo. Você é o meu ativo."
+    },
+    {
+     "id": "c11-2",
+     "texto": "Não. Eu vou organizar a fome."
+    },
+    {
+     "id": "c11-4",
+     "texto": "Todo mundo vai comer. Uma vez por semana. Só que a fila vai ser em ordem alfabética, e quem sorrir passa na frente."
+    },
+    {
+     "id": "c11-6",
+     "texto": "Tenho. Sumir. Para não dar trabalho. Juventude é um problema de fluxo."
+    },
+    {
+     "id": "c11-8",
+     "texto": "Já nomeei. O Zeca é secretário de Fazenda, de Obras, de Educação, de Saúde e de Assuntos Internos."
+    },
+    {
+     "id": "c11-10",
+     "texto": "O Zeca não faz externo. O Zeca tem mais é que resolver as nossas questões internas."
+    },
+    {
+     "id": "c11-13",
+     "texto": "E o senhor tem culpa?"
+    },
+    {
+     "id": "c11-15",
+     "texto": "É a mesma coisa. Só que com foto."
+    },
+    {
+     "id": "c13-4",
+     "texto": "Crachá não. Crachá estraga. Vai limpar, Pardal. Limpar é uma forma de pagar."
+    },
+    {
+     "id": "c13-5",
+     "texto": "Meu povo. Migalhópolis vai mudar."
+    },
+    {
+     "id": "c13-6",
+     "texto": "A partir de hoje, ninguém mais vai precisar fingir que acredita em mim. Vocês vão acreditar de verdade. Com contrato assinado."
+    },
+    {
+     "id": "c13-7",
+     "texto": "Eu não vou roubar. Eu não vou mentir. Eu não vou prometer."
+    },
+    {
+     "id": "c13-8",
+     "texto": "Eu vou cumprir."
+    },
+    {
+     "id": "c13-10",
+     "texto": "...Bem. Já são sete da noite. E todo mundo aqui sabe o que acontece às sete da noite."
+    },
+    {
+     "id": "c14-2",
+     "texto": "Está boa."
+    },
+    {
+     "id": "c14-4",
+     "texto": "É linguiça."
+    },
+    {
+     "id": "c14-6",
+     "texto": "Artesanal."
+    },
+    {
+     "id": "c14-8",
+     "texto": "Ó. Migalhópolis cumpriu a promessa. Comeu todo mundo. E o que sobrou, a gente congela. Congelar é uma forma de guardar carinho."
+    },
+    {
+     "id": "c15-4",
+     "texto": "...Ah. E obrigado por assistir sozinho. É do jeito que eu prefiro."
+    }
+   ]
+  },
+  {
+   "nome": "v01_06",
+   "voz": "voice-01",
+   "chars": 829,
+   "arquivo": "packed/v01_06.mp3",
+   "unidades": [
+    {
+     "id": "c03-1",
+     "texto": "Cida!! Cida, desce aqui que desceu o Caramelo!"
+    },
+    {
+     "id": "c03-3",
+     "texto": "Fofo. Fofo é a palavra. Ele é fofo, ele é educado, ele compra fiado aqui no mercadinho. Cida, ele não tem emprego, mas ele paga."
+    },
+    {
+     "id": "c03-5",
+     "texto": "Ninguém sabe. É esse o encanto, minha filha. É igual marido de noventa anos: se tá vivo, tá pagando."
+    },
+    {
+     "id": "c03-7",
+     "texto": "A Dona Cleide não reclama mais."
+    },
+    {
+     "id": "c03-9",
+     "texto": "É. E a linguiça dela tá no freezer da igreja. Como é que você acha que a paróquia comprou aquela cadeira de rodas?"
+    },
+    {
+     "id": "c03-11",
+     "texto": "Tá! Muito bem temperada. Ele tempera. Ele tempera as coisas, Cida."
+    },
+    {
+     "id": "c08-2",
+     "texto": "Ele é caramelo, ele é cidadão! Ele come da lata, mas ele tem razão!"
+    },
+    {
+     "id": "c08-4",
+     "texto": "Ai, Cida, pelo amor de Deus, você é desafinada, mulher."
+    },
+    {
+     "id": "c08-6",
+     "texto": "Ó, então come quieta, que a gente tá gravando pro grupo da igreja. E o grupo da igreja tem cunhado. E cunhado é pior que juiz."
+    },
+    {
+     "id": "c10-7",
+     "texto": "Ele ajuda os pobres! Ele come da mão do pobre!"
+    }
+   ]
+  },
+  {
+   "nome": "v05_07",
+   "voz": "voice-05",
+   "chars": 347,
+   "arquivo": "packed/v05_07.mp3",
+   "unidades": [
+    {
+     "id": "c03-2",
+     "texto": "Ai, que fofo."
+    },
+    {
+     "id": "c03-4",
+     "texto": "Paga como?"
+    },
+    {
+     "id": "c03-6",
+     "texto": "A Dona Cleide reclamou dele."
+    },
+    {
+     "id": "c03-8",
+     "texto": "A Dona Cleide sumiu."
+    },
+    {
+     "id": "c03-10",
+     "texto": "...Tá gostosa, aliás."
+    },
+    {
+     "id": "c08-3",
+     "texto": "A gente não tem nada, mas a gente tem o cão! Vinte e nove, vinte e nove!"
+    },
+    {
+     "id": "c08-5",
+     "texto": "Eu avisei que eu não era de cantar. Eu sou de aplaudir. Eu sou de comer."
+    },
+    {
+     "id": "c10-8",
+     "texto": "Ele já comeu a mão do pobre, Marta! Olha o que você tá dizendo, mulher!"
+    }
+   ]
+  },
+  {
+   "nome": "v06_08",
+   "voz": "voice-06",
+   "chars": 1154,
+   "arquivo": "packed/v06_08.mp3",
+   "unidades": [
+    {
+     "id": "c04-2",
+     "texto": "Bom dia, patrão Caramelo!"
+    },
+    {
+     "id": "c04-4",
+     "texto": "O senhor é lindo, patrão!"
+    },
+    {
+     "id": "c05-5",
+     "texto": "Oooooooh!"
+    },
+    {
+     "id": "c05-7",
+     "texto": "Uuuuuu!"
+    },
+    {
+     "id": "c05-9",
+     "texto": "Uuuuuuuu!"
+    },
+    {
+     "id": "c06-1",
+     "texto": "Quem foi o desgraçado que autorizou isso? Agora pra fazer o meu churrasco vai ter que ter licitação?"
+    },
+    {
+     "id": "c06-3",
+     "texto": "Moradores do quê? Aqui só mora eu, a minha família e a minha dívida."
+    },
+    {
+     "id": "c06-5",
+     "texto": "Xavier. Vem cá. Isso parece, pra você, um adversário político?"
+    },
+    {
+     "id": "c06-7",
+     "texto": "O poste tinha legenda partidária. Mas esse cachorro aí tem pedigree?"
+    },
+    {
+     "id": "c06-9",
+     "texto": "A Marta? Bom, então já era. Isso aí é quatro mil votos na hora."
+    },
+    {
+     "id": "c06-11",
+     "texto": "...Xavier. Chama o Zeca."
+    },
+    {
+     "id": "c06-13",
+     "texto": "E quem é o dono do Zeca?"
+    },
+    {
+     "id": "c10-2",
+     "texto": "Meu povo! Eu peço desculpas. Eu peço desculpas publicamente por não ter roubado o suficiente."
+    },
+    {
+     "id": "c10-3",
+     "texto": "Porque se eu tivesse roubado mais, esse bonde já tinha trilho, minha gente!"
+    },
+    {
+     "id": "c10-4",
+     "texto": "Eu prometo uma creche! Uma creche para cada criança que não foi pra creche!"
+    },
+    {
+     "id": "c10-5",
+     "texto": "E água encanada! Não necessariamente dentro da casa, mas encanada!"
+    },
+    {
+     "id": "c10-6",
+     "texto": "Vocês preferem continuar na minha mão, que já é conhecida, ou vão entregar o destino de vocês pra um bicho que come da lata?"
+    },
+    {
+     "id": "c11-12",
+     "texto": "Isso é resposta de gente que tem culpa!"
+    },
+    {
+     "id": "c11-14",
+     "texto": "Eu tenho mandato!"
+    },
+    {
+     "id": "c13-3",
+     "texto": "Eu limpo! Eu limpo todo dia! Me dá um crachá! Pelo amor de Deus, me dá um crachá!"
+    }
+   ]
+  },
+  {
+   "nome": "v02_09",
+   "voz": "voice-02",
+   "chars": 333,
+   "arquivo": "packed/v02_09.mp3",
+   "unidades": [
+    {
+     "id": "c09-1",
+     "texto": "Caramelo? Caramelo, eu sei que você tá aí embaixo. A minha mãe falou que eu não podia mais conversar com você."
+    },
+    {
+     "id": "c09-3",
+     "texto": "Mentira! Os tios de boné vermelho falaram que você não tem medo de nada."
+    },
+    {
+     "id": "c09-5",
+     "texto": "Qual?"
+    },
+    {
+     "id": "c09-7",
+     "texto": "E a Dona Cleide te esqueceu?"
+    },
+    {
+     "id": "c09-9",
+     "texto": "Eu não vou te esquecer nunca, Caramelo. Eu vou ser sua amiga pra sempre. Eu prometo por Deus."
+    }
+   ]
+  }
+ ]
+}
