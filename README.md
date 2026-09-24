@@ -12,7 +12,7 @@ O primeiro episódio acompanha um vira-lata caramelo e sua campanha para a prefe
 
 - `video/MIGALHOPOLIS_T1E1.mp4` — render do episódio com trilha, vozes e legendas queimadas.
 - `video/TEASER_T1E1.mp4` — teaser renderizado.
-- `video/parte_01.mp4` a `video/parte_04.mp4` — renders por partes da pipeline de 79 blocos (Parte 4 = blocos 021-028).
+- `video/parte_01.mp4` a `video/parte_05.mp4` — renders por partes da pipeline de 79 blocos (Parte 4 = blocos 021-028; Parte 5 = blocos 029-038).
 - `player/index.html` — player navegável da edição animática.
 
 ## Mapa do repositório

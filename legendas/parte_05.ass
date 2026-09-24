@@ -1,0 +1,29 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: NARRADOR,DejaVu Sans,52,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,3.5,1.5,2,90,90,70,1
+Style: CIDA,DejaVu Sans,54,&H0080E0FF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,3.5,1.5,2,90,90,70,1
+Style: MARTA,DejaVu Sans,54,&H00E0A0FF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,3.5,1.5,2,90,90,70,1
+Style: SEU_JORGE,DejaVu Sans,54,&H00C0FFC0,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,3.5,1.5,2,90,90,70,1
+Style: ZECA,DejaVu Sans,54,&H00FFB0B0,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,3.5,1.5,2,90,90,70,1
+Style: CARAMELO,DejaVu Sans,54,&H0080F0FF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,3.5,1.5,2,90,90,70,1
+Style: PARDAL,DejaVu Sans,54,&H0080B4FF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,3.5,1.5,2,90,90,70,1
+Style: REPORTER,DejaVu Sans,54,&H00FFD780,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,3.5,1.5,2,90,90,70,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:13.15,NARRADOR,,0,0,0,,Este é o programa eleitoral gratuito da coligação Pote, Osso e Esperança. Imagens ilustrativas. Qualquer semelhança com pessoas vivas, desaparecidas ou congeladas é mera conveniência.
+Dialogue: 0,0:00:12.95,0:00:22.89,REPORTER,,0,0,0,,Boa noite. Estamos ao vivo, direto da praça central. Senhor candidato, a pergunta que o povo quer saber: o senhor vai acabar com a fome em Migalhópolis?
+Dialogue: 0,0:00:22.89,0:00:23.61,PARDAL,,0,0,0,,Como assim, senhor?
+Dialogue: 0,0:00:23.61,0:00:28.41,REPORTER,,0,0,0,,Muito bem. E para a juventude, senhor? O senhor tem alguma proposta para a juventude?
+Dialogue: 0,0:00:28.41,0:00:32.52,PARDAL,,0,0,0,,E o senhor vai nomear secretários? Como fica a máquina pública?
+Dialogue: 0,0:00:32.52,0:00:33.82,REPORTER,,0,0,0,,E de Assuntos Externos?
+Dialogue: 0,0:00:33.82,0:00:45.17,NARRADOR,,0,0,0,,O primeiro turno terminou empatado, porque os dois candidatos apresentaram exatamente o mesmo boleto. O segundo turno foi anulado porque a urna de uma das seções foi comida.
+Dialogue: 0,0:00:45.17,0:00:50.36,NARRADOR,,0,0,0,,E o terceiro turno não existia na lei. O que, por si só, já resolvia o problema.
+Dialogue: 0,0:00:50.36,0:00:57.63,NARRADOR,,0,0,0,,No dia da posse, quarenta e três mil pessoas apareceram na praça central. Migalhópolis tem onze mil habitantes.
+Dialogue: 0,0:00:57.63,0:01:00.86,NARRADOR,,0,0,0,,Ninguém pergunta. Aqui, ninguém nunca pergunta.
