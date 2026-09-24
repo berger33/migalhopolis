@@ -2504,9 +2504,7 @@ class Segmento:
             cw, ch = int(sw / s), int((sw / s) / ar_out)
             cx, cy = sw // 2, sh // 2
             
-        respiracao = math.sin(t_local * 1.5) * 4.0
-        cx += int(respiracao)
-        cy += int(math.cos(t_local * 1.8) * 3.0)
+        # respiracao desativada (decisao de direcao: camera limpa, sem wobble)
         
         if self.bloco["id"] in PUNCH_BLOCOS and quadro_idx < 8:
             cx += int((np.random.rand() - 0.5) * 14)
