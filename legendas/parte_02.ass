@@ -1,0 +1,23 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: NARRADOR,DejaVu Sans,52,&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,3.5,1.5,2,90,90,70,1
+Style: CIDA,DejaVu Sans,54,&H0080E0FF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,3.5,1.5,2,90,90,70,1
+Style: MARTA,DejaVu Sans,54,&H00E0A0FF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,3.5,1.5,2,90,90,70,1
+Style: SEU_JORGE,DejaVu Sans,54,&H00C0FFC0,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,3.5,1.5,2,90,90,70,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:12.53,MARTA,,0,0,0,,Ele come da mão do pobre! Isso é obra de Deus, minha filha. Na igreja a gente já fez culto com tema canábico. Trinta miligramas de Cristo por gota, amém?
+Dialogue: 0,0:00:12.33,0:00:21.45,SEU_JORGE,,0,0,0,,Ele desce às sete em ponto. É um cachorro pontual. Eu tô aqui desde as cinco da manhã, minha senhora, com o garfo na mão.
+Dialogue: 0,0:00:21.45,0:00:31.22,NARRADOR,,0,0,0,,Cidade pequena é assim: o povo se reúne para rezar, para votar e para esperar comida cair do céu. Nessa ordem, e sempre com um vereador olhando.
+Dialogue: 0,0:00:31.22,0:00:40.81,NARRADOR,,0,0,0,,Na terceira terça-feira de cada mês, Migalhópolis se ajoelha para um vira-lata. É mais constrangedor que rezar para santo, mas dá mais resultado.
+Dialogue: 0,0:00:40.81,0:00:49.12,NARRADOR,,0,0,0,,Doze metros abaixo da praça, no buraco mais fundo da cidade, funciona o Setor de Limpeza. É o único setor que funciona.
+Dialogue: 0,0:00:49.12,0:00:53.91,NARRADOR,,0,0,0,,E aqui é onde a história fica... bonita. Capítulo um: o progresso.
+Dialogue: 0,0:00:53.91,0:01:08.30,NARRADOR,,0,0,0,,Em 1997, Migalhópolis recebeu do Governo do Estado uma verba de duzentos mil reais para construir um bueiro. O bueiro nunca foi construído. Mas nunca é uma palavra muito forte nessa região.
+Dialogue: 0,0:01:08.30,0:01:15.21,NARRADOR,,0,0,0,,O dinheiro foi aplicado. Em linguiça. A linguiça foi distribuída. Durante o churrasco que elegeu o Pardal.

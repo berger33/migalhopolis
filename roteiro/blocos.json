@@ -1,0 +1,349 @@
+{
+  "projeto": "MIGALHÓPOLIS",
+  "episodio": "T01E01 - O Pote",
+  "estilo": "2D animated television cartoon in the style of Rick and Morty: thick dark outlines, muted neon color palette, exaggerated expressive character acting, slightly grotesque funny faces, detailed background, cinematic wide 16:9 composition, high quality animation still, no text, no watermark, no signature",
+  "duracao_alvo_seg": 540,
+  "legenda": {
+    "fonte": "DejaVu Sans",
+    "cor": "&H00FFFFFF",
+    "contorno": "&H00101010",
+    "destaque_personagem": {
+      "NARRADOR": "&H00FFD9A0",
+      "CARAMELO": "&H0080F0FF",
+      "PARDAL": "&H008080FF",
+      "ZECA": "&H00FFB0B0",
+      "MARTA": "&H00FFA0E0",
+      "CIDA": "&H00FFE080",
+      "SEU_JORGE": "&H00C0FFC0",
+      "FABINHO": "&H00FFFFFF",
+      "REPORTER": "&H00FFFFC0"
+    }
+  },
+  "blocos": [
+    {"id": 1, "tipo": "fala", "personagem": "NARRADOR", "movimento": "zoom_in",
+     "texto": "Migalhópolis. Eleita, por três anos consecutivos, a Cidade Mais Limpa do Brasil. Por uma revista que ninguém nunca leu. Num concurso que ninguém nunca viu. Com um troféu que sumiu no primeiro dia.",
+     "cena": "Aerial wide shot of Migalhópolis at golden dawn: a dusty small Brazilian town around a huge empty plaza, a stone pedestal with a giant metal dog-food pot in the center, a faded victory banner reading CIDADE MAIS LIMPA, dry trees, vultures on a wire, a cheap trophy lying on the ground"},
+
+    {"id": 2, "tipo": "fala", "personagem": "NARRADOR", "movimento": "pan_right",
+     "texto": "Aqui, todo domingo tem churrasco. Todo boleto tem um culpado. E todo bueiro tem alguém rezando.",
+     "cena": "Split montage scene: a backyard Sunday churrasco with families and smoke on the left, a sweating man staring at a paper bill in the middle, a man kneeling and praying at an open sewer manhole on the right"},
+
+    {"id": 3, "tipo": "fala", "personagem": "NARRADOR", "movimento": "zoom_out",
+     "texto": "No centro da praça tem um pedestal. Em cima do pedestal, um pote. E o nome dele é Caramelo.",
+     "cena": "The plaza center at noon: a stone pedestal holding a giant metal pot, a caramel dog asleep inside the pot, the fake-European town hall in the background, heat haze"},
+
+    {"id": 4, "tipo": "fala", "personagem": "NARRADOR", "movimento": "zoom_in",
+     "texto": "O Caramelo não é um cachorro. O Caramelo é uma instituição. Com CNPJ, com conta no banco e com um boletim de ocorrência por semana.",
+     "cena": "Close-up of Caramelo, a caramel-brown Brazilian mutt dog with short fur, one floppy ear and one half-up ear, heavy half-lidded deadpan eyes, unimpressed expression, wearing a green mayoral sash with gold trim, sitting inside the giant pot with a tiny official CNPJ plaque bolted to it and a police blotter sheet stuck to his fur"},
+
+    {"id": 5, "tipo": "fala", "personagem": "CIDA", "movimento": "static_push",
+     "texto": "Cida!! Desce aqui que desceu o Caramelo! Ele é fofo, ele é educado, ele compra fiado aqui no mercadinho. Não tem emprego, mas paga. Ninguém sabe. É esse o encanto.",
+     "cena": "Cida, a loud Brazilian shopkeeper woman in her 50s, hair in curlers, floral apron, standing in the doorway of a small Brazilian grocery store, one hand cupped around her mouth shouting into the street; in the background Caramelo, a caramel-brown mutt dog with a green mayoral sash, walks past carrying a grocery bag in his mouth"},
+
+    {"id": 6, "tipo": "fala", "personagem": "MARTA", "movimento": "pan_left",
+     "texto": "Ele come da mão do pobre! Isso é obra de Deus, minha filha. Na igreja a gente já fez culto com tema canábico. Trinta miligramas de Cristo por gota, amém?",
+     "cena": "Marta, a dramatic Brazilian church lady in her 40s, big gold earrings, curly perm hair, holding a smartphone in one hand and a tiny bible in the other, preaching at the steps of a small church to three old ladies, a collection banner with a cannabis leaf drawn on it, judgmental expressive eyes"},
+
+    {"id": 7, "tipo": "fala", "personagem": "SEU_JORGE", "movimento": "zoom_out",
+     "texto": "Ele desce às sete em ponto. É um cachorro pontual. Eu tô aqui desde as cinco da manhã, minha senhora, com o garfo na mão.",
+     "cena": "Seu Jorge, a working-class Brazilian man in his 60s, bucket hat, stained undershirt, sitting in a plastic folding chair at 5am in front of the plaza holding a plastic fork and a paper plate, a long queue of townspeople behind him, purple sunrise"},
+
+    {"id": "T", "tipo": "titulo", "duracao": 4.0, "movimento": "zoom_out",
+     "texto": "MIGALHÓPOLIS",
+     "subtitulo": "T01E01 - O Pote",
+     "cena": "Title card: a giant green and gold show title on a dusty purple dusk sky over a small-town plaza, a stone pedestal with a huge dog-food pot silhouetted in the foreground, a caramel dog sitting in the pot, stylized smoke clouds, animated series key art, no readable words"},
+
+    {"id": 8, "tipo": "fala", "personagem": "NARRADOR", "movimento": "pan_left",
+     "texto": "Cidade pequena é assim: o povo se reúne para rezar, para votar e para esperar comida cair do céu. Nessa ordem, e sempre com um vereador olhando.",
+     "cena": "Night scene: the whole town kneeling in the plaza looking up at a giant linguiça hanging from a construction crane like a pinata, a vereador watching from a balcony with binoculars, dramatic moonlight"},
+
+    {"id": 9, "tipo": "fala", "personagem": "NARRADOR", "movimento": "zoom_in",
+     "texto": "Na terceira terça-feira de cada mês, Migalhópolis se ajoelha para um vira-lata. É mais constrangedor que rezar para santo, mas dá mais resultado.",
+     "cena": "The third Tuesday ritual: the entire town kneeling before the stone pedestal while Caramelo, a caramel-brown mutt dog with a green mayoral sash, sits in the giant pot looking embarrassed and annoyed, a discarded catholic saint statue lying in the grass"},
+
+    {"id": 10, "tipo": "fala", "personagem": "NARRADOR", "movimento": "zoom_out",
+     "texto": "Doze metros abaixo da praça, no buraco mais fundo da cidade, funciona o Setor de Limpeza. É o único setor que funciona.",
+     "cena": "Cutaway underground: twelve meters below the plaza, a huge concrete sewer tunnel lit by flickering fluorescent tubes, workers in blue macacao coveralls, only one actually working while others drink coffee and play cards on a giant pipe"},
+
+    {"id": 11, "tipo": "fala", "personagem": "NARRADOR", "movimento": "zoom_in",
+     "texto": "E aqui é onde a história fica... bonita. Capítulo um: o progresso.",
+     "cena": "Chapter card in vintage 1997 newsreel style: a state official in a bad suit handing a giant cardboard check to a smiling mayor in front of a manhole cover prop, film grain, sepia tones"},
+
+    {"id": 12, "tipo": "fala", "personagem": "NARRADOR", "movimento": "pan_right",
+     "texto": "Em 1997, Migalhópolis recebeu do Governo do Estado uma verba de duzentos mil reais para construir um bueiro. O bueiro nunca foi construído. Mas nunca é uma palavra muito forte nessa região.",
+     "cena": "A giant check for 200 thousand reais with a manhole cover printed on it, next to an abandoned construction site with a rusted sign reading OBRA PARALISADA and a single rusty pipe, tumbleweed"},
+
+    {"id": 13, "tipo": "fala", "personagem": "NARRADOR", "movimento": "zoom_in",
+     "texto": "O dinheiro foi aplicado. Em linguiça. A linguiça foi distribuída. Durante o churrasco que elegeu o Pardal.",
+     "cena": "A mountain of grilled linguiça being handed out at a massive town churrasco, Xerxes Pardal, a sweaty balding Brazilian man in a cheap suit with a 29 campaign button, on a small stage wearing a sausage crown, crowd cheering, confetti"},
+
+    {"id": 14, "tipo": "fala", "personagem": "NARRADOR", "movimento": "pan_left",
+     "texto": "E é por isso que, vinte e seis anos depois, ninguém nesta cidade consegue se lembrar de quem foi que começou a alimentar o cachorro.",
+     "cena": "Twenty-six years later: an elderly citizen scratching his head with a big glowing question mark above him, a shadowy figure in a thought bubble feeding a small dog, dusty photo album floating nearby"},
+
+    {"id": 15, "tipo": "fala", "personagem": "NARRADOR", "movimento": "zoom_out",
+     "texto": "Curiosidade final: o bueiro existe. A verba é que não. E o cachorro, esse aí, nunca precisou de verba nenhuma.",
+     "cena": "A brand new modern manhole cover gleaming on one side, an empty open bank vault on the other side, and Caramelo, a caramel-brown mutt dog with a green sash, eating from a golden bowl between them"},
+
+    {"id": 16, "tipo": "fala", "personagem": "NARRADOR", "movimento": "zoom_in",
+     "texto": "Primeiro ele olha. Depois ele cheira. Depois ele escolhe quem come.",
+     "cena": "The ritual: Caramelo, a caramel-brown mutt dog with a green mayoral sash and deadpan half-lidded eyes, standing on the pedestal looking down at a long line of hungry townspeople, sniffing the air, close-up composition"},
+
+    {"id": 17, "tipo": "fala", "personagem": "SEU_JORGE", "movimento": "static_push",
+     "texto": "Quem ele não escolhe... ah, meu filho. Quem ele não escolhe tem outra função.",
+     "cena": "Seu Jorge, a working-class Brazilian man in his 60s with a bucket hat, being chosen: Caramelo pointing his nose at him while he cheers with his plate; behind him a disappointed man is handed a mop and a rag"},
+
+    {"id": 18, "tipo": "fala", "personagem": "ZECA", "movimento": "pan_right",
+     "texto": "É só uma formalidade, Excelência. Assina aqui, e aqui, e aqui. A formalidade é o que separa a gente dos bichos.",
+     "cena": "Zeca, a scruffy brown mutt lawyer dog in an oversized grey suit and red tie, sly smile, carrying a clipboard, subtly six fingers, at a messy office desk sliding a stack of documents across the desk"},
+
+    {"id": 19, "tipo": "fala", "personagem": "CARAMELO", "movimento": "zoom_in",
+     "texto": "Eu tenho quatro patas e três mandatos, Excelência. Respeite a hierarquia.",
+     "cena": "Close-up of Caramelo, a caramel-brown mutt dog with a green mayoral sash, holding up four paws one by one with a deadpan unimpressed expression, tiny mayor gold chain, office background"},
+
+    {"id": 20, "tipo": "fala", "personagem": "ZECA", "movimento": "pan_left",
+     "texto": "Roubar caixão não é corrupção, Excelência. É logística.",
+     "cena": "Zeca, a scruffy brown mutt lawyer dog in an oversized grey suit, directing a logistics operation: a coffin being loaded onto a truck, arrows and flowcharts on a whiteboard, hard-hat dogs working"},
+
+    {"id": 21, "tipo": "fala", "personagem": "CARAMELO", "movimento": "static_push",
+     "texto": "Excelência, não foi licitação. Foi uma associação de moradores.",
+     "cena": "Caramelo, a caramel-brown mutt dog with a green mayoral sash, holding a blueprint with the word LICITACAO crossed out in red, pointing at a group of dogs in tiny hard hats"},
+
+    {"id": 22, "tipo": "fala", "personagem": "ZECA", "movimento": "zoom_out",
+     "texto": "É uma associação de moradores... caninos, Excelência.",
+     "cena": "Zeca, a scruffy brown mutt lawyer dog in an oversized grey suit, presenting a group of scruffy dogs wearing tiny hard hats and holding mini shovels, a sign reading ASSOCIACAO DE MORADORES CANINOS"},
+
+    {"id": 23, "tipo": "fala", "personagem": "ZECA", "movimento": "zoom_in",
+     "texto": "O cultivo é medicinal, Excelência. É terapia. É saúde.",
+     "cena": "Zeca, a scruffy brown mutt lawyer dog in a white doctor coat, at a desk with a cannabis plant in a flowerpot, a medical cross on the wall, a prescription pad, sly smile"},
+
+    {"id": 24, "tipo": "fala", "personagem": "CARAMELO", "movimento": "static_push",
+     "texto": "Zeca, a linguiça tem quarenta por cento de THC.",
+     "cena": "Caramelo, a caramel-brown mutt dog with a green mayoral sash, deadpan, holding up a linguiça sausage with a green glow and a floating THC molecule diagram behind him, office background"},
+
+    {"id": 25, "tipo": "fala", "personagem": "ZECA", "movimento": "pan_right",
+     "texto": "É óleo canábico, Excelência. A prefeitura abateu no IPTU.",
+     "cena": "Zeca, a scruffy brown mutt lawyer dog in an oversized grey suit, stamping an IPTU property tax bill with a big red ABATIDO seal, a cannabis leaf watermark on the document, proud smile"},
+
+    {"id": 26, "tipo": "fala", "personagem": "PARDAL", "movimento": "pan_left",
+     "texto": "Excelência, o senhor já perdeu pra um poste em 2016.",
+     "cena": "Xerxes Pardal, a sweaty balding Brazilian man in a cheap suit with a 29 button, pointing jealously at a street lamppost covered in 2016 campaign banners and a legenda partidaria sticker, tiny sad crowd, awkward"},
+
+    {"id": 27, "tipo": "fala", "personagem": "ZECA", "movimento": "zoom_in",
+     "texto": "Tem a Marta vizinha. A Marta tem quarenta e três grupos de WhatsApp. E ela é administradora de todos.",
+     "cena": "Zeca, a scruffy brown mutt lawyer dog in an oversized grey suit, holding up a smartphone exploding with 43 WhatsApp group notifications, Marta's face visible in every chat bubble, green message storm"},
+
+    {"id": 28, "tipo": "fala", "personagem": "PARDAL", "movimento": "static_push",
+     "texto": "A Marta? Bom, então já era. Isso aí é quatro mil votos na hora. ...Xavier. Chama o Zeca.",
+     "cena": "Xerxes Pardal, a sweaty balding Brazilian man in a cheap suit, with glowing Marta avatars and vote numbers in his eyes, a calculator, a campaign banner reading 4 MIL VOTOS, scheming"},
+
+    {"id": 29, "tipo": "fala", "personagem": "NARRADOR", "movimento": "zoom_out",
+     "texto": "Este é o programa eleitoral gratuito da coligação Pote, Osso e Esperança. Imagens ilustrativas. Qualquer semelhança com pessoas vivas, desaparecidas ou congeladas é mera conveniência.",
+     "cena": "A 1990s TV set in a working-class living room showing a campaign commercial: a logo with a dog bowl and a bone, frozen badly-smiling candidates, static and scanlines, a family watching bored on a couch"},
+
+    {"id": 30, "tipo": "fala", "personagem": "REPORTER", "movimento": "pan_right",
+     "texto": "Boa noite. Estamos ao vivo, direto da praça central. Senhor candidato, a pergunta que o povo quer saber: o senhor vai acabar com a fome em Migalhópolis?",
+     "cena": "Live debate in the plaza: a blonde Brazilian TV reporter in a blazer holding a microphone with a TV MIGALHA logo, shoving it at a sweating Pardal behind a podium, camera light, crowd at dusk"},
+
+    {"id": 31, "tipo": "fala", "personagem": "PARDAL", "movimento": "zoom_in",
+     "texto": "Como assim, senhor?",
+     "cena": "Close-up of Xerxes Pardal, a sweaty balding Brazilian man in a cheap suit, with a blank panicked face, sweat drops, frozen awkward expression, spotlight"},
+
+    {"id": 32, "tipo": "fala", "personagem": "REPORTER", "movimento": "pan_left",
+     "texto": "Muito bem. E para a juventude, senhor? O senhor tem alguma proposta para a juventude?",
+     "cena": "The blonde TV reporter leaning in with the microphone while bored teenagers in the crowd look at their phones, a dusty faded JUVENTUDE banner behind the podium"},
+
+    {"id": 33, "tipo": "fala", "personagem": "PARDAL", "movimento": "static_push",
+     "texto": "E o senhor vai nomear secretários? Como fica a máquina pública?",
+     "cena": "Xerxes Pardal deflecting with both hands while a giant rusty broken machine labeled MAQUINA PUBLICA sputters and leaks behind him, question marks in the air"},
+
+    {"id": 34, "tipo": "fala", "personagem": "REPORTER", "movimento": "zoom_out",
+     "texto": "E de Assuntos Externos?",
+     "cena": "The blonde TV reporter holding a spinning globe next to a tiny Xerxes Pardal, a banner reading ASSUNTOS EXTERNOS, awkward wide shot of an empty stage"},
+
+    {"id": 35, "tipo": "fala", "personagem": "NARRADOR", "movimento": "pan_right",
+     "texto": "O primeiro turno terminou empatado, porque os dois candidatos apresentaram exatamente o mesmo boleto. O segundo turno foi anulado porque a urna de uma das seções foi comida.",
+     "cena": "Election night: two candidates at a table holding up identical paper boletos, a ballot box being eaten by a happy dog, confused officials with papers flying"},
+
+    {"id": 36, "tipo": "fala", "personagem": "NARRADOR", "movimento": "zoom_in",
+     "texto": "E o terceiro turno não existia na lei. O que, por si só, já resolvia o problema.",
+     "cena": "A giant law book open on a judge's desk with the page 3o TURNO torn out, a judge shrugging with his hands up, cobwebs, a gavel"},
+
+    {"id": 37, "tipo": "fala", "personagem": "NARRADOR", "movimento": "zoom_out",
+     "texto": "No dia da posse, quarenta e três mil pessoas apareceram na praça central. Migalhópolis tem onze mil habitantes.",
+     "cena": "Posse day: an impossibly huge crowd of forty-three thousand people packed into a tiny plaza, Caramelo, a caramel-brown mutt dog with a green sash, on stage, confetti and linguiça rain, wide aerial"},
+
+    {"id": 38, "tipo": "fala", "personagem": "NARRADOR", "movimento": "zoom_in",
+     "texto": "Ninguém pergunta. Aqui, ninguém nunca pergunta.",
+     "cena": "Extreme close-up of a townsman's dead empty eyes, nobody asking questions, a dying question mark reflected in his pupils, dust particles"},
+
+    {"id": 39, "tipo": "fala", "personagem": "NARRADOR", "movimento": "pan_left",
+     "texto": "É uma cena inédita na história do Brasil. Um cachorro, candidato pela coligação Migalhas Para Todos, acaba de tomar posse como prefeito de Migalhópolis.",
+     "cena": "Caramelo, a caramel-brown mutt dog with a green mayoral sash, taking the oath with a paw on a tiny constitution, banners reading MIGALHAS PARA TODOS, a dove made of sausage, spotlights"},
+
+    {"id": 40, "tipo": "fala", "personagem": "NARRADOR", "movimento": "pan_right",
+     "texto": "O prefeito anterior, Xerxes Pardal, segue agora na Vice-Prefeitura. E a Vice-Prefeitura, segundo o novo prefeito, fica no bueiro.",
+     "cena": "Xerxes Pardal, a sweaty balding man in a cheap suit now in blue coveralls, descending a ladder into a manhole with a mop, a sign reading VICE-PREFEITURA, rats waving goodbye"},
+
+    {"id": 41, "tipo": "fala", "personagem": "NARRADOR", "movimento": "zoom_out",
+     "texto": "Naquele momento, a praça inteira ficou em silêncio. O silêncio de quem acabou de assinar um documento sem ler.",
+     "cena": "The entire plaza in total silence, every citizen holding an unsigned document, a giant floating pen in the air, dust particles in a shaft of light"},
+
+    {"id": 42, "tipo": "fala", "personagem": "REPORTER", "movimento": "static_push",
+     "texto": "Senhor Prefeito! Senhor Prefeito, por favor! Qual é o sabor? Como é que está a carne do primeiro churrasco da gestão? ... Está boa? O senhor pode nos dizer o que é?",
+     "cena": "The blonde TV reporter shoving a microphone at Caramelo, a caramel-brown mutt dog with a green sash, in front of a sizzling churrasco grill, smoke and sparks, TV camera light"},
+
+    {"id": 43, "tipo": "fala", "personagem": "CARAMELO", "movimento": "zoom_in",
+     "texto": "De quê?",
+     "cena": "Extreme close-up of Caramelo's deadpan dog face, one eyebrow raised, the word hanging in the air, sizzling grill smoke behind him"},
+
+    {"id": 44, "tipo": "fala", "personagem": "NARRADOR", "movimento": "zoom_out",
+     "texto": "A repórter não fez mais nenhuma pergunta. Foi a última entrevista que ela concedeu na vida. E também a última que ela pediu para conceder.",
+     "cena": "The reporter's abandoned microphone lying in the grass of the empty plaza at night, her press card on the ground, a single spotlight, crows, dramatic shadows"},
+
+    {"id": 45, "tipo": "fala", "personagem": "NARRADOR", "movimento": "pan_right",
+     "texto": "No fim, todo mundo ficou feliz. Uns na praça, com casquinha crocante. Outros no bueiro, com crachá, com macacão e com plano de carreira.",
+     "cena": "Split scene: on top, happy citizens eating crispy linguiça in the sunny plaza; below ground, workers in the sewer wearing crachá ID badges, climbing a career ladder"},
+
+    {"id": 46, "tipo": "fala", "personagem": "NARRADOR", "movimento": "zoom_out",
+     "texto": "E o Caramelo continuou ali, no topo da colina, no trono de linguiça dele. Com o coque apertado, o boleto pago e o melhor amigo que dinheiro nenhum nunca comprou.",
+     "cena": "Caramelo, a caramel-brown mutt dog with a green mayoral sash, on a hilltop throne made of linguiça at sunset, Fabinho, a small Brazilian boy with a backwards cap, beside him, a paid receipt held in his mouth, warm golden light"},
+
+    {"id": 47, "tipo": "fala", "personagem": "CARAMELO", "movimento": "pan_left",
+     "texto": "Ah. Cinquenta e sete pessoas na fila. Duas grávidas, três de muleta e um vereador suando por antecipação. Eu não escolhi esse povo. Esse povo me escolheu. E é por isso que eu me sinto tão... generoso.",
+     "cena": "Caramelo, a caramel-brown mutt dog with a green sash, behind a big desk in the underground sewer office, through the window a line of fifty-seven townspeople, a sweating vereador in the corner, fluorescent light"},
+
+    {"id": 48, "tipo": "fala", "personagem": "CARAMELO", "movimento": "zoom_in",
+     "texto": "Eu podia acabar com tudo isso numa tarde, sabe? Mas aí quem é que ia me fazer cafuné no lombo? Carinho tem que vir de mão trêmula. Senão não desce.",
+     "cena": "An old trembling hand petting Caramelo's back while the caramel mutt dog with a green sash makes a blissful deadpan face, hearts and sparks, soft warm light"},
+
+    {"id": 49, "tipo": "fala", "personagem": "CARAMELO", "movimento": "static_push",
+     "texto": "Servir o povo é isso: você dá, você dá, você dá... e no fim do mês o povo te dá linguiça. É um ciclo. É bonito até.",
+     "cena": "Caramelo, a caramel-brown mutt dog with a green sash, handing a linguiça to a citizen who hands a linguiça back, a circular cycle diagram drawn on the wall behind them"},
+
+    {"id": 50, "tipo": "fala", "personagem": "CARAMELO", "movimento": "pan_right",
+     "texto": "Bom dia, meus meninos bonitos. Recapitulando. Quem aqui foi visto conversando com alguém de fora?",
+     "cena": "Caramelo, a caramel-brown mutt dog with a green sash, addressing a room of scared dog secretaries in tiny suits, one of them peeking out the window at two shadowy figures talking outside"},
+
+    {"id": 51, "tipo": "fala", "personagem": "CARAMELO", "movimento": "zoom_in",
+     "texto": "Bom. É por isso que eu gosto de vocês. Ninguém fala. Ninguém aparece. Ninguém tinha previdência.",
+     "cena": "The dog secretaries all silent and blank-faced, empty pension previdencia forms fluttering in the wind, a broken piggy bank, cold office light"},
+
+    {"id": 52, "tipo": "fala", "personagem": "CARAMELO", "movimento": "static_push",
+     "texto": "O Zeca não conta. O Zeca é o advogado.",
+     "cena": "Caramelo, a caramel-brown mutt dog with a green sash, pointing at Zeca, a scruffy brown mutt lawyer dog in an oversized grey suit, who holds up a lawyer's OAB card with six fingers clearly visible, deadpan stare"},
+
+    {"id": 53, "tipo": "fala", "personagem": "ZECA", "movimento": "pan_left",
+     "texto": "Ó. Igualzinho advogado de verdade.",
+     "cena": "Zeca, a scruffy brown mutt lawyer dog in an oversized grey suit and red tie, proudly holding up a lawyer's OAB card with six fingers, sly smile, office background"},
+
+    {"id": 54, "tipo": "fala", "personagem": "CARAMELO", "movimento": "zoom_in",
+     "texto": "...Você tem quatro patas, Zeca.",
+     "cena": "Caramelo, a caramel-brown mutt dog with a green sash, leaning close to Zeca's paws counting them off one two three four with an unimpressed deadpan expression"},
+
+    {"id": 55, "tipo": "fala", "personagem": "CARAMELO", "movimento": "pan_right",
+     "texto": "Escuta essa. O Pardal é prefeito há dezoito anos. Ele roubou a merenda escolar, roubou a ambulância e roubou o caixão do velório.",
+     "cena": "Caramelo, a caramel-brown mutt dog with a green sash, presenting a slideshow of Pardal's crimes: school lunch trays, an ambulance, and a coffin, each on a projector screen, Pardal sweating in the audience"},
+
+    {"id": 56, "tipo": "fala", "personagem": "CARAMELO", "movimento": "static_push",
+     "texto": "E agora ele quer roubar o pote. Ele quer cobrar imposto da minha comida.",
+     "cena": "Xerxes Pardal trying to put a giant IMPOSTO SOBRE COMIDA rubber stamp on Caramelo's golden bowl while the caramel mutt dog with a green sash blocks it with one paw, deadpan"},
+
+    {"id": 57, "tipo": "fala", "personagem": "CARAMELO", "movimento": "zoom_out",
+     "texto": "Tá bom, tá bom. Chorar não enche pote. A gente vai fazer isso do jeito que os humanos entendem. A gente vai fazer uma eleição.",
+     "cena": "Xerxes Pardal crying a river that goes nowhere into a dry empty pot, Caramelo standing firm with a green sash, a sign reading CHORAR NAO ENCHE POTE"},
+
+    {"id": 58, "tipo": "fala", "personagem": "CARAMELO", "movimento": "pan_left",
+     "texto": "E depois a gente vai fazer uma apuração. E depois uma recontagem. E outra. E outra. Até o placar obedecer.",
+     "cena": "An election recount room at midnight: dogs and officials counting ballots over and over, a scoreboard magically changing numbers, coffee cups everywhere, exhausted"},
+
+    {"id": 59, "tipo": "fala", "personagem": "CARAMELO", "movimento": "zoom_in",
+     "texto": "Deixa a luz acesa, Fabinho. Eu tenho medo do escuro.",
+     "cena": "Fabinho, a curious 8-year-old Brazilian boy with a backwards cap, holding a flashlight in a dark sewer tunnel, Caramelo, a caramel mutt dog with a green sash, sitting in a pool of light with a tiny nightlight, long shadows"},
+
+    {"id": 60, "tipo": "fala", "personagem": "FABINHO", "movimento": "static_push",
+     "texto": "De quê?",
+     "cena": "Close-up of Fabinho's innocent confused face, big hopeful eyes, a glowing question mark above his head, dark tunnel background"},
+
+    {"id": 61, "tipo": "fala", "personagem": "CARAMELO", "movimento": "zoom_in",
+     "texto": "Eu tenho medo de uma coisa só. Você quer saber qual? ... De ser esquecido.",
+     "cena": "Rare vulnerable close-up of Caramelo, a caramel-brown mutt dog with a green sash, ears down, a single highlight in his eyes, dark background, emotional lighting"},
+
+    {"id": 62, "tipo": "fala", "personagem": "NARRADOR", "movimento": "pan_right",
+     "texto": "A Dona Cleide tentou me tirar da memória. E olha, memória é um buraco, Fabinho. Quem cai, some. Quem cava, manda.",
+     "cena": "Dona Cleide erasing Caramelo from a photo album with her thumb, Fabinho watching from a doorway, memory dust and glowing fragments floating in the air"},
+
+    {"id": 63, "tipo": "fala", "personagem": "CARAMELO", "movimento": "pan_left",
+     "texto": "Eu vou organizar a fome. Todo mundo vai comer. Uma vez por semana. Só que a fila vai ser em ordem alfabética, e quem sorrir passa na frente.",
+     "cena": "Caramelo, a caramel-brown mutt dog with a green sash, organizing a perfectly alphabetical food line with a clipboard, a citizen smiling widely to skip ahead, a bouncer dog checking a list"},
+
+    {"id": 64, "tipo": "fala", "personagem": "CARAMELO", "movimento": "zoom_out",
+     "texto": "Tenho. Sumir. Para não dar trabalho. Juventude é um problema de fluxo.",
+     "cena": "Caramelo in front of a giant FLUXO flowchart, a young person being processed on a conveyor belt, dark comedic office lighting, paperwork mountains"},
+
+    {"id": 65, "tipo": "fala", "personagem": "CARAMELO", "movimento": "static_push",
+     "texto": "Já nomeei. O Zeca é secretário de Fazenda, de Obras, de Educação, de Saúde e de Assuntos Internos.",
+     "cena": "Zeca, a scruffy brown mutt lawyer dog, wearing five different secretary badges at once, five desks stacked behind him, papers flying everywhere, smug smile"},
+
+    {"id": 66, "tipo": "fala", "personagem": "ZECA", "movimento": "pan_right",
+     "texto": "O Zeca não faz externo. O Zeca tem mais é que resolver as nossas questões internas.",
+     "cena": "Zeca, a scruffy brown mutt lawyer dog in an oversized grey suit, pushing a spinning globe away with one paw, a sign reading SO ASSUNTOS INTERNOS, closed windows, office"},
+
+    {"id": 67, "tipo": "fala", "personagem": "PARDAL", "movimento": "zoom_in",
+     "texto": "E o senhor tem culpa?",
+     "cena": "Xerxes Pardal with an exaggerated guilty expression holding his own photo ID card, a judge's gavel, sweat drops, harsh light"},
+
+    {"id": 68, "tipo": "fala", "personagem": "CARAMELO", "movimento": "static_push",
+     "texto": "É a mesma coisa. Só que com foto.",
+     "cena": "Caramelo, a caramel-brown mutt dog with a green sash, holding a mugshot photo of Xerxes Pardal next to Pardal himself, identical guilty expressions, photo booth background"},
+
+    {"id": 69, "tipo": "fala", "personagem": "PARDAL", "movimento": "zoom_in",
+     "texto": "Crachá não. Crachá estraga.",
+     "cena": "Xerxes Pardal holding a crachá ID badge that is melting and deforming in his hands, sad panicked expression, drips"},
+
+    {"id": 70, "tipo": "fala", "personagem": "CARAMELO", "movimento": "pan_left",
+     "texto": "Vai limpar, Pardal. Limpar é uma forma de pagar.",
+     "cena": "Xerxes Pardal mopping the sewer floor with a mop while Caramelo, a caramel mutt dog with a green sash, supervises from a makeshift throne, a sign reading LIMPAR E PAGAR"},
+
+    {"id": 71, "tipo": "fala", "personagem": "CARAMELO", "movimento": "zoom_out",
+     "texto": "Eu não vou roubar. Eu não vou mentir. Eu não vou prometer. Eu vou cumprir.",
+     "cena": "Caramelo, a caramel-brown mutt dog with a green mayoral sash, at a podium with a paw on his heart, every citizen holding a signed contract, dramatic spotlights, confetti"},
+
+    {"id": 72, "tipo": "fala", "personagem": "NARRADOR", "movimento": "pan_right",
+     "texto": "Bem. Já são sete da noite. E todo mundo aqui sabe o que acontece às sete da noite.",
+     "cena": "Seven in the evening: the whole town turning their heads toward the plaza at sunset, mouths watering, long shadows, a church bell, purple-orange sky"},
+
+    {"id": 73, "tipo": "fala", "personagem": "CARAMELO", "movimento": "zoom_in",
+     "texto": "Está boa.",
+     "cena": "Close-up of Caramelo, a caramel-brown mutt dog with a green sash, eating a piece of linguiça with a deadpan blissful face, tiny chef hat, steam rising"},
+
+    {"id": 74, "tipo": "fala", "personagem": "CIDA", "movimento": "static_push",
+     "texto": "É linguiça.",
+     "cena": "Cida, a loud Brazilian shopkeeper woman in her 50s with hair in curlers and a floral apron, shouting from the crowd with her hand cupped around her mouth, pointing at the grill"},
+
+    {"id": 75, "tipo": "fala", "personagem": "CARAMELO", "movimento": "zoom_in",
+     "texto": "Artesanal.",
+     "cena": "Close-up of Caramelo, a caramel-brown mutt dog with a green sash, with a tiny golden fork, one eyebrow raised, deadpan, grilled linguiça smoke behind him"},
+
+    {"id": 76, "tipo": "fala", "personagem": "NARRADOR", "movimento": "zoom_out",
+     "texto": "Ó. Migalhópolis cumpriu a promessa. Comeu todo mundo. E o que sobrou, a gente congela. Congelar é uma forma de guardar carinho.",
+     "cena": "A giant industrial freezer full of linguiça with frozen citizens waving happily inside, frost and ice crystals, a label reading CARINHO, comedic"},
+
+    {"id": 77, "tipo": "fala", "personagem": "CARAMELO", "movimento": "zoom_in",
+     "texto": "...Ah. E obrigado por assistir sozinho. É do jeito que eu prefiro.",
+     "cena": "Caramelo, a caramel-brown mutt dog with a green sash, alone at night on the hilltop throne, looking straight at the camera breaking the fourth wall, moonlight, empty plaza"},
+
+    {"id": 78, "tipo": "fala", "personagem": "FABINHO", "movimento": "static_push",
+     "texto": "Eu não vou te esquecer nunca, Caramelo. Eu vou ser seu amigo pra sempre. Eu prometo por Deus.",
+     "cena": "Fabinho, a curious 8-year-old Brazilian boy with a backwards cap, hugging Caramelo, a caramel mutt dog with a green sash, in the warm-lit sewer tunnel, soft bokeh, emotional"},
+
+    {"id": 79, "tipo": "fala", "personagem": "PARDAL", "movimento": "zoom_in",
+     "texto": "Eu limpo! Eu limpo todo dia! Me dá um crachá! Pelo amor de Deus, me dá um crachá!",
+     "cena": "Xerxes Pardal in the sewer begging with a cleaning rag in his hands, reaching up for a crachá ID badge just out of reach, dramatic underlighting, tears"},
+
+    {"id": "C", "tipo": "creditos", "duracao": 12.0, "movimento": "zoom_out",
+     "texto": "MIGALHÓPOLIS",
+     "subtitulo": "FIM - T01E01 - O Pote",
+     "cena": "End card: the empty plaza at night under a purple starry sky, the pedestal and the giant pot in silhouette, a single linguiça stuck in the pot like a flag, a caramel dog curled up asleep inside, calm and warm, no readable words"}
+  ]
+}
