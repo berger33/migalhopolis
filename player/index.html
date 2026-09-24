@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MIGALHÓPOLIS — T1E1: O Prefeito de Quatro Patas</title>
+<style>
+  :root{
+    --fundo:#0d0b08; --painel:#161209; --tinta:#f3e9d2; --verm:#c8371e;
+    --amarelo:#f0c93c; --cinza:#8d8270;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--fundo); color:var(--tinta);
+    font-family:"DejaVu Sans",Verdana,sans-serif;
+    display:flex; flex-direction:column; align-items:center; min-height:100vh;
+  }
+  header{width:100%; max-width:1200px; padding:18px 22px 6px; display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap;}
+  header h1{font-size:clamp(20px,3.4vw,34px); letter-spacing:.14em; color:var(--amarelo); text-shadow:3px 3px 0 #3a1408;}
+  header small{color:var(--cinza); letter-spacing:.08em;}
+  #palco{
+    position:relative; width:min(96vw,1200px); aspect-ratio:16/9; margin-top:10px;
+    background:#000; overflow:hidden; border:2px solid #2a2117; border-radius:6px;
+    box-shadow:0 18px 60px rgba(0,0,0,.65);
+  }
+  .quadro{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    opacity:0; transition:opacity .9s ease; filter:saturate(.92) contrast(1.04);
+  }
+  .quadro.on{opacity:1;}
+  .quadro.zin{animation:zin var(--dur,20s) linear forwards;}
+  .quadro.zout{animation:zout var(--dur,20s) linear forwards;}
+  .quadro.zpan{animation:zpan var(--dur,20s) linear forwards;}
+  @keyframes zin{from{transform:scale(1)}to{transform:scale(1.09)}}
+  @keyframes zout{from{transform:scale(1.09)}to{transform:scale(1)}}
+  @keyframes zpan{from{transform:scale(1.07) translateX(1.6%)}to{transform:scale(1.07) translateX(-1.6%)}}
+  #vinheta{position:absolute; inset:0; pointer-events:none;
+    background:radial-gradient(ellipse at center, transparent 58%, rgba(0,0,0,.55) 100%);}
+  #linhas{position:absolute; inset:0; pointer-events:none; opacity:.16; mix-blend-mode:overlay;
+    background:repeating-linear-gradient(0deg, rgba(255,255,255,.13) 0 1px, transparent 1px 3px);}
+  #ruido{position:absolute; inset:-50%; width:200%; height:200%; pointer-events:none; opacity:.05;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='120' height='120' filter='url(%23n)' opacity='.55'/></svg>");
+    animation:grao .45s steps(3) infinite;}
+  @keyframes grao{0%{transform:translate(0,0)}33%{transform:translate(-3%,2%)}66%{transform:translate(2%,-3%)}100%{transform:translate(0,0)}}
+  #faixa{position:absolute; left:0; right:0; bottom:0; padding:26px 4% 20px; pointer-events:none;
+    background:linear-gradient(transparent, rgba(0,0,0,.78));}
+  #legenda{
+    font-size:clamp(14px,2.1vw,25px); line-height:1.35; font-weight:bold; text-align:center;
+    text-shadow:2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+  }
+  #quem{color:var(--amarelo); font-size:.72em; letter-spacing:.14em; display:block; margin-bottom:2px;}
+  #rotuloCena{
+    position:absolute; top:26px; left:50%; transform:translateX(-50%);
+    background:rgba(10,8,5,.72); border:1px solid #4a3a1d; color:var(--amarelo);
+    padding:7px 18px; letter-spacing:.18em; font-size:clamp(11px,1.4vw,16px);
+    opacity:0; transition:opacity .5s; pointer-events:none; white-space:nowrap;
+  }
+  #tela{
+    position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:14px; text-align:center; background:rgba(8,6,3,.86); padding:24px; z-index:5;
+  }
+  #tela h2{color:var(--amarelo); font-size:clamp(30px,6vw,64px); letter-spacing:.16em; text-shadow:4px 4px 0 #3a1408;}
+  #tela .sub{color:var(--cinza); letter-spacing:.1em;}
+  #tela .aviso{max-width:640px; color:#cbb98f; font-size:clamp(11px,1.5vw,15px); line-height:1.5;}
+  #tela button{
+    font:inherit; font-weight:bold; letter-spacing:.12em; cursor:pointer;
+    background:var(--verm); color:#fff; border:0; padding:14px 34px; font-size:clamp(15px,2vw,21px);
+    box-shadow:0 6px 0 #6e1d0e, 0 14px 30px rgba(0,0,0,.5); border-radius:4px;
+  }
+  #tela button:hover{transform:translateY(-2px);}
+  #tela button.sec{background:transparent; color:var(--tinta); border:1px solid #5a4a2a; box-shadow:none; font-size:clamp(12px,1.6vw,16px); padding:10px 22px;}
+  #creditos{
+    position:absolute; inset:0; display:none; flex-direction:column; align-items:center; justify-content:center;
+    gap:8px; background:rgba(8,6,3,.9); text-align:center; z-index:4; padding:24px;
+  }
+  #creditos h3{color:var(--amarelo); letter-spacing:.2em;}
+  #creditos p{color:#cbb98f; font-size:clamp(11px,1.5vw,15px); line-height:1.7;}
+  #barra{
+    width:min(96vw,1200px); margin-top:12px; display:flex; flex-direction:column; gap:10px;
+  }
+  #linhaTempo{display:flex; align-items:center; gap:10px;}
+  #linhaTempo input[type=range]{flex:1; accent-color:var(--verm); height:22px;}
+  #tempo{font-variant-numeric:tabular-nums; color:var(--cinza); font-size:13px; min-width:96px; text-align:right;}
+  #controles{display:flex; gap:8px; flex-wrap:wrap; align-items:center;}
+  #controles button{
+    font:inherit; cursor:pointer; background:var(--painel); color:var(--tinta);
+    border:1px solid #3d3categories020; border:1px solid #3d3020; padding:8px 14px; border-radius:3px; font-size:13px;
+  }
+  #controles button.ativo{border-color:var(--amarelo); color:var(--amarelo);}
+  #cenas{display:flex; gap:6px; flex-wrap:wrap; margin-top:2px;}
+  #cenas button{
+    font:inherit; font-size:11px; cursor:pointer; background:transparent; color:var(--cinza);
+    border:1px solid #33291a; padding:5px 9px; border-radius:2px; letter-spacing:.04em;
+  }
+  #cenas button.atual{color:var(--fundo); background:var(--amarelo); border-color:var(--amarelo); font-weight:bold;}
+  footer{color:#5f574a; font-size:12px; padding:16px; letter-spacing:.06em; text-align:center;}
+  a{color:var(--cinza);}
+</style>
+</head>
+<body>
+<header>
+  <h1>MIGALHÓPOLIS</h1>
+  <small>T1E1 • “O Prefeito de Quatro Patas” • animático gerado por agente</small>
+</header>
+
+<div id="palco">
+  <img class="quadro" id="qA" alt="">
+  <img class="quadro" id="qB" alt="">
+  <div id="vinheta"></div>
+  <div id="linhas"></div>
+  <div id="ruido"></div>
+  <div id="rotuloCena"></div>
+  <div id="faixa"><div id="legenda"></div></div>
+  <div id="creditos">
+    <h3>FIM</h3>
+    <p>MIGALHÓPOLIS — a cidade mais limpa do Brasil.<br>
+    roteiro, elenco, trilha e imagem: gerados nesta sessão<br>
+    próximo episódio: “O Orçamento Participativo”</p>
+    <p><em>moral: não existe cidade limpa — existe cidade com o cachorro certo.</em></p>
+  </div>
+  <div id="tela">
+    <h2>MIGALHÓPOLIS</h2>
+    <div class="sub">T1E1 — “O PREFEITO DE QUATRO PATAS”</div>
+    <div class="aviso">⚠ 14 anos — humor ácido, política ficcional e linguiça artesanal.<br>
+    Nenhum personagem é real. As linguiças, infelizmente, também não.</div>
+    <button id="botaoTocar">▶ TOCAR EPISÓDIO</button>
+    <button id="botaoTeaser" class="sec">ver teaser (1 min)</button>
+  </div>
+</div>
+
+<div id="barra">
+  <div id="linhaTempo">
+    <button id="botaoPlay" title="tocar/pausar">▶</button>
+    <input id="seek" type="range" min="0" max="1000" value="0">
+    <span id="tempo">0:00 / 0:00</span>
+  </div>
+  <div id="controles">
+    <button id="botaoLegenda" class="ativo">legendas</button>
+    <button id="botaoVel">1.0×</button>
+    <button id="botaoTrilha" class="ativo">trilha</button>
+    <span style="flex:1"></span>
+    <button id="botaoReiniciar">↺ recomeçar</button>
+  </div>
+  <div id="cenas"></div>
+</div>
+
+<footer>
+  episódio animático: storyboard + dublagem sintetizada + trilha original • <a href="../production/roteiro.json">roteiro</a> • <a href="../video/MIGALHOPOLIS_T1E1.mp4">baixar MP4</a>
+</footer>
+
+<audio id="audio" preload="auto"></audio>
+<script>
+const el = id => document.getElementById(id);
+const audio = el("audio");
+let TL = null, modo = "ep";
+let quadroAtual = null, quadroAlt = false, cenaIdx = -1, legendaIdx = -1;
+
+const ARTE = p => "../" + p;
+const AUDIO_EP = "../production/audio/ep01_mix.mp3";
+const AUDIO_TEASER = "../production/audio/teaser_mix.mp3";
+
+async function carrega(m){
+  modo = m;
+  const arq = modo === "teaser" ? "../production/timeline_teaser.json" : "../production/timeline.json";
+  TL = await (await fetch(arq)).json();
+  audio.src = modo === "teaser" ? AUDIO_TEASER : AUDIO_EP;
+  audio.playbackRate = 1.0;
+  montaChips();
+  preparaCena(-1, true);
+  el("tempo").textContent = `0:00 / ${fmt(TL.dur)}`;
+}
+
+function fmt(s){ s = Math.max(0, s|0); return `${(s/60)|0}:${String(s%60).padStart(2,"0")}`; }
+
+function montaChips(){
+  const c = el("cenas"); c.innerHTML = "";
+  TL.cenas.forEach((s,i)=>{
+    const b = document.createElement("button");
+    b.textContent = `${s.rotulo==="FRIO"?"abertura":s.rotulo.toLowerCase()} · ${s.titulo}`;
+    b.onclick = ()=>{ audio.currentTime = Math.max(s.ini + .05, 0); atualiza(true); };
+    c.appendChild(b);
+  });
+}
+
+function classeZoom(i, dur){
+  const q = quadroAlt ? el("qB") : el("qA");
+  q.classList.remove("zin","zout","zpan");
+  void q.offsetWidth;
+  q.style.setProperty("--dur", dur + "s");
+  q.classList.add(["zin","zout","zpan","zin"][i % 4]);
+}
+
+function preparaCena(i, inicial=false){
+  if(i === cenaIdx && !inicial) return;
+  const mostra = (idx)=>{
+    const cena = TL.cenas[idx];
+    const q = quadroAlt ? el("qB") : el("qA");
+    const outro = quadroAlt ? el("qA") : el("qB");
+    if(q.src !== location.origin + "/" + ARTE(cena.frame).split("../").join("")){}
+    q.src = ARTE(cena.frame);
+    q.classList.add("on");
+    outro.classList.remove("on");
+    classeZoom(idx, Math.max(cena.fim - cena.ini, 4));
+    quadroAlt = !quadroAlt;
+    const r = el("rotuloCena");
+    r.textContent = (cena.rotulo === "FRIO" ? "ABERTURA" : cena.rotulo) + " — " + cena.titulo.toUpperCase();
+    r.style.opacity = 1;
+    clearTimeout(r._t); r._t = setTimeout(()=>{ r.style.opacity = 0; }, 3400);
+  };
+  if(i < 0){
+    const q = quadroAlt ? el("qB") : el("qA");
+    q.src = ARTE(TL.cenas[0] ? TL.cenas[0].frame : "arte/frame-01-praca.jpg");
+    q.classList.add("on");
+  } else mostra(i);
+  cenaIdx = i;
+  [...el("cenas").children].forEach((b,k)=>b.classList.toggle("atual", k===i));
+}
+
+function atualiza(force=false){
+  if(!TL) return;
+  const t = audio.currentTime;
+  let ci = -1;
+  for(let i=0;i<TL.cenas.length;i++){ if(t >= TL.cenas[i].ini - .45) ci = i; else break; }
+  if(ci !== cenaIdx) preparaCena(ci);
+  // legenda
+  let li = -1;
+  for(let i=0;i<TL.falas.length;i++){ if(t >= TL.falas[i].ini && t <= TL.falas[i].fim + .12) { li = i; break; } }
+  const leg = el("legenda");
+  if(li >= 0){
+    const f = TL.falas[li];
+    if(li !== legendaIdx || force){
+      const nomes = {NARRADOR:"", CARAMELO:"SR. CARAMELO", MARTA:"MARTA", CIDA:"CIDA", FABINHO:"FABINHO",
+                     ZECA:"ZECA", PARDAL:"PARDAL", CORO:"OS MENINOS DO BUEIRO", XAVIER:"XAVIER",
+                     DEVOTO:"DEVOTO", REPORTER:"REPÓRTER"};
+      leg.innerHTML = (nomes[f.quem] ? `<span id="quem">${nomes[f.quem]}</span>` : "") + f.texto
+        .replace(/&/g,"&amp;").replace(/</g,"&lt;");
+    }
+    leg.style.display = el("botaoLegenda").classList.contains("ativo") ? "block" : "none";
+  } else leg.innerHTML = "";
+  legendaIdx = li;
+  el("seek").value = Math.round(1000 * t / TL.dur);
+  el("tempo").textContent = `${fmt(t)} / ${fmt(TL.dur)}`;
+  if(audio.ended){
+    el("creditos").style.display = "flex";
+    el("botaoPlay").textContent = "▶";
+  }
+}
+
+el("botaoPlay").onclick = ()=>{
+  if(audio.paused){ audio.play(); el("botaoPlay").textContent = "❚❚"; }
+  else { audio.pause(); el("botaoPlay").textContent = "▶"; }
+};
+el("seek").oninput = ()=>{ audio.currentTime = el("seek").value / 1000 * TL.dur; el("creditos").style.display="none"; atualiza(true); };
+el("botaoLegenda").onclick = ()=> el("botaoLegenda").classList.toggle("ativo");
+el("botaoTrilha").onclick = ()=>{ el("botaoTrilha").classList.toggle("ativo"); audio.volume = el("botaoTrilha").classList.contains("ativo") ? 1 : .35; };
+const vel = [1.0, 1.25, 1.5, 0.85];
+let vi = 0;
+el("botaoVel").onclick = ()=>{ vi = (vi+1) % vel.length; audio.playbackRate = vel[vi]; el("botaoVel").textContent = vel[vi].toFixed(2).replace(/0$/,"") + "×"; };
+el("botaoReiniciar").onclick = ()=>{ audio.currentTime = 0; el("creditos").style.display = "none"; atualiza(true); if(audio.paused){audio.play(); el("botaoPlay").textContent="❚❚";} };
+el("botaoTocar").onclick = async ()=>{
+  el("tela").style.display = "none";
+  await carrega("ep");
+  audio.play(); el("botaoPlay").textContent = "❚❚";
+};
+el("botaoTeaser").onclick = async ()=>{
+  el("tela").style.display = "none";
+  await carrega("teaser");
+  audio.play(); el("botaoPlay").textContent = "❚❚";
+};
+audio.ontimeupdate = ()=> atualiza();
+carrega("ep");
+</script>
+</body>
+</html>

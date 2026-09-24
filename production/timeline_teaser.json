@@ -1,0 +1,201 @@
+{
+ "dur": 61.576,
+ "cartao_titulo": 0.6,
+ "cartao_final_ini": 60.076,
+ "cenas": [
+  {
+   "id": "c00",
+   "numero": 1,
+   "rotulo": "FRIO",
+   "titulo": "A Praça",
+   "frame": "arte/frame-01-praca.jpg",
+   "bed": "tema",
+   "gain": 1.35,
+   "ini": 0.6,
+   "fim": 14.659
+  },
+  {
+   "id": "c03",
+   "numero": 4,
+   "rotulo": "CENA 3",
+   "titulo": "As Vizinhas",
+   "frame": "arte/frame-02-marta.jpg",
+   "bed": "cotidiano",
+   "gain": 1.0,
+   "ini": 15.284,
+   "fim": 17.149
+  },
+  {
+   "id": "c04",
+   "numero": 5,
+   "rotulo": "CENA 4",
+   "titulo": "O Setor de Limpeza",
+   "frame": "arte/frame-03-capuzes.jpg",
+   "bed": "bueiro",
+   "gain": 1.3,
+   "ini": 17.774,
+   "fim": 23.603
+  },
+  {
+   "id": "c06",
+   "numero": 7,
+   "rotulo": "CENA 6",
+   "titulo": "A Prefeitura",
+   "frame": "arte/frame-05-posse.jpg",
+   "bed": "tensao",
+   "gain": 1.05,
+   "ini": 24.228,
+   "fim": 29.149
+  },
+  {
+   "id": "c07",
+   "numero": 8,
+   "rotulo": "CENA 7",
+   "titulo": "Capítulo Um: O Progresso",
+   "frame": "arte/frame-01-praca.jpg",
+   "bed": "drama",
+   "gain": 1.0,
+   "ini": 29.774,
+   "fim": 40.251
+  },
+  {
+   "id": "c09",
+   "numero": 10,
+   "rotulo": "CENA 9",
+   "titulo": "O Quarto do Fabinho",
+   "frame": "arte/frame-04-fabinho.jpg",
+   "bed": "fabinho",
+   "gain": 1.0,
+   "ini": 40.876,
+   "fim": 42.925
+  },
+  {
+   "id": "c14",
+   "numero": 15,
+   "rotulo": "CENA 14",
+   "titulo": "O Primeiro Churrasco da Gestão",
+   "frame": "arte/frame-01-praca.jpg",
+   "bed": "cotidiano",
+   "gain": 1.05,
+   "ini": 43.55,
+   "fim": 46.133
+  },
+  {
+   "id": "c15",
+   "numero": 16,
+   "rotulo": "FINAL",
+   "titulo": "Boa Noite, Migalhópolis",
+   "frame": "arte/frame-06-final.jpg",
+   "bed": "final",
+   "gain": 1.25,
+   "ini": 46.758,
+   "fim": 59.676
+  }
+ ],
+ "falas": [
+  {
+   "id": "c00-1",
+   "cena": "c00",
+   "quem": "NARRADOR",
+   "texto": "Migalhópolis. Eleita, por três anos consecutivos, a Cidade Mais Limpa do Brasil. Por uma revista que ninguém nunca leu. Num concurso que ninguém nunca viu. Com um troféu que sumiu no primeiro dia.",
+   "ini": 1.344,
+   "fim": 14.524,
+   "dur": 13.18,
+   "sfx": [
+    "latido"
+   ]
+  },
+  {
+   "id": "c03-8",
+   "cena": "c03",
+   "quem": "CIDA",
+   "texto": "A Dona Cleide sumiu.",
+   "ini": 15.532,
+   "fim": 16.952,
+   "dur": 1.42,
+   "sfx": []
+  },
+  {
+   "id": "c04-13",
+   "cena": "c04",
+   "quem": "ZECA",
+   "texto": "Eu tenho quatro patas e três mandatos, Excelência. Respeite a hierarquia.",
+   "ini": 18.022,
+   "fim": 23.282,
+   "dur": 5.26,
+   "sfx": []
+  },
+  {
+   "id": "c06-6",
+   "cena": "c06",
+   "quem": "XAVIER",
+   "texto": "Excelência, o senhor já perdeu pra um poste em 2016.",
+   "ini": 24.414,
+   "fim": 29.014,
+   "dur": 4.6,
+   "sfx": []
+  },
+  {
+   "id": "c07-4",
+   "cena": "c07",
+   "quem": "NARRADOR",
+   "texto": "O dinheiro foi aplicado. Em linguiça. A linguiça foi distribuída. Durante o churrasco que elegeu o Pardal.",
+   "ini": 30.084,
+   "fim": 40.054,
+   "dur": 9.97,
+   "sfx": []
+  },
+  {
+   "id": "c09-6",
+   "cena": "c09",
+   "quem": "CARAMELO",
+   "texto": "De ser esquecido.",
+   "ini": 41.186,
+   "fim": 42.666,
+   "dur": 1.48,
+   "sfx": []
+  },
+  {
+   "id": "c14-4",
+   "cena": "c14",
+   "quem": "CARAMELO",
+   "texto": "É linguiça.",
+   "ini": 43.798,
+   "fim": 44.648,
+   "dur": 0.85,
+   "sfx": []
+  },
+  {
+   "id": "c14-6",
+   "cena": "c14",
+   "quem": "CARAMELO",
+   "texto": "Artesanal.",
+   "ini": 45.268,
+   "fim": 45.998,
+   "dur": 0.73,
+   "sfx": []
+  },
+  {
+   "id": "c15-3",
+   "cena": "c15",
+   "quem": "NARRADOR",
+   "texto": "Migalhópolis. A cidade mais limpa do Brasil. Até que a gente consiga esquecer.",
+   "ini": 47.068,
+   "fim": 52.308,
+   "dur": 5.24,
+   "sfx": [
+    "vento"
+   ]
+  },
+  {
+   "id": "c15-4",
+   "cena": "c15",
+   "quem": "CARAMELO",
+   "texto": "...Ah. E obrigado por assistir sozinho. É do jeito que eu prefiro.",
+   "ini": 53.362,
+   "fim": 58.732,
+   "dur": 5.37,
+   "sfx": []
+  }
+ ]
+}

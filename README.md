@@ -1,44 +1,47 @@
 # Migalhópolis 🐕🌭
 
-Série de desenho animado (estilo Rick and Morty) gerada por IA: roteiro, vozes, arte e render.
+Série de animação ambientada em Migalhópolis: roteiro, vozes, arte, mixagem e renders produzidos por IA.
 
-> *"Aqui, todo domingo tem churrasco. Todo boleto tem um culpado. E todo bueiro tem alguém rezando."*
+> *“Aqui, todo domingo tem churrasco. Todo boleto tem um culpado. E todo bueiro tem alguém rezando.”*
 
-## Episódio 1 — "O Pote" (~9 min)
+## T01E01
 
-Um cachorro vira-lata caramelo é eleito prefeito de Migalhópolis, cidade eleita três vezes
-"a mais limpa do Brasil" por uma revista que ninguém leu. Política, sociedade, religião
-e cannabis — tudo na comédia, tudo no ácido, tudo com sotaque de Grande São Paulo.
+O primeiro episódio acompanha um vira-lata caramelo e sua campanha para a prefeitura da cidade “mais limpa do Brasil”. O repositório preserva **duas linhas de produção do episódio**: a edição animática com mixagem e teaser, e a edição construída em blocos com renders por partes. Os arquivos e pipelines ficam lado a lado; um não substitui o outro.
 
-## Estrutura
+### Entregas
 
+- `video/MIGALHOPOLIS_T1E1.mp4` — render do episódio com trilha, vozes e legendas queimadas.
+- `video/TEASER_T1E1.mp4` — teaser renderizado.
+- `video/parte_01.mp4` a `video/parte_03.mp4` — renders por partes da pipeline de 79 blocos.
+- `player/index.html` — player navegável da edição animática.
+
+## Mapa do repositório
+
+```text
+roteiro/                 roteiro por blocos, bíblia visual e dados para renderização
+personagens/             referências visuais dos personagens
+imagens/                 imagens das cenas da pipeline por blocos
+audio/                   vozes individuais por bloco
+legendas/                legendas ASS por parte
+render.py                renderer da pipeline por blocos
+video/                   episódios, teaser, partes e imagens de controle de qualidade
+
+arte/                    seis quadros da edição animática
+player/                  player web da edição animática
+production/              roteiro, cronologias, mixagem e render da edição animática
+  audio/beds/            trilhas musicais
+  audio/sfx/             efeitos sonoros
+  audio/packed/          pacotes de vozes usados no alinhamento/mixagem
+  audio/                 mixes finais e metadados das falas
 ```
-roteiro/ROTEIRO_T01E01.md   roteiro completo (79 blocos + título + créditos)
-roteiro/BIBLIA_VISUAL.md    bíblia visual: personagens, cenários, estilo
-roteiro/blocos.json         machine-readable: texto, cena, movimento de câmera
-audio/                      arquivos de voz (1 por bloco)
-imagens/                    arquivos de imagem (1 por bloco)
-personagens/                character sheets (referência de consistência)
-video/                      renders (mp4)
-scripts/render.py           renderer: imagem + voz + legenda -> mp4 1080p30
-```
 
-## Pipeline
+Veja [`production/README.md`](production/README.md) para o guia da edição animática e [`video/README.md`](video/README.md) para o catálogo dos renders.
 
-1. **Roteiro** — `roteiro/blocos.json` (79 blocos de fala + título + créditos).
-2. **Vozes** — TTS pt-BR, um arquivo por bloco em `audio/NNN_personagem.mp3`.
-3. **Imagens** — um still por bloco em `imagens/NNN.jpg`, prompts em inglês,
-   personagens fixos da bíblia visual para consistência.
-4. **Render** — `scripts/render.py`: cada still vira um plano com movimento de câmera
-   (zoom/pan), transições suaves, legendas ASS sincronizadas e áudio contínuo.
-   Saída: `video/MIGALHOPOLIS_T01E01.mp4` (1080p, 30fps, H.264 + AAC).
+## Pipeline por blocos
 
-## Workflow
-
-Entregas em **lotes de 10 arquivos** (10 áudios + 10 imagens por lote), com commit
-a cada lote. Ao final de cada lote, confirmação antes de seguir.
+`render.py` combina os dados de `roteiro/blocos.json` com as vozes em `audio/`, as imagens em `imagens/` e as legendas de `legendas/`. O roteiro tem 79 blocos de fala, além dos cartões de título e créditos; os renders são divididos em partes para facilitar a revisão.
 
 ## Requisitos
 
-- ffmpeg (usar `/home/user/bin/ffmpeg` — build estática com zoompan/xfade/subtitles)
-- Python 3 + Pillow (pré-processamento das imagens para 1920x1080)
+- Python 3 e Pillow.
+- FFmpeg com suporte a `zoompan`, `xfade` e `subtitles` (a pipeline da edição animática aceita `FFMPEG` para selecionar o binário).
