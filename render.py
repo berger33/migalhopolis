@@ -2,7 +2,7 @@
 """
 MIGALHÓPOLIS — Motor de Animação 2D de Curta-Metragem (Estilo Rick and Morty).
 T01E01 - O Pote.
-Suporta Parte 1 (blocos 1-5) e Parte 2 (blocos 6-13).
+Suporta Partes 1 a 4 (blocos 1-28).
 
 Arquitetura:
   - Decomposição em Camadas com Inpainting Difusivo de fundo
@@ -48,6 +48,14 @@ FALANTE_EM_TELA = {
     18: "ZECA",       # Zeca advogado de seis dedos na mesa
     19: "CARAMELO",   # Caramelo no gabinete falando
     20: "ZECA",       # Zeca na logística do caminhão
+    21: "CARAMELO",   # Caramelo na mesa apontando a planta cancelada
+    22: "ZECA",       # Zeca na obra lamacenta com filhotes operários
+    23: "ZECA",       # Zeca médico fajuto no consultório
+    24: "CARAMELO",   # Caramelo em close com a linguiça de THC
+    25: "ZECA",       # Zeca carimbando o abatimento no IPTU
+    26: "PARDAL",     # Pardal humilhando moradores no poste eleitoral
+    27: "ZECA",       # Zeca apavorado com o celular da Dona Marta
+    28: "PARDAL",     # Pardal desesperado com a calculadora de votos
 }
 
 # -----------------------------------------------------------------------------
@@ -130,6 +138,45 @@ def deformar_regiao(arr_rgb, box, dx_field, dy_field):
         
     arr_rgb[y0:y1, x0:x1] = np.clip(sub, 0, 255).astype(np.uint8)
     return arr_rgb
+
+def deformar_jaw(arr, box, env_fala, forca, t=0.0, tremor=0.0):
+    """
+    Lip sync anatômico: jaw drop da mandíbula proporcional ao envelope de fala.
+    A porção inferior da caixa desce mais (peso_y^1.5); tremor opcional para
+    gagueira/raiva/pânico (boca e queixo oscilando na horizontal).
+    """
+    x0, y0, x1, y1 = box
+    mw, mh = x1 - x0, y1 - y0
+    if mw <= 0 or mh <= 0:
+        return arr
+    MY, MX = np.meshgrid(np.arange(mh), np.arange(mw), indexing='ij')
+    jaw = env_fala * forca
+    peso_y = np.clip((MY - 5) / float(max(1, mh - 5)), 0.0, 1.0) ** 1.5
+    dy = (peso_y * jaw).astype(np.float32)
+    dx = np.zeros_like(dy)
+    if tremor > 0.0:
+        dx += (peso_y * np.sin(t * 38.0) * (tremor * env_fala)).astype(np.float32)
+    return deformar_regiao(arr, box, dx, dy)
+
+def desenhar_boca(draw, cx, cy, rx, ry, canino=True):
+    """
+    Cavidade bucal ancorada nos cantos reais da boca do desenho:
+    interior escuro + arcada dentária + língua; presas quando canino=True.
+    """
+    draw.ellipse([(cx - rx, cy - ry), (cx + rx, cy + ry)],
+                 fill=(45, 15, 20, 245), outline=(20, 10, 15, 255), width=2)
+    draw.pieslice([(cx - rx + 4, cy - ry), (cx + rx - 4, cy + int(ry * 0.3))],
+                  0, 180, fill=(245, 245, 235, 240))
+    if canino:
+        d = max(2, int(rx * 0.10))
+        draw.polygon([(cx - int(rx * 0.55), cy - int(ry * 0.55)),
+                      (cx - int(rx * 0.55) + d * 2, cy - int(ry * 0.55)),
+                      (cx - int(rx * 0.55) + d, cy + int(ry * 0.25))], fill=(250, 250, 245, 245))
+        draw.polygon([(cx + int(rx * 0.55), cy - int(ry * 0.55)),
+                      (cx + int(rx * 0.55) - d * 2, cy - int(ry * 0.55)),
+                      (cx + int(rx * 0.55) - d, cy + int(ry * 0.25))], fill=(250, 250, 245, 245))
+    draw.ellipse([(cx - int(rx * 0.6), cy + int(ry * 0.2)), (cx + int(rx * 0.6), cy + max(1, ry))],
+                 fill=(220, 90, 105, 230))
 
 class RecortePuppet:
     """Camada articulada de personagem com inpainting de fundo e transformações afins."""
@@ -255,6 +302,68 @@ class CenaViva:
             self.recortes["pardal"] = RecortePuppet(self.img0, poly_pardal, feather=4)
             self.fundo_limpo = self.recortes["pardal"].fundo_limpo
 
+        elif self.id == "021":
+            # Filhotes operários com capacete M (medo em uníssono)
+            poly_filhotes = [(945, 455), (1015, 385), (1105, 375), (1195, 385), (1265, 455),
+                             (1275, 585), (1245, 672), (1125, 685), (1005, 675), (955, 595)]
+            self.recortes["filhotes"] = RecortePuppet(self.img0, poly_filhotes, feather=4)
+            self.fundo_limpo = self.recortes["filhotes"].fundo_limpo
+
+        elif self.id == "022":
+            # Filhotes de obra com pá + placa ASSOCIACAO DE MORADORES CANINOS
+            poly_filhotes2 = [(855, 435), (915, 388), (1015, 378), (1125, 385), (1205, 405),
+                              (1262, 485), (1268, 605), (1215, 678), (1105, 692), (975, 682),
+                              (885, 625), (848, 525)]
+            poly_placa = [(1168, 425), (1338, 418), (1345, 520), (1330, 552), (1180, 555), (1162, 505)]
+            mask1 = criar_mascara_poligono((self.w, self.h), poly_filhotes2)
+            fundo1 = inpaint_difusivo(self.img0, mask1)
+            mask2 = criar_mascara_poligono((self.w, self.h), poly_placa)
+            self.fundo_limpo = inpaint_difusivo(fundo1, mask2)
+            self.recortes["filhotes2"] = RecortePuppet(self.img0, poly_filhotes2, feather=4, fundo_preparado=self.fundo_limpo)
+            self.recortes["placa"] = RecortePuppet(self.img0, poly_placa, feather=3, fundo_preparado=self.fundo_limpo)
+
+        elif self.id == "023":
+            # Planta carnívora no vaso (mastigando mosca)
+            poly_planta = [(245, 445), (275, 365), (335, 338), (405, 345), (465, 395),
+                           (475, 475), (445, 555), (415, 645), (405, 715), (300, 722), (252, 645), (238, 535)]
+            self.recortes["planta"] = RecortePuppet(self.img0, poly_planta, feather=4)
+            self.fundo_limpo = self.recortes["planta"].fundo_limpo
+
+        elif self.id == "024":
+            # Linguiça radioativa na pata erguida do Caramelo
+            poly_linguica_pata = [(905, 505), (955, 425), (1045, 335), (1155, 305), (1255, 335),
+                                  (1292, 425), (1265, 545), (1215, 625), (1125, 645), (1025, 635),
+                                  (955, 595), (912, 555)]
+            self.recortes["linguica_pata"] = RecortePuppet(self.img0, poly_linguica_pata, feather=4)
+            self.fundo_limpo = self.recortes["linguica_pata"].fundo_limpo
+
+        elif self.id == "025":
+            # Carimbo de madeira gigante (sobe e desce com impacto)
+            poly_carimbo = [(520, 345), (575, 328), (625, 345), (645, 405), (652, 465),
+                            (628, 512), (555, 518), (518, 475), (512, 405)]
+            self.recortes["carimbo"] = RecortePuppet(self.img0, poly_carimbo, feather=4)
+            self.fundo_limpo = self.recortes["carimbo"].fundo_limpo
+
+        elif self.id == "026":
+            # Braço do Pardal apontando freneticamente para o poste
+            poly_braco = [(448, 392), (505, 378), (565, 385), (588, 415), (565, 452),
+                          (515, 468), (462, 462), (440, 432)]
+            self.recortes["braco"] = RecortePuppet(self.img0, poly_braco, feather=3)
+            self.fundo_limpo = self.recortes["braco"].fundo_limpo
+
+        elif self.id == "028":
+            # Calculadora na mão trêmula + bandeira do Brasil tremulando
+            poly_calc = [(855, 505), (915, 462), (1025, 452), (1105, 468), (1132, 535),
+                         (1125, 615), (1075, 652), (955, 655), (882, 615), (848, 555)]
+            poly_bandeira = [(1105, 95), (1245, 85), (1352, 105), (1365, 185), (1335, 238),
+                             (1225, 252), (1125, 228), (1098, 165)]
+            mask1 = criar_mascara_poligono((self.w, self.h), poly_calc)
+            fundo1 = inpaint_difusivo(self.img0, mask1)
+            mask2 = criar_mascara_poligono((self.w, self.h), poly_bandeira)
+            self.fundo_limpo = inpaint_difusivo(fundo1, mask2)
+            self.recortes["calculadora"] = RecortePuppet(self.img0, poly_calc, feather=3, fundo_preparado=self.fundo_limpo)
+            self.recortes["bandeira"] = RecortePuppet(self.img0, poly_bandeira, feather=3, fundo_preparado=self.fundo_limpo)
+
     def compor_frame(self, t, env_fala, falante_ativo):
         """Gera o quadro da cena em resolução original com todos os efeitos vivos."""
         if self.id == "T":
@@ -299,6 +408,22 @@ class CenaViva:
             return self._animar_019(t, env_fala, falante_ativo)
         elif self.id == "020":
             return self._animar_020(t, env_fala, falante_ativo)
+        elif self.id == "021":
+            return self._animar_021(t, env_fala, falante_ativo)
+        elif self.id == "022":
+            return self._animar_022(t, env_fala, falante_ativo)
+        elif self.id == "023":
+            return self._animar_023(t, env_fala, falante_ativo)
+        elif self.id == "024":
+            return self._animar_024(t, env_fala, falante_ativo)
+        elif self.id == "025":
+            return self._animar_025(t, env_fala, falante_ativo)
+        elif self.id == "026":
+            return self._animar_026(t, env_fala, falante_ativo)
+        elif self.id == "027":
+            return self._animar_027(t, env_fala, falante_ativo)
+        elif self.id == "028":
+            return self._animar_028(t, env_fala, falante_ativo)
         else:
             return self.img0.copy()
 
@@ -1255,6 +1380,494 @@ class CenaViva:
         
         return frame
 
+    # ------------------ CENAS PARTE 4 (BLOCOS 021-028) ------------------
+
+    def _animar_021(self, t, env_fala, falante_ativo):
+        # Caramelo autoritário: planta cancelada com X, filhotes tremendo, lava lamp, lousa
+        fundo = self.fundo_limpo.copy()
+
+        # 1. Filhotes operários tremendo de medo em uníssono
+        trem = math.sin(t * 26.0) * (1.2 + 1.8 * env_fala)
+        self.recortes["filhotes"].colar(fundo, dx=trem, dy=abs(math.sin(t * 31.0)) * -1.0,
+                                        rot=math.sin(t * 23.0 + 1.0) * 0.7, pivot=(1110, 685))
+
+        arr = np.array(fundo)
+
+        # 2. Pata apontando com ênfase executiva (batidas sincronizadas à fala)
+        box_braco = (825, 330, 935, 405)
+        bw, bh = box_braco[2] - box_braco[0], box_braco[3] - box_braco[1]
+        empurrao = (abs(math.sin(t * 7.5)) ** 3) * -4.5 * (0.4 + 0.6 * env_fala)
+        dy_b = np.full((bh, bw), empurrao, dtype=np.float32)
+        arr = deformar_regiao(arr, box_braco, np.zeros_like(dy_b), dy_b)
+
+        # 3. Respiração do tronco (squash & stretch sutil)
+        box_tronco = (555, 335, 835, 620)
+        tw_, th_ = box_tronco[2] - box_tronco[0], box_tronco[3] - box_tronco[1]
+        dy_t = np.full((th_, tw_), math.sin(t * 2.1) * 1.4, dtype=np.float32)
+        arr = deformar_regiao(arr, box_tronco, np.zeros_like(dy_t), dy_t)
+
+        # 4. Lip sync anatômico autoritário (mandíbula + presas)
+        if falante_ativo and env_fala > 0.07:
+            arr = deformar_jaw(arr, (655, 255, 775, 365), env_fala, 12.0, t=t, tremor=0.6)
+
+        frame = Image.fromarray(arr)
+        draw = ImageDraw.Draw(frame, "RGBA")
+
+        if falante_ativo and env_fala > 0.07:
+            desenhar_boca(draw, 712, 305 + int(env_fala * 4.8), int(34 + env_fala * 6), int(8 + env_fala * 22), canino=True)
+
+        # 5. X vermelho piscando na planta de engenharia cancelada
+        x_alpha = int(150 + 105 * math.sin(t * 5.2))
+        draw.line([(378, 268), (528, 438)], fill=(255, 30, 30, x_alpha), width=12)
+        draw.line([(528, 268), (378, 438)], fill=(255, 30, 30, x_alpha), width=12)
+
+        # 6. Brilho de papel desenrolado na mesa
+        brilho_papel = int(40 + 25 * math.sin(t * 1.7))
+        draw.line([(300, 240), (520, 250)], fill=(255, 255, 255, brilho_papel), width=3)
+
+        # 7. Lava lamp borbulhando (285-345, 345-425)
+        for k in range(3):
+            fase = (t * 0.35 + k * 0.33) % 1.0
+            y_blob = 420 - fase * 70
+            rx_b = int(14 + 7 * math.sin(fase * math.pi))
+            alpha_b = int(120 + 60 * math.sin(t * 2.2 + k))
+            draw.ellipse([(312 - rx_b, y_blob - rx_b), (312 + rx_b, y_blob + rx_b)],
+                         fill=(255, 110, 190, alpha_b))
+
+        # 8. Lâmpada verde pulsando no trilho (235-315, 85-135)
+        glow_g = int(70 + 45 * math.sin(t * 2.8))
+        draw.ellipse([(238, 88), (312, 132)], fill=(140, 255, 120, glow_g))
+
+        # 9. Equações na lousa técnica reluzindo
+        giz = int(60 + 35 * math.sin(t * 1.3))
+        draw.line([(1095, 215), (1275, 225)], fill=(235, 245, 255, giz), width=2)
+        draw.line([(1120, 315), (1335, 305)], fill=(235, 245, 255, giz), width=2)
+
+        return frame
+
+    def _animar_022(self, t, env_fala, falante_ativo):
+        # Zeca na obra: conciliação canina, filhotes afirmando, lama tóxica, retroescavadeira
+        fundo = self.fundo_limpo.copy()
+
+        # 1. Filhotes de obra balançando a cabeça afirmativamente (uníssono deslocado)
+        self.recortes["filhotes2"].colar(fundo, dy=math.sin(t * 3.4) * 2.2,
+                                         rot=math.sin(t * 3.4 + 0.4) * 0.8, pivot=(1055, 690))
+        # 2. Placa da associação balançando com o vento da obra
+        self.recortes["placa"].colar(fundo, rot=math.sin(t * 1.8) * 2.4, pivot=(1255, 555))
+
+        arr = np.array(fundo)
+
+        # 3. Pata de 6 dedos gesticulando em conciliação suave
+        box_pata = (540, 310, 685, 390)
+        pw_, ph_ = box_pata[2] - box_pata[0], box_pata[3] - box_pata[1]
+        MYp, MXp = np.meshgrid(np.arange(ph_), np.arange(pw_), indexing='ij')
+        dx_p = np.full((ph_, pw_), math.sin(t * 2.3) * 3.2 * (0.5 + 0.5 * env_fala), dtype=np.float32)
+        dy_p = (np.sin(t * 2.9 + MXp * 0.02) * 1.6).astype(np.float32)
+        arr = deformar_regiao(arr, box_pata, dx_p, dy_p)
+
+        # 4. Tronco do Zeca respirando
+        box_tr = (355, 375, 555, 640)
+        tw_, th_ = box_tr[2] - box_tr[0], box_tr[3] - box_tr[1]
+        dy_tr = np.full((th_, tw_), math.sin(t * 1.9) * 1.3, dtype=np.float32)
+        arr = deformar_regiao(arr, box_tr, np.zeros_like(dy_tr), dy_tr)
+
+        # 5. Lip sync cínico na linha do sorriso malandro
+        if falante_ativo and env_fala > 0.07:
+            arr = deformar_jaw(arr, (455, 300, 565, 395), env_fala, 9.0, t=t)
+
+        frame = Image.fromarray(arr)
+        draw = ImageDraw.Draw(frame, "RGBA")
+
+        if falante_ativo and env_fala > 0.07:
+            desenhar_boca(draw, 508, 345 + int(env_fala * 3.6), int(30 + env_fala * 5), int(7 + env_fala * 16), canino=True)
+
+        # 6. Poças de lodo tóxico verde borbulhando (plop-plop) + gás
+        for (bx, by, n) in ((300, 500, 3), (385, 610, 2)):
+            for k in range(n):
+                fase = (t * 0.9 + k * 0.37 + bx * 0.01) % 1.0
+                raio = int(4 + 8 * fase)
+                alpha = int(200 * (1.0 - fase))
+                draw.ellipse([(bx + k * 28 - raio, by - raio - int(fase * 10)),
+                              (bx + k * 28 + raio, by + raio - int(fase * 10))],
+                             outline=(140, 255, 90, alpha), width=2)
+        ga = int(70 + 40 * math.sin(t * 2.0))
+        draw.arc([(250, 430), (330, 505)], 200, 340, fill=(140, 255, 90, ga), width=3)
+
+        # 7. Fumaça do escapamento da retroescavadeira
+        for k in range(3):
+            fase = (t * 0.5 + k * 0.33) % 1.0
+            cx_s = 760 + math.sin(t * 1.2 + k * 2.0) * 8 + k * 6
+            cy_s = 165 - fase * 55
+            r_s = int(6 + 14 * fase)
+            alpha_s = int(110 * (1.0 - fase))
+            draw.ellipse([(cx_s - r_s, cy_s - r_s), (cx_s + r_s, cy_s + r_s)],
+                         fill=(210, 210, 205, alpha_s))
+
+        return frame
+
+    def _animar_023(self, t, env_fala, falante_ativo):
+        # Zeca médico fajuto: cruz neon, planta carnívora, frascos alienígenas, caneta batendo
+        fundo = self.fundo_limpo.copy()
+
+        # 1. Planta carnívora balançando com pivot na base do vaso
+        self.recortes["planta"].colar(fundo, rot=math.sin(t * 1.6) * 1.8,
+                                      scale_y=1.0 + 0.004 * math.sin(t * 2.2), pivot=(355, 722))
+
+        arr = np.array(fundo)
+
+        # 2. Tronco do Zeca respirando (jaleco branco)
+        box_tr = (585, 400, 905, 680)
+        tw_, th_ = box_tr[2] - box_tr[0], box_tr[3] - box_tr[1]
+        dy_tr = np.full((th_, tw_), math.sin(t * 2.0) * 1.2, dtype=np.float32)
+        arr = deformar_regiao(arr, box_tr, np.zeros_like(dy_tr), dy_tr)
+
+        # 3. Caneta na pata batendo no bloco de receitas
+        box_caneta = (625, 675, 785, 740)
+        cw_, ch_ = box_caneta[2] - box_caneta[0], box_caneta[3] - box_caneta[1]
+        dy_c = np.full((ch_, cw_), -abs(math.sin(t * 6.5)) * 3.5, dtype=np.float32)
+        arr = deformar_regiao(arr, box_caneta, np.zeros_like(dy_c), dy_c)
+
+        # 4. Lip sync médico fajuto
+        if falante_ativo and env_fala > 0.07:
+            arr = deformar_jaw(arr, (700, 315, 885, 435), env_fala, 9.0, t=t)
+
+        frame = Image.fromarray(arr)
+        draw = ImageDraw.Draw(frame, "RGBA")
+
+        if falante_ativo and env_fala > 0.07:
+            desenhar_boca(draw, 812, 356 + int(env_fala * 3.6), int(38 + env_fala * 6), int(9 + env_fala * 18), canino=True)
+
+        # 5. Piscada normal a cada 3.5s + piscada cúmplice para a câmera (2.3-2.85s)
+        ciclo = t % 3.5
+        if ciclo < 0.13 or 2.3 < t < 2.85:
+            draw.rectangle([(645, 230), (735, 268)], fill=(120, 88, 55, 255))
+            draw.line([(645, 268), (735, 262)], fill=(60, 40, 25, 255), width=3)
+
+        # 6. Cruz vermelha neon pulsando na parede (415-545, 105-245)
+        pulso = int(80 + 60 * math.sin(t * 3.2))
+        draw.rectangle([(462, 115), (502, 238)], fill=(255, 70, 80, pulso // 3))
+        draw.rectangle([(422, 152), (542, 198)], fill=(255, 70, 80, pulso // 3))
+        draw.rectangle([(462, 115), (502, 238)], outline=(255, 60, 70, pulso), width=4)
+        draw.rectangle([(422, 152), (542, 198)], outline=(255, 60, 70, pulso), width=4)
+
+        # 7. Mosca orbitando a planta carnívora... e mastigada a cada ciclo
+        ciclo_mosca = (t * 0.45) % 1.0
+        if ciclo_mosca < 0.8:
+            ang = ciclo_mosca * 8.0
+            mx_ = 420 + math.cos(ang) * 45
+            my_ = 330 + math.sin(ang * 1.4) * 28
+            draw.ellipse([(mx_ - 3, my_ - 3), (mx_ + 3, my_ + 3)], fill=(25, 25, 25, 230))
+            draw.line([(mx_ - 7, my_ - 5), (mx_ + 7, my_ + 5)], fill=(200, 200, 255, 90), width=2)
+        elif ciclo_mosca < 0.92:
+            draw.ellipse([(395, 315), (445, 355)], fill=(90, 160, 70, 60))
+
+        # 8. Bolhas subindo nos frascos com fetos alienígenas
+        for k in range(4):
+            fase = (t * 0.6 + k * 0.25) % 1.0
+            y_b = 515 - fase * 130
+            r_b = int(3 + 5 * (1 - fase))
+            draw.ellipse([(1322 - r_b + (k % 2) * 18, y_b - r_b),
+                          (1322 + r_b + (k % 2) * 18, y_b + r_b)],
+                         outline=(200, 255, 230, 150), width=2)
+
+        # 9. Vidrinhos coloridos brilhando na prateleira
+        glow_f = int(50 + 30 * math.sin(t * 2.4))
+        draw.rectangle([(965, 395), (1125, 515)], fill=(120, 255, 170, glow_f // 4))
+
+        return frame
+
+    def _animar_024(self, t, env_fala, falante_ativo):
+        # Caramelo close com a linguiça de THC: fórmula neon, aura verde, vapor canábico
+        fundo = self.fundo_limpo.copy()
+
+        # 1. Linguiça + pata oscilando suavemente
+        self.recortes["linguica_pata"].colar(fundo, dy=math.sin(t * 2.2) * 2.4,
+                                             rot=math.sin(t * 1.7) * 1.2, pivot=(1050, 635))
+        arr = np.array(fundo)
+
+        # 2. Respiração ampliada (close de peito/cachaço)
+        box_peito = (430, 500, 1015, 768)
+        pw_, ph_ = box_peito[2] - box_peito[0], box_peito[3] - box_peito[1]
+        dy_p = np.full((ph_, pw_), math.sin(t * 1.9) * 1.8, dtype=np.float32)
+        arr = deformar_regiao(arr, box_peito, np.zeros_like(dy_p), dy_p)
+
+        # 3. Lip sync indignado na linha inferior do focinho
+        if falante_ativo and env_fala > 0.07:
+            arr = deformar_jaw(arr, (615, 445, 800, 555), env_fala, 14.0, t=t)
+
+        frame = Image.fromarray(arr)
+        draw = ImageDraw.Draw(frame, "RGBA")
+
+        if falante_ativo and env_fala > 0.07:
+            desenhar_boca(draw, 702, 478 + int(env_fala * 4.9), int(42 + env_fala * 7), int(7 + env_fala * 26), canino=True)
+
+        # 4. Aura radioativa verde pulsante ao redor da linguiça
+        aura = int(60 + 35 * math.sin(t * 3.0))
+        draw.ellipse([(900, 295), (1295, 615)], outline=(90, 255, 120, aura), width=6)
+        draw.ellipse([(935, 330), (1260, 580)], outline=(140, 255, 160, aura // 2), width=3)
+
+        # 5. Vapor canábico espiralando para cima da linguiça
+        for k in range(3):
+            fase = (t * 0.45 + k * 0.33) % 1.0
+            vy = 320 - fase * 200
+            vx = 1095 + math.sin(fase * 7.0 + k * 2.1) * 42
+            va = int(120 * (1.0 - fase))
+            draw.arc([(vx - 18, vy - 12), (vx + 18, vy + 12)], 30, 300, fill=(150, 255, 160, va), width=3)
+
+        # 6. Fórmula molecular do THC em neon verde pulsando
+        neon = int(140 + 90 * math.sin(t * 2.6))
+        for (nx, ny, nr) in ((335, 135, 34), (475, 105, 30), (615, 105, 30), (755, 95, 28), (835, 135, 22)):
+            draw.ellipse([(nx - nr, ny - nr), (nx + nr, ny + nr)], outline=(80, 255, 110, neon), width=4)
+        draw.line([(369, 125), (445, 108)], fill=(80, 255, 110, neon), width=4)
+        draw.line([(505, 105), (585, 105)], fill=(80, 255, 110, neon), width=4)
+        draw.line([(645, 105), (727, 98)], fill=(80, 255, 110, neon), width=4)
+        draw.line([(783, 108), (818, 122)], fill=(80, 255, 110, neon), width=4)
+
+        # 7. Faísca de zumbido elétrico no neon
+        if (t % 1.7) < 0.08:
+            draw.line([(500, 60), (525, 85), (505, 95), (535, 120)], fill=(220, 255, 220, 220), width=2)
+
+        # 8. Luz esverdeada cintilante no rosto do Caramelo
+        flick = int(8 + 6 * math.sin(t * 5.0))
+        draw.rectangle([(430, 150), (1015, 700)], fill=(60, 255, 110, flick))
+
+        return frame
+
+    def _animar_025(self, t, env_fala, falante_ativo):
+        # Zeca carimbando DEBT ENFORCED: carimbo com impacto, CRT verde, globo girando
+        fundo = self.fundo_limpo.copy()
+
+        # 1. Ciclo do carimbo: sobe rápido e BATE no papel (2 carimbadas por cena)
+        ciclo = t % 2.4
+        if ciclo < 0.32:
+            dy_car = -(0.32 - ciclo) / 0.32 * 58.0
+        elif ciclo < 0.42:
+            dy_car = 0.0
+        else:
+            dy_car = -6.0 * min(1.0, (ciclo - 0.42) * 2.0)
+        impacto = 0.32 <= ciclo < 0.52
+        self.recortes["carimbo"].colar(fundo, dy=dy_car, rot=dy_car * 0.04, pivot=(582, 515))
+
+        arr = np.array(fundo)
+
+        # 2. Papel treme no impacto
+        if impacto:
+            px_, py_ = 430, 223
+            dx_sh = (np.random.rand(py_, px_).astype(np.float32) - 0.5) * 3.2
+            arr = deformar_regiao(arr, (445, 545, 875, 768), dx_sh, dx_sh * 0.4)
+
+        # 3. Lip sync com impacto (sorriso malicioso de dentes)
+        if falante_ativo and env_fala > 0.07:
+            arr = deformar_jaw(arr, (720, 235, 885, 350), env_fala, 11.0, t=t)
+
+        frame = Image.fromarray(arr)
+        draw = ImageDraw.Draw(frame, "RGBA")
+
+        if falante_ativo and env_fala > 0.07:
+            desenhar_boca(draw, 802, 278 + int(env_fala * 4.4), int(38 + env_fala * 8), int(8 + env_fala * 22), canino=True)
+
+        # 4. Poeira do impacto subindo do papel
+        if impacto:
+            fase = (ciclo - 0.32) / 0.20
+            for k in range(4):
+                ang = k * 1.7
+                dxk = 582 + math.cos(ang) * 30 * (0.3 + fase)
+                dyk = 505 - fase * 28 - math.sin(ang) * 8
+                r_k = int(3 + 7 * fase)
+                draw.ellipse([(dxk - r_k, dyk - r_k), (dxk + r_k, dyk + r_k)],
+                             fill=(200, 190, 170, int(120 * (1 - fase))))
+
+        # 5. Texto verde fósforo piscando/rolando no monitor CRT antigo
+        for i in range(5):
+            y_lin = 355 + i * 20
+            seg = int((t * 6 + i * 3) % 22) + 2
+            x_ini = 105 + int(15 * math.sin(i * 2.4 + t * 0.8))
+            alpha_t = 160 if ((t * 2 + i) % 1.0) < 0.82 else 60
+            draw.line([(x_ini, y_lin), (x_ini + seg * 8, y_lin)], fill=(60, 255, 110, alpha_t), width=3)
+
+        # 6. Globo terrestre girando suavemente
+        mer = int(math.sin(t * 0.9) * 34)
+        draw.arc([(1215, 415), (1365, 575)], 90, 270, fill=(40, 60, 120, 130), width=3)
+        draw.line([(1240 + mer, 430), (1240 + mer, 560)], fill=(30, 80, 60, 110), width=3)
+
+        # 7. Selo DEBT ENFORCED reluzindo na folha
+        selo = int(200 + 55 * math.sin(t * 4.0)) if impacto else 150
+        draw.ellipse([(545, 585), (775, 655)], outline=(210, 40, 40, selo), width=5)
+
+        return frame
+
+    def _animar_026(self, t, env_fala, falante_ativo):
+        # Pardal no poste: apontando frenético, cartazes ao vento, folhas na sarjeta
+        fundo = self.fundo_limpo.copy()
+
+        # 1. Braço apontando freneticamente para os cartazes do poste
+        apont = math.sin(t * 11.0) * 5.0 + math.sin(t * 23.0) * 1.6
+        self.recortes["braco"].colar(fundo, dx=apont, dy=abs(math.sin(t * 9.0)) * -2.0,
+                                     rot=apont * 0.25, pivot=(455, 430))
+
+        arr = np.array(fundo)
+
+        # 2. Moradores desiludidos: cabeça caindo devagar
+        box_md = (905, 275, 1235, 395)
+        mw2, mh2 = box_md[2] - box_md[0], box_md[3] - box_md[1]
+        MYm, MXm = np.meshgrid(np.arange(mh2), np.arange(mw2), indexing='ij')
+        dy_md = ((MYm / float(mh2)) * (1.5 + 1.0 * math.sin(t * 1.2))).astype(np.float32)
+        arr = deformar_regiao(arr, box_md, np.zeros_like(dy_md), dy_md)
+
+        # 3. Lip sync histérico com queixo tremendo de raiva política
+        if falante_ativo and env_fala > 0.07:
+            arr = deformar_jaw(arr, (370, 325, 480, 410), env_fala, 12.0, t=t, tremor=1.5)
+
+        # 4. Cartazes eleitorais oscilando com o vento da sarjeta
+        for (bx0, by0, bx1, by1) in ((585, 55, 895, 255), (585, 385, 895, 575)):
+            bw_, bh_ = bx1 - bx0, by1 - by0
+            MYc, MXc = np.meshgrid(np.arange(bh_), np.arange(bw_), indexing='ij')
+            dx_c = (np.sin(t * 2.8 + MYc * 0.03) * 2.6).astype(np.float32)
+            dy_c = (np.sin(t * 3.3 + MXc * 0.04) * 1.8).astype(np.float32)
+            arr = deformar_regiao(arr, (bx0, by0, bx1, by1), dx_c, dy_c)
+
+        frame = Image.fromarray(arr)
+        draw = ImageDraw.Draw(frame, "RGBA")
+
+        if falante_ativo and env_fala > 0.07:
+            desenhar_boca(draw, 422, 355 + int(env_fala * 4.2), int(26 + env_fala * 6), int(6 + env_fala * 18), canino=False)
+
+        # 5. Retalho de cartaz rasgado tremendo
+        onda = math.sin(t * 6.5) * 4
+        draw.polygon([(705, 228), (772 + onda, 240), (748, 262)], fill=(235, 225, 180, 160))
+
+        # 6. Fio elétrico oscilando no topo
+        sag = 18 + 6 * math.sin(t * 1.4)
+        draw.line([(215, 42), (330, 42 + sag), (455, 45 + sag), (635, 40)], fill=(25, 25, 30, 220), width=3)
+
+        # 7. Folhas secas rolando na sarjeta
+        for k in range(3):
+            x_l = 215 + ((t * 85 + k * 175) % 640)
+            y_l = 655 + math.sin(t * 3 + k * 2.0) * 6
+            draw.ellipse([(x_l - 8, y_l - 4), (x_l + 8, y_l + 4)], fill=(150, 110, 55, 200))
+            draw.line([(x_l - 8, y_l), (x_l + 8, y_l)], fill=(110, 80, 40, 220), width=2)
+
+        return frame
+
+    def _animar_027(self, t, env_fala, falante_ativo):
+        # Zeca apavorado: celular da Marta, enxurrada de notificações, suor, café
+        arr = np.array(self.img0)
+
+        # 1. Micro-tremor de pânico no rosto peludo
+        MYf, MXf = np.meshgrid(np.arange(255), np.arange(285), indexing='ij')
+        dx_f = (np.sin(t * 31.0 + MYf * 0.05) * 1.1).astype(np.float32)
+        dy_f = (np.cos(t * 27.0 + MXf * 0.05) * 0.9).astype(np.float32)
+        arr = deformar_regiao(arr, (585, 255, 870, 510), dx_f, dy_f)
+
+        # 2. Lip sync apreensivo com boca trêmula de medo eleitoral
+        if falante_ativo and env_fala > 0.07:
+            arr = deformar_jaw(arr, (685, 350, 860, 465), env_fala, 10.0, t=t, tremor=1.8)
+
+        frame = Image.fromarray(arr)
+        draw = ImageDraw.Draw(frame, "RGBA")
+
+        if falante_ativo and env_fala > 0.07:
+            desenhar_boca(draw, 775, 402 + int(env_fala * 4.0), int(36 + env_fala * 8), int(8 + env_fala * 24), canino=True)
+
+        # 3. Luz verde esmeralda volumétrica do celular no rosto do Zeca
+        luz = int(16 + 10 * math.sin(t * 4.2))
+        draw.polygon([(855, 320), (855, 545), (520, 640), (505, 250)], fill=(40, 255, 120, luz))
+
+        # 4. Tela do celular: dezenas de chats da Dona Marta subindo sem parar
+        draw.rectangle([(862, 292), (1138, 588)], fill=(15, 45, 25, 60))
+        for i in range(6):
+            y_b = 585 - ((t * 42 + i * 62) % 330)
+            x_b = 880 + (i % 2) * 125
+            draw.rounded_rectangle([(x_b, y_b), (x_b + 105, y_b + 42)], radius=8,
+                                   fill=(220, 255, 230, 175))
+            draw.ellipse([(x_b + 6, y_b + 8), (x_b + 34, y_b + 36)], fill=(200, 120, 160, 230))
+            draw.ellipse([(x_b + 14, y_b + 22), (x_b + 26, y_b + 32)], fill=(60, 20, 40, 230))
+            draw.line([(x_b + 42, y_b + 14), (x_b + 95, y_b + 14)], fill=(60, 60, 70, 200), width=2)
+            draw.line([(x_b + 42, y_b + 24), (x_b + 85, y_b + 24)], fill=(60, 60, 70, 160), width=2)
+
+        # 5. Notificações vibrando em ondas + faíscas
+        for k in range(3):
+            fase = (t * 1.3 + k * 0.33) % 1.0
+            r_n = int(6 + 14 * fase)
+            draw.ellipse([(1112 - r_n, 305 - r_n), (1112 + r_n, 305 + r_n)],
+                         outline=(120, 255, 150, int(200 * (1 - fase))), width=3)
+        if (t % 0.9) < 0.07:
+            draw.line([(1118, 330), (1138, 330)], fill=(230, 255, 240, 220), width=2)
+            draw.line([(1128, 320), (1128, 340)], fill=(230, 255, 240, 220), width=2)
+
+        # 6. Gotas de suor escorrendo pelas bochechas peludas
+        for (gx0, gy0) in ((655, 420), (832, 412), (612, 445)):
+            fase = (t * 0.55 + gx0 * 0.01) % 1.0
+            gy_ = gy0 + fase * 85
+            ga_ = int(230 * (1 - fase * 0.5))
+            draw.ellipse([(gx0 - 4, gy_ - 7), (gx0 + 4, gy_ + 7)], fill=(200, 235, 255, ga_))
+
+        # 7. Vapor subindo da xícara de café
+        for k in range(2):
+            fase = (t * 0.5 + k * 0.5) % 1.0
+            vy = 545 - fase * 110
+            vx = 278 + math.sin(fase * 6.0 + k * 3) * 16
+            draw.arc([(vx - 12, vy - 9), (vx + 12, vy + 9)], 40, 300,
+                     fill=(235, 235, 235, int(110 * (1 - fase))), width=3)
+
+        return frame
+
+    def _animar_028(self, t, env_fala, falante_ativo):
+        # Pardal desesperado: calculadora trêmula, pupilas roleta, suor em cascata, bandeira
+        fundo = self.fundo_limpo.copy()
+
+        # 1. Calculadora vibrando na mão trêmula
+        vib = math.sin(t * 37.0) * 2.2 + math.sin(t * 23.0) * 1.2
+        self.recortes["calculadora"].colar(fundo, dx=vib, dy=abs(math.sin(t * 29.0)) * -1.4,
+                                           rot=vib * 0.2, pivot=(990, 655))
+        # 2. Bandeira do Brasil tremulando na parede
+        self.recortes["bandeira"].colar(fundo, rot=math.sin(t * 2.4) * 2.8,
+                                        scale_y=1.0 + 0.01 * math.sin(t * 3.1), pivot=(1335, 250))
+
+        arr = np.array(fundo)
+
+        # 3. Lip sync gaguejante com queixo tremendo (jaw drop até 14px)
+        if falante_ativo and env_fala > 0.07:
+            gaguejo = 1.0 + 0.25 * math.sin(t * 47.0)
+            arr = deformar_jaw(arr, (615, 475, 815, 585), env_fala * gaguejo, 14.0, t=t, tremor=1.2)
+
+        frame = Image.fromarray(arr)
+        draw = ImageDraw.Draw(frame, "RGBA")
+
+        if falante_ativo and env_fala > 0.07:
+            desenhar_boca(draw, 712, 522 + int(env_fala * 4.9), int(34 + env_fala * 8), int(7 + env_fala * 24), canino=False)
+
+        # 4. Pupilas girando como roleta de cassino com números eleitorais
+        for (ox, oy) in ((545, 305), (715, 305)):
+            ang = t * 9.0
+            for k in range(3):
+                a0 = math.degrees(ang + k * 2.1)
+                draw.arc([(ox - 34, oy - 34), (ox + 34, oy + 34)], a0, a0 + 55,
+                         fill=(120, 255, 140, 200), width=4)
+            if (t * 3 + ox) % 1.0 < 0.6:
+                draw.text((ox - 18, oy - 8), str(int(t * 7 + ox) % 4321), font=ler_fonte(16),
+                          fill=(200, 255, 210, 220))
+
+        # 5. Cascata de suor: testa -> bochechas -> colarinho
+        for k, gx0 in enumerate((475, 585, 695, 795)):
+            fase = (t * 0.5 + k * 0.25) % 1.0
+            gy_ = 195 + fase * 380
+            ga_ = int(240 * (1 - fase * 0.35))
+            draw.ellipse([(gx0 - 5, gy_ - 9), (gx0 + 5, gy_ + 9)], fill=(205, 238, 255, ga_))
+            if fase > 0.93:
+                draw.ellipse([(gx0 - 3, 585), (gx0 + 3, 595)], fill=(205, 238, 255, 220))
+
+        # 6. Visor da calculadora: 4.251.999 piscando em vermelho
+        disp = 230 if (t * 2.2 % 1.0) < 0.75 else 90
+        draw.rectangle([(898, 498), (1082, 538)], fill=(20, 15, 10, 200))
+        draw.text((915, 505), "4,251,999", font=ler_fonte(24), fill=(255, 45, 45, disp))
+
+        # 7. Tecla sendo apertada em disparada
+        if (t * 4.0) % 1.0 < 0.1:
+            draw.ellipse([(1045, 585), (1095, 625)], fill=(255, 255, 255, 120))
+
+        return frame
+
 # -----------------------------------------------------------------------------
 # SEGMENTO E COMPOSIÇÃO DE CÂMERA
 # -----------------------------------------------------------------------------
@@ -1664,6 +2277,119 @@ def mixar_audio_completo(timeline, t_total, out_wav, parte_num=1):
                 t_vn = np.tile(arr_vn, int(math.ceil(len_vn / float(len(arr_vn)))))[:len_vn]
                 pista_sfx[idx_17_ini:idx_17_ini + len_vn] += t_vn * 0.14
 
+    elif parte_num == 4:
+        # Camas musicais Parte 4 (blocos 021 a 028) — spec. §6 do relatório
+        beds = os.path.join(ROOT, "production", "audio", "beds")
+        sfx_dir = os.path.join(ROOT, "production", "audio", "sfx")
+        cotidiano_path = os.path.join(beds, "cotidiano.mp3")
+        forro_path = os.path.join(beds, "forro.mp3")
+        suspense_path = os.path.join(beds, "suspense.mp3")
+        fabinho_path = os.path.join(beds, "fabinho.mp3")
+        comicio_path = os.path.join(beds, "comicio.mp3")
+        tensao_path = os.path.join(beds, "tensao.mp3")
+        agua_sfx = os.path.join(sfx_dir, "agua.mp3")
+        moscas_sfx = os.path.join(sfx_dir, "moscas.mp3")
+        vento_sfx = os.path.join(sfx_dir, "vento.mp3")
+        crowd_sfx = os.path.join(sfx_dir, "crowd.mp3")
+        celular_sfx = os.path.join(sfx_dir, "celular.mp3")
+
+        def _trecho(i):
+            return int(timeline[i]["t_ini"] * SR), min(n_amostras, int(timeline[i]["t_fim"] * SR))
+
+        def _add_bed(path, i, gain):
+            if not os.path.exists(path):
+                return
+            a, b = _trecho(i)
+            if b <= a:
+                return
+            arr = carregar_mp3_como_array(path)
+            n = b - a
+            tiled = np.tile(arr, int(math.ceil(n / float(len(arr)))))[:n]
+            pista_musica[a:b] += tiled * gain
+
+        def _add_sfx_loop(path, i, gain):
+            if not os.path.exists(path):
+                return
+            a, b = _trecho(i)
+            if b <= a:
+                return
+            arr = carregar_mp3_como_array(path)
+            n = b - a
+            tiled = np.tile(arr, int(math.ceil(n / float(len(arr)))))[:n]
+            pista_sfx[a:b] += tiled * gain
+
+        def _add_estalo(t_local, i, dur=0.05, freq=0.0, gain=0.30, grave=False):
+            a = int((timeline[i]["t_ini"] + t_local) * SR)
+            n = int(dur * SR)
+            if a < 0 or a + n > n_amostras:
+                return
+            tt = np.arange(n, dtype=np.float32) / SR
+            if grave:
+                grave_s = np.exp(-tt * 30.0) * np.sin(2 * math.pi * 70.0 * tt) * gain
+                ruido = np.exp(-tt * 80.0) * (np.random.rand(n).astype(np.float32) - 0.5) * gain * 0.9
+                pista_sfx[a:a + n] += grave_s + ruido
+            elif freq > 0:
+                pista_sfx[a:a + n] += np.exp(-tt * 45.0) * np.sin(2 * math.pi * freq * tt) * gain
+            else:
+                pista_sfx[a:a + n] += np.exp(-tt * 55.0) * (np.random.rand(n).astype(np.float32) - 0.5) * gain
+
+        # 021: cotidiano tenso e cômico (-16 dBFS) + papéis estapeados
+        _add_bed(cotidiano_path, 0, 0.13)
+        for tl_ in (0.45, 1.95, 3.75, 5.2):
+            _add_estalo(tl_, 0, dur=0.07, gain=0.34)
+        # 022: forró de malandragem na obra + lama borbulhando (plop-plop)
+        _add_bed(forro_path, 1, 0.13)
+        _add_sfx_loop(agua_sfx, 1, 0.10)
+        for tl_ in (0.6, 1.4, 2.3, 3.4, 4.5):
+            _add_estalo(tl_, 1, dur=0.06, freq=180, gain=0.18)
+        # 023: suspense de consultório fajuto + bipe de monitor cardíaco + moscas
+        _add_bed(suspense_path, 2, 0.13)
+        _add_sfx_loop(moscas_sfx, 2, 0.05)
+        t_bip = 0.4
+        while t_bip < 7.8:
+            _add_estalo(t_bip, 2, dur=0.09, freq=1680, gain=0.16)
+            t_bip += 1.15
+        # 024: sci-fi cômica do fabinho + zumbido elétrico do neon
+        _add_bed(fabinho_path, 3, 0.13)
+        a24, b24 = _trecho(3)
+        if b24 > a24:
+            tt = np.arange(b24 - a24, dtype=np.float32) / SR
+            hum = (np.sin(2 * math.pi * 120.0 * tt) * 0.5 + np.sin(2 * math.pi * 60.0 * tt)) * 0.045
+            trem_ = 0.8 + 0.2 * np.sin(2 * math.pi * 7.0 * tt)
+            pista_sfx[a24:b24] += hum * trem_
+        # 025: comício burocrático + carimbadas violentas CLACK-THUD
+        _add_bed(comicio_path, 4, 0.13)
+        for tl_ in (0.32, 2.72):
+            _add_estalo(tl_, 4, dur=0.05, gain=0.42)
+            _add_estalo(tl_ + 0.04, 4, dur=0.16, gain=0.55, grave=True)
+        # 026: tensão de briga eleitoral + vento de rua + buzina ao longe
+        _add_bed(tensao_path, 5, 0.13)
+        _add_sfx_loop(vento_sfx, 5, 0.12)
+        _add_sfx_loop(crowd_sfx, 5, 0.07)
+        for tl_ in (1.9, 4.2):
+            a_b = int((timeline[5]["t_ini"] + tl_) * SR)
+            n_b = int(0.5 * SR)
+            if 0 <= a_b and a_b + n_b <= n_amostras:
+                tt = np.arange(n_b, dtype=np.float32) / SR
+                buzina = (np.sin(2 * math.pi * 415.0 * tt) + np.sin(2 * math.pi * 523.0 * tt)) * 0.08
+                env_b = np.minimum(1.0, tt * 30.0) * np.exp(-tt * 4.0)
+                pista_sfx[a_b:a_b + n_b] += buzina * env_b
+        # 027: suspense de terror psicológico digital + enxurrada de notificações
+        _add_bed(suspense_path, 6, 0.15)
+        _add_sfx_loop(celular_sfx, 6, 0.13)
+        t_pling = 0.3
+        while t_pling < 8.2:
+            _add_estalo(t_pling, 6, dur=0.07, freq=2350, gain=0.14)
+            t_pling += 0.55
+        # 028: comício em clímax de pânico + clique frenético de teclas
+        _add_bed(comicio_path, 7, 0.15)
+        t_tecla = 0.25
+        while t_tecla < 8.3:
+            _add_estalo(t_tecla, 7, dur=0.03, gain=0.22)
+            t_tecla += 0.30
+        for tl_ in (7.4, 7.65, 7.9):
+            _add_estalo(tl_, 7, dur=0.05, gain=0.30)
+
     mix = pista_voz + pista_musica + pista_sfx
     
     n_fi = int(0.5 * SR)
@@ -1702,6 +2428,7 @@ def gerar_legendas_ass(timeline, out_ass):
         "Style: SEU_JORGE,DejaVu Sans,54,&H00C0FFC0,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,3.5,1.5,2,90,90,70,1",
         "Style: ZECA,DejaVu Sans,54,&H00FFB0B0,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,3.5,1.5,2,90,90,70,1",
         "Style: CARAMELO,DejaVu Sans,54,&H0080F0FF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,3.5,1.5,2,90,90,70,1",
+        "Style: PARDAL,DejaVu Sans,54,&H0080B4FF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,1,3.5,1.5,2,90,90,70,1",
         "",
         "[Events]",
         "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text"
@@ -1733,6 +2460,8 @@ def gerar_legendas_ass(timeline, out_ass):
             estilo = "ZECA"
         elif personagem == "CARAMELO":
             estilo = "CARAMELO"
+        elif personagem == "PARDAL":
+            estilo = "PARDAL"
         else:
             estilo = "NARRADOR"
             
@@ -1781,6 +2510,17 @@ def gerar_folha_qc(timeline, out_png, parte_num=1):
             ("019 CARAMELO / 4 PAINÉIS", 34.0),
             ("020 ZECA / LOGÍSTICA CAIXÃO", 39.0),
             ("020 ZECA / LIP SYNC", 41.5),
+        ]
+    elif parte_num == 4:
+        tempos_qc = [
+            ("021 CARAMELO / LIP SYNC", 3.4),
+            ("022 ZECA / OBRA + LAMA", 8.9),
+            ("023 ZECA / MEDICO + CRUZ", 15.6),
+            ("024 CARAMELO / LINGUICA THC", 21.2),
+            ("025 ZECA / CARIMBO", 25.2),
+            ("026 PARDAL / POSTE", 30.2),
+            ("027 ZECA / CELULAR MARTA", 36.9),
+            ("028 PARDAL / CALCULADORA", 45.3),
         ]
     
     quadros = []
@@ -1837,6 +2577,10 @@ def renderizar_parte(parte_num, so_qc=False):
     elif parte_num == 3:
         blocos = [b for b in todos_blocos if 14 <= obter_id_int(b) <= 20]
         movs = ["pan_left", "zoom_out", "zoom_in", "static_push", "pan_right", "zoom_in", "pan_left"]
+        tem_titulo = False
+    elif parte_num == 4:
+        blocos = [b for b in todos_blocos if 21 <= obter_id_int(b) <= 28]
+        movs = [b.get("movimento", "static_push") for b in blocos]
         tem_titulo = False
     else:
         raise NotImplementedError(f"Parte {parte_num} ainda não configurada.")

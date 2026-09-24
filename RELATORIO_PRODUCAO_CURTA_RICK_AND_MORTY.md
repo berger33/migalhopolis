@@ -176,4 +176,12 @@ A **Parte 4** é o núcleo cômico e jurídico-eleitoral do episódio, onde Cara
    - Papéis estapeados, lama borbulhando, bipe de monitor cardíaco, zumbido elétrico de neon, impacto de carimbo na madeira (*CLACK-THUD*), vento de sarjeta, notificações em massa de WhatsApp (*pling-pling-pling*), e clique frenético de teclas de calculadora.
 
 ---
-*Relatório de engenharia da Parte 4 devidamente arquivado e comitado no repositório.*
+
+## 7. STATUS DE PRODUÇÃO ATUALIZADO (2026-09-24)
+
+- **Parte 4 (blocos 021 a 028) PRODUZIDA:** animadores `_animar_021` a `_animar_028` implementados em `render.py`, com lip sync anatômico exclusivo do falante em tela (regra de ouro: narrador em off nunca mexe boca), puppets articulados (filhotes em uníssono, carimbo com impacto, calculadora trêmula, bandeira, planta carnívora, placa da associação, braço do Pardal), VFX de cenário vivo (X vermelho piscante, lâmpada de lava, lodo tóxico borbulhando, cruz neon, mosca mastigada, aura e vapor de THC, CRT verde, globo girando, cartazes ao vento, folhas na sarjeta, chats da Marta subindo, pupilas roleta, cascata de suor) e mixagem multi-pista com camas por bloco e foleys (papéis estapeados, plops de lama, bipe de monitor, zumbido de neon, CLACK-THUD do carimbo, vento e buzina, pling-pling de WhatsApp, teclas de calculadora).
+- **Entregas:** `video/parte_04.mp4` (1080p30, ~49s), `video/qc_parte_04.png`, `legendas/parte_04.ass`.
+- **Próximo lote:** Parte 5 (a partir do bloco 029 — programa eleitoral grátis e debate ao vivo), seguindo o mesmo cadence de produção em lotes e a montagem final do curta de ~9 minutos pela junção das 10 partes.
+
+---
+*Relatório de engenharia da Parte 4 devidamente arquivado e comitado no repositório. Status de produção atualizado após a renderização da Parte 4.*

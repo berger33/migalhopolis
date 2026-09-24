@@ -9,7 +9,7 @@ Os renders das duas pipelines ficam juntos nesta pasta. Os quadros `qc_*.png` e 
 
 ## Pipeline por blocos — renderer da raiz
 
-- `parte_01.mp4`, `parte_02.mp4` e `parte_03.mp4` — renders entregues por partes.
+- `parte_01.mp4` a `parte_04.mp4` — renders entregues por partes (Parte 4 = blocos 021-028, o núcleo jurídico-eleitoral).
 - `qc_parte_*.png`, `qc_video_frames*.png` e `preview_021_028.png` — imagens usadas para revisão visual.
 
 Para ver a edição animática com seleção de cenas, abra `../player/index.html` por meio do servidor descrito em `../production/README.md`.
