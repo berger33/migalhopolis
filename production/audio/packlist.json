@@ -408,7 +408,7 @@
   {
    "nome": "v01_06",
    "voz": "voice-01",
-   "chars": 829,
+   "chars": 851,
    "arquivo": "packed/v01_06.mp3",
    "unidades": [
     {
@@ -421,7 +421,7 @@
     },
     {
      "id": "c03-5",
-     "texto": "Ninguém sabe. É esse o encanto, minha filha. É igual marido de noventa anos: se tá vivo, tá pagando."
+     "texto": "Ninguém sabe. É esse o encanto, minha filha. É igual marido de noventa anos: enquanto respira, ele paga a conta."
     },
     {
      "id": "c03-7",
@@ -429,11 +429,11 @@
     },
     {
      "id": "c03-9",
-     "texto": "É. E a linguiça dela tá no freezer da igreja. Como é que você acha que a paróquia comprou aquela cadeira de rodas?"
+     "texto": "É. E a Dona Cleide doou uns embutidos pra igreja. Como é que você acha que a paróquia comprou aquela cadeira de rodas?"
     },
     {
      "id": "c03-11",
-     "texto": "Tá! Muito bem temperada. Ele tempera. Ele tempera as coisas, Cida."
+     "texto": "Tá ótima! O tempero é secreto. Ele tempera. Ele tempera as coisas, Cida."
     },
     {
      "id": "c08-2",

@@ -7,27 +7,38 @@ import json, os
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROD = os.path.join(RAIZ, "production")
-ESCALA_PAUSA = 0.62  # global: enxuga os beats cômicos p/ cravar ~10 min
+ESCALA_PAUSA = 0.62
 
 def carrega():
     roteiro = json.load(open(os.path.join(PROD, "roteiro.json"), encoding="utf-8"))
     corte = json.load(open(os.path.join(PROD, "corte.json"), encoding="utf-8"))
-    segs = {f["id"]: f["dur"] for f in json.load(open(os.path.join(PROD, "audio", "segments.json"), encoding="utf-8"))["falas"]}
+    segs_path = os.path.join(PROD, "audio", "segments.json")
+    segs = {f["id"]: f["dur"] for f in json.load(open(segs_path, encoding="utf-8"))["falas"]}
+
+    # A gravação recuperada em 01a0ce7d tem um alinhamento parcial. Quando o
+    # arquivo não cobre o roteiro inteiro, os tempos dos renders publicados
+    # são a referência para as falas já usadas no episódio e no teaser. Uma
+    # nova execução completa de split_speech.py (com todos os pacotes) gera
+    # segmentos para o roteiro inteiro e passa a ser a fonte preferencial.
+    ids_roteiro = {f["id"] for cena in roteiro["cenas"] for f in cena["falas"]}
+    if not ids_roteiro.issubset(segs):
+        for nome in ("timeline.json", "timeline_teaser.json"):
+            caminho = os.path.join(PROD, nome)
+            if os.path.exists(caminho):
+                salvo = json.load(open(caminho, encoding="utf-8"))
+                segs.update({f["id"]: f["dur"] for f in salvo.get("falas", [])})
     return roteiro, corte, segs
 
 def monta(roteiro, manter, segs, cartao_titulo, cartao_final, gap):
     """Cena a cena: [ini,fim] por cena; fala: [ini,fim] absoluto."""
     t = cartao_titulo
-    cenas, falas, faltando = [], [], []
+    cenas, falas = [], []
     for cena in roteiro["cenas"]:
         unidades = [f for f in cena["falas"] if f["id"] in manter]
         if not unidades:
             continue
         ini_cena = t
         for f in unidades:
-            if f["id"] not in segs:
-                faltando.append(f["id"])
-                continue
             t += f.get("pre", 0.4) * ESCALA_PAUSA
             d = segs[f["id"]]
             falas.append({"id": f["id"], "cena": cena["id"], "quem": f["quem"], "texto": f["texto"],

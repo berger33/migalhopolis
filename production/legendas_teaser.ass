@@ -15,13 +15,13 @@ Style: Credito,DejaVu Sans,36,&H00E8E8E8,&H000000FF,&H00181818,&H60000000,-1,0,0
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,0:00:01.34,0:00:14.64,Fala,,0,0,0,,Migalhópolis. Eleita, por três anos\Nconsecutivos, a Cidade Mais Limpa do Brasil.\NPor uma revista que ninguém nunca leu. Num\Nconcurso que ninguém nunca viu. Com um\Ntroféu que sumiu no primeiro dia.
-Dialogue: 0,0:00:15.53,0:00:17.07,Fala,,0,0,0,,A Dona Cleide sumiu.
-Dialogue: 0,0:00:18.02,0:00:23.40,Fala,,0,0,0,,Eu tenho quatro patas e três mandatos,\NExcelência. Respeite a hierarquia.
-Dialogue: 0,0:00:24.41,0:00:29.13,Fala,,0,0,0,,Excelência, o senhor já perdeu pra um poste\Nem 2016.
-Dialogue: 0,0:00:30.08,0:00:40.17,Fala,,0,0,0,,O dinheiro foi aplicado. Em linguiça. A\Nlinguiça foi distribuída. Durante o\Nchurrasco que elegeu o Pardal.
-Dialogue: 0,0:00:41.19,0:00:42.79,Fala,,0,0,0,,De ser esquecido.
-Dialogue: 0,0:00:43.80,0:00:44.77,Fala,,0,0,0,,É linguiça.
-Dialogue: 0,0:00:45.27,0:00:46.12,Fala,,0,0,0,,Artesanal.
-Dialogue: 0,0:00:47.07,0:00:52.43,Fala,,0,0,0,,Migalhópolis. A cidade mais limpa do Brasil.\NAté que a gente consiga esquecer.
-Dialogue: 0,0:00:53.36,0:00:58.85,Fala,,0,0,0,,...Ah. E obrigado por assistir sozinho. É do\Njeito que eu prefiro.
+Dialogue: 0,0:00:01.34,0:00:14.81,Fala,,0,0,0,,Migalhópolis. Eleita, por três anos\Nconsecutivos, a Cidade Mais Limpa do Brasil.\NPor uma revista que ninguém nunca leu. Num\Nconcurso que ninguém nunca viu. Com um\Ntroféu que sumiu no primeiro dia.
+Dialogue: 0,0:00:15.70,0:00:17.62,Fala,,0,0,0,,A Dona Cleide sumiu.
+Dialogue: 0,0:00:18.57,0:00:23.19,Fala,,0,0,0,,Eu tenho quatro patas e três mandatos,\NExcelência. Respeite a hierarquia.
+Dialogue: 0,0:00:24.20,0:00:27.77,Fala,,0,0,0,,Excelência, o senhor já perdeu pra um poste\Nem 2016.
+Dialogue: 0,0:00:28.72,0:00:32.85,Fala,,0,0,0,,O dinheiro foi aplicado. Em linguiça. A\Nlinguiça foi distribuída. Durante o\Nchurrasco que elegeu o Pardal.
+Dialogue: 0,0:00:33.86,0:00:35.20,Fala,,0,0,0,,De ser esquecido.
+Dialogue: 0,0:00:36.21,0:00:37.13,Fala,,0,0,0,,É linguiça.
+Dialogue: 0,0:00:37.63,0:00:38.62,Fala,,0,0,0,,Artesanal.
+Dialogue: 0,0:00:39.57,0:00:44.75,Fala,,0,0,0,,Migalhópolis. A cidade mais limpa do Brasil.\NAté que a gente consiga esquecer.
+Dialogue: 0,0:00:45.69,0:00:50.35,Fala,,0,0,0,,...Ah. E obrigado por assistir sozinho. É do\Njeito que eu prefiro.

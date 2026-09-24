@@ -8,245 +8,1235 @@
     "formato": "animático (storyboard animado com dublagem, trilha e legendas)"
   },
   "elenco": [
-    {"id": "NARRADOR", "nome": "Narrador", "voz": "voice-00", "desc": "Locutor de documentário dos anos 70. Profundo, confiável, desacreditável."},
-    {"id": "MARTA", "nome": "Marta", "voz": "voice-01", "desc": "Vizinha, rolinhos no cabelo, 43 grupos de WhatsApp. Administra a verdade do bairro."},
-    {"id": "CIDA", "nome": "Cida", "voz": "voice-05", "desc": "Vizinha da janela de cima. Grave, lenta, sempre um passo atrás da notícia e dois à frente do boleto."},
-    {"id": "FABINHO", "nome": "Fabinho", "voz": "voice-02", "desc": "Oito anos. A única criança da cidade. A única que fala a verdade em voz alta."},
-    {"id": "CARAMELO", "nome": "Sr. Caramelo", "voz": "voice-03", "desc": "Vira-lata. Macio, melífluo, sedutor. Fala baixo porque não precisa gritar."},
-    {"id": "ZECA", "nome": "Zeca", "voz": "voice-04", "desc": "Advogado. É um rato. Usa gravata. Melhor advogado do interior."},
-    {"id": "PARDAL", "nome": "Prefeito Xerxes Pardal", "voz": "voice-06", "desc": "Prefeito há dezoito anos. Rouba com convicção. Voz de comício."},
-    {"id": "CORO", "nome": "Os Meninos do Bueiro", "voz": "voice-06", "desc": "Setor de limpeza subterrâneo. Macacões vermelhos. Sorriso padronizado."},
-    {"id": "XAVIER", "nome": "Xavier", "voz": "voice-04", "desc": "Assessor do Pardal. Já viu tudo. Já viu demais."},
-    {"id": "DEVOTO", "nome": "Devoto do Pote", "voz": "voice-04", "desc": "Fiel da fila do pote. Chega às cinco da manhã com o garfo na mão."},
-    {"id": "REPORTER", "nome": "Repórter", "voz": "voice-00", "desc": "Repórter da praça. Fez uma pergunta demais."}
+    {
+      "id": "NARRADOR",
+      "nome": "Narrador",
+      "voz": "voice-00",
+      "desc": "Locutor de documentário dos anos 70. Profundo, confiável, desacreditável."
+    },
+    {
+      "id": "MARTA",
+      "nome": "Marta",
+      "voz": "voice-01",
+      "desc": "Vizinha, rolinhos no cabelo, 43 grupos de WhatsApp. Administra a verdade do bairro."
+    },
+    {
+      "id": "CIDA",
+      "nome": "Cida",
+      "voz": "voice-05",
+      "desc": "Vizinha da janela de cima. Grave, lenta, sempre um passo atrás da notícia e dois à frente do boleto."
+    },
+    {
+      "id": "FABINHO",
+      "nome": "Fabinho",
+      "voz": "voice-02",
+      "desc": "Oito anos. A única criança da cidade. A única que fala a verdade em voz alta."
+    },
+    {
+      "id": "CARAMELO",
+      "nome": "Sr. Caramelo",
+      "voz": "voice-03",
+      "desc": "Vira-lata. Macio, melífluo, sedutor. Fala baixo porque não precisa gritar."
+    },
+    {
+      "id": "ZECA",
+      "nome": "Zeca",
+      "voz": "voice-04",
+      "desc": "Advogado. É um rato. Usa gravata. Melhor advogado do interior."
+    },
+    {
+      "id": "PARDAL",
+      "nome": "Prefeito Xerxes Pardal",
+      "voz": "voice-06",
+      "desc": "Prefeito há dezoito anos. Rouba com convicção. Voz de comício."
+    },
+    {
+      "id": "CORO",
+      "nome": "Os Meninos do Bueiro",
+      "voz": "voice-06",
+      "desc": "Setor de limpeza subterrâneo. Macacões vermelhos. Sorriso padronizado."
+    },
+    {
+      "id": "XAVIER",
+      "nome": "Xavier",
+      "voz": "voice-04",
+      "desc": "Assessor do Pardal. Já viu tudo. Já viu demais."
+    },
+    {
+      "id": "DEVOTO",
+      "nome": "Devoto do Pote",
+      "voz": "voice-04",
+      "desc": "Fiel da fila do pote. Chega às cinco da manhã com o garfo na mão."
+    },
+    {
+      "id": "REPORTER",
+      "nome": "Repórter",
+      "voz": "voice-00",
+      "desc": "Repórter da praça. Fez uma pergunta demais."
+    }
   ],
   "cenas": [
     {
-      "id": "c00", "numero": 1, "rotulo": "FRIO", "titulo": "A Praça",
-      "frame": "arte/frame-01-praca.jpg", "trilha": {"bed": "tema", "gain": 1.35},
+      "id": "c00",
+      "numero": 1,
+      "rotulo": "FRIO",
+      "titulo": "A Praça",
+      "frame": "arte/frame-01-praca.jpg",
+      "trilha": {
+        "bed": "tema",
+        "gain": 1.35
+      },
       "falas": [
-        {"id": "c00-1", "quem": "NARRADOR", "texto": "Migalhópolis. Eleita, por três anos consecutivos, a Cidade Mais Limpa do Brasil. Por uma revista que ninguém nunca leu. Num concurso que ninguém nunca viu. Com um troféu que sumiu no primeiro dia.", "pre": 1.2, "pos": 0.5, "sfx_antes": ["latido"]},
-        {"id": "c00-2", "quem": "NARRADOR", "texto": "Aqui, todo domingo tem churrasco. Todo boleto tem um culpado. E todo bueiro tem alguém rezando.", "pre": 0.5, "pos": 0.8},
-        {"id": "c00-3", "quem": "DEVOTO", "texto": "Ele desce às sete em ponto. É um cachorro pontual. Eu tô aqui desde as cinco da manhã, minha senhora, com o garfo na mão.", "pre": 0.6, "pos": 0.7},
-        {"id": "c00-4", "quem": "NARRADOR", "texto": "No centro da praça tem um pedestal. Em cima do pedestal, um pote. E o nome dele é Caramelo.", "pre": 0.5, "pos": 0.6},
-        {"id": "c00-5", "quem": "NARRADOR", "texto": "O Caramelo não é um cachorro. O Caramelo é uma instituição.", "pre": 0.4, "pos": 1.0}
+        {
+          "id": "c00-1",
+          "quem": "NARRADOR",
+          "texto": "Migalhópolis. Eleita, por três anos consecutivos, a Cidade Mais Limpa do Brasil. Por uma revista que ninguém nunca leu. Num concurso que ninguém nunca viu. Com um troféu que sumiu no primeiro dia.",
+          "pre": 1.2,
+          "pos": 0.5,
+          "sfx_antes": [
+            "latido"
+          ]
+        },
+        {
+          "id": "c00-2",
+          "quem": "NARRADOR",
+          "texto": "Aqui, todo domingo tem churrasco. Todo boleto tem um culpado. E todo bueiro tem alguém rezando.",
+          "pre": 0.5,
+          "pos": 0.8
+        },
+        {
+          "id": "c00-3",
+          "quem": "DEVOTO",
+          "texto": "Ele desce às sete em ponto. É um cachorro pontual. Eu tô aqui desde as cinco da manhã, minha senhora, com o garfo na mão.",
+          "pre": 0.6,
+          "pos": 0.7
+        },
+        {
+          "id": "c00-4",
+          "quem": "NARRADOR",
+          "texto": "No centro da praça tem um pedestal. Em cima do pedestal, um pote. E o nome dele é Caramelo.",
+          "pre": 0.5,
+          "pos": 0.6
+        },
+        {
+          "id": "c00-5",
+          "quem": "NARRADOR",
+          "texto": "O Caramelo não é um cachorro. O Caramelo é uma instituição.",
+          "pre": 0.4,
+          "pos": 1.0
+        }
       ]
     },
     {
-      "id": "c01", "numero": 2, "rotulo": "CENA 1", "titulo": "A Fila do Pote",
-      "frame": "arte/frame-01-praca.jpg", "trilha": {"bed": "tema", "gain": 1.1},
+      "id": "c01",
+      "numero": 2,
+      "rotulo": "CENA 1",
+      "titulo": "A Fila do Pote",
+      "frame": "arte/frame-01-praca.jpg",
+      "trilha": {
+        "bed": "tema",
+        "gain": 1.1
+      },
       "falas": [
-        {"id": "c01-1", "quem": "DEVOTO", "texto": "Primeiro ele olha. Depois ele cheira. Depois ele escolhe quem come. Quem ele não escolhe... ah, meu filho. Quem ele não escolhe tem outra função.", "pre": 0.6, "pos": 0.8, "sfx_antes": ["moscas"]},
-        {"id": "c01-2", "quem": "NARRADOR", "texto": "Cidade pequena é assim: o povo se reúne para rezar, para votar e para esperar comida cair do céu. Nessa ordem, e sempre com um vereador olhando.", "pre": 0.5, "pos": 0.5},
-        {"id": "c01-3", "quem": "NARRADOR", "texto": "Na terceira terça-feira de cada mês, Migalhópolis se ajoelha para um vira-lata. É mais constrangedor que rezar para santo, mas dá mais resultado.", "pre": 0.4, "pos": 0.9}
+        {
+          "id": "c01-1",
+          "quem": "DEVOTO",
+          "texto": "Primeiro ele olha. Depois ele cheira. Depois ele escolhe quem come. Quem ele não escolhe... ah, meu filho. Quem ele não escolhe tem outra função.",
+          "pre": 0.6,
+          "pos": 0.8,
+          "sfx_antes": [
+            "moscas"
+          ]
+        },
+        {
+          "id": "c01-2",
+          "quem": "NARRADOR",
+          "texto": "Cidade pequena é assim: o povo se reúne para rezar, para votar e para esperar comida cair do céu. Nessa ordem, e sempre com um vereador olhando.",
+          "pre": 0.5,
+          "pos": 0.5
+        },
+        {
+          "id": "c01-3",
+          "quem": "NARRADOR",
+          "texto": "Na terceira terça-feira de cada mês, Migalhópolis se ajoelha para um vira-lata. É mais constrangedor que rezar para santo, mas dá mais resultado.",
+          "pre": 0.4,
+          "pos": 0.9
+        }
       ]
     },
     {
-      "id": "c02", "numero": 3, "rotulo": "CENA 2", "titulo": "A Cabeça do Caramelo",
-      "frame": "arte/frame-01-praca.jpg", "trilha": {"bed": "cotidiano", "gain": 0.95},
+      "id": "c02",
+      "numero": 3,
+      "rotulo": "CENA 2",
+      "titulo": "A Cabeça do Caramelo",
+      "frame": "arte/frame-01-praca.jpg",
+      "trilha": {
+        "bed": "cotidiano",
+        "gain": 0.95
+      },
       "falas": [
-        {"id": "c02-1", "quem": "CARAMELO", "texto": "Ah. Cinquenta e sete pessoas na fila. Duas grávidas, três de muleta e um vereador suando por antecipação. Eu não escolhi esse povo. Esse povo me escolheu. E é por isso que eu me sinto tão... generoso.", "pre": 0.8, "pos": 0.5},
-        {"id": "c02-2", "quem": "CARAMELO", "texto": "Eu podia acabar com tudo isso numa tarde, sabe? Mas aí quem é que ia me fazer cafuné no lombo? Carinho tem que vir de mão trêmula. Senão não desce.", "pre": 0.5, "pos": 0.5},
-        {"id": "c02-3", "quem": "CARAMELO", "texto": "Servir o povo é isso: você dá, você dá, você dá... e no fim do mês o povo te dá linguiça. É um ciclo. É bonito até.", "pre": 0.5, "pos": 1.0}
+        {
+          "id": "c02-1",
+          "quem": "CARAMELO",
+          "texto": "Ah. Cinquenta e sete pessoas na fila. Duas grávidas, três de muleta e um vereador suando por antecipação. Eu não escolhi esse povo. Esse povo me escolheu. E é por isso que eu me sinto tão... generoso.",
+          "pre": 0.8,
+          "pos": 0.5
+        },
+        {
+          "id": "c02-2",
+          "quem": "CARAMELO",
+          "texto": "Eu podia acabar com tudo isso numa tarde, sabe? Mas aí quem é que ia me fazer cafuné no lombo? Carinho tem que vir de mão trêmula. Senão não desce.",
+          "pre": 0.5,
+          "pos": 0.5
+        },
+        {
+          "id": "c02-3",
+          "quem": "CARAMELO",
+          "texto": "Servir o povo é isso: você dá, você dá, você dá... e no fim do mês o povo te dá linguiça. É um ciclo. É bonito até.",
+          "pre": 0.5,
+          "pos": 1.0
+        }
       ]
     },
     {
-      "id": "c03", "numero": 4, "rotulo": "CENA 3", "titulo": "As Vizinhas",
-      "frame": "arte/frame-02-marta.jpg", "trilha": {"bed": "cotidiano", "gain": 1.0},
+      "id": "c03",
+      "numero": 4,
+      "rotulo": "CENA 3",
+      "titulo": "As Vizinhas",
+      "frame": "arte/frame-02-marta.jpg",
+      "trilha": {
+        "bed": "cotidiano",
+        "gain": 1.0
+      },
       "falas": [
-        {"id": "c03-1", "quem": "MARTA", "texto": "Cida!! Cida, desce aqui que desceu o Caramelo!", "pre": 0.5, "pos": 0.4, "sfx_antes": ["celular"]},
-        {"id": "c03-2", "quem": "CIDA", "texto": "Ai, que fofo.", "pre": 0.3, "pos": 0.3},
-        {"id": "c03-3", "quem": "MARTA", "texto": "Fofo. Fofo é a palavra. Ele é fofo, ele é educado, ele compra fiado aqui no mercadinho. Cida, ele não tem emprego, mas ele paga.", "pre": 0.3, "pos": 0.4},
-        {"id": "c03-4", "quem": "CIDA", "texto": "Paga como?", "pre": 0.3, "pos": 0.3},
-        {"id": "c03-5", "quem": "MARTA", "texto": "Ninguém sabe. É esse o encanto, minha filha. É igual marido de noventa anos: se tá vivo, tá pagando.", "pre": 0.3, "pos": 0.5},
-        {"id": "c03-6", "quem": "CIDA", "texto": "A Dona Cleide reclamou dele.", "pre": 0.5, "pos": 0.4},
-        {"id": "c03-7", "quem": "MARTA", "texto": "A Dona Cleide não reclama mais.", "pre": 0.4, "pos": 0.5},
-        {"id": "c03-8", "quem": "CIDA", "texto": "A Dona Cleide sumiu.", "pre": 0.4, "pos": 0.6},
-        {"id": "c03-9", "quem": "MARTA", "texto": "É. E a linguiça dela tá no freezer da igreja. Como é que você acha que a paróquia comprou aquela cadeira de rodas?", "pre": 0.4, "pos": 0.5},
-        {"id": "c03-10", "quem": "CIDA", "texto": "...Tá gostosa, aliás.", "pre": 0.7, "pos": 0.4},
-        {"id": "c03-11", "quem": "MARTA", "texto": "Tá! Muito bem temperada. Ele tempera. Ele tempera as coisas, Cida.", "pre": 0.4, "pos": 0.9}
+        {
+          "id": "c03-1",
+          "quem": "MARTA",
+          "texto": "Cida!! Cida, desce aqui que desceu o Caramelo!",
+          "pre": 0.5,
+          "pos": 0.4,
+          "sfx_antes": [
+            "celular"
+          ]
+        },
+        {
+          "id": "c03-2",
+          "quem": "CIDA",
+          "texto": "Ai, que fofo.",
+          "pre": 0.3,
+          "pos": 0.3
+        },
+        {
+          "id": "c03-3",
+          "quem": "MARTA",
+          "texto": "Fofo. Fofo é a palavra. Ele é fofo, ele é educado, ele compra fiado aqui no mercadinho. Cida, ele não tem emprego, mas ele paga.",
+          "pre": 0.3,
+          "pos": 0.4
+        },
+        {
+          "id": "c03-4",
+          "quem": "CIDA",
+          "texto": "Paga como?",
+          "pre": 0.3,
+          "pos": 0.3
+        },
+        {
+          "id": "c03-5",
+          "quem": "MARTA",
+          "texto": "Ninguém sabe. É esse o encanto, minha filha. É igual marido de noventa anos: enquanto respira, ele paga a conta.",
+          "pre": 0.3,
+          "pos": 0.5
+        },
+        {
+          "id": "c03-6",
+          "quem": "CIDA",
+          "texto": "A Dona Cleide reclamou dele.",
+          "pre": 0.5,
+          "pos": 0.4
+        },
+        {
+          "id": "c03-7",
+          "quem": "MARTA",
+          "texto": "A Dona Cleide não reclama mais.",
+          "pre": 0.4,
+          "pos": 0.5
+        },
+        {
+          "id": "c03-8",
+          "quem": "CIDA",
+          "texto": "A Dona Cleide sumiu.",
+          "pre": 0.4,
+          "pos": 0.6
+        },
+        {
+          "id": "c03-9",
+          "quem": "MARTA",
+          "texto": "É. E a Dona Cleide doou uns embutidos pra igreja. Como é que você acha que a paróquia comprou aquela cadeira de rodas?",
+          "pre": 0.4,
+          "pos": 0.5
+        },
+        {
+          "id": "c03-10",
+          "quem": "CIDA",
+          "texto": "...Tá gostosa, aliás.",
+          "pre": 0.7,
+          "pos": 0.4
+        },
+        {
+          "id": "c03-11",
+          "quem": "MARTA",
+          "texto": "Tá ótima! O tempero é secreto. Ele tempera. Ele tempera as coisas, Cida.",
+          "pre": 0.4,
+          "pos": 0.9
+        }
       ]
     },
     {
-      "id": "c04", "numero": 5, "rotulo": "CENA 4", "titulo": "O Setor de Limpeza",
-      "frame": "arte/frame-03-capuzes.jpg", "trilha": {"bed": "bueiro", "gain": 1.3},
+      "id": "c04",
+      "numero": 5,
+      "rotulo": "CENA 4",
+      "titulo": "O Setor de Limpeza",
+      "frame": "arte/frame-03-capuzes.jpg",
+      "trilha": {
+        "bed": "bueiro",
+        "gain": 1.3
+      },
       "falas": [
-        {"id": "c04-1", "quem": "NARRADOR", "texto": "Doze metros abaixo, no buraco mais fundo de Migalhópolis, funciona o Setor de Limpeza. É o único setor que funciona.", "pre": 0.9, "pos": 0.5, "sfx_antes": ["agua"]},
-        {"id": "c04-2", "quem": "CORO", "texto": "Bom dia, patrão Caramelo!", "pre": 0.4, "pos": 0.4},
-        {"id": "c04-3", "quem": "CARAMELO", "texto": "Bom dia, meus meninos bonitos.", "pre": 0.3, "pos": 0.3},
-        {"id": "c04-4", "quem": "CORO", "texto": "O senhor é lindo, patrão!", "pre": 0.3, "pos": 0.4},
-        {"id": "c04-5", "quem": "CARAMELO", "texto": "Eu sei. Recapitulando. Quem aqui foi visto conversando com alguém de fora?", "pre": 0.5, "pos": 0.7},
-        {"id": "c04-6", "quem": "NARRADOR", "texto": "Silêncio. Mas não era um silêncio de medo. Era um silêncio de quem combinou o silêncio na semana passada.", "pre": 0.5, "pos": 0.5},
-        {"id": "c04-7", "quem": "CARAMELO", "texto": "Bom. É por isso que eu gosto de vocês. Ninguém fala. Ninguém aparece. Ninguém tinha previdência.", "pre": 0.4, "pos": 0.5},
-        {"id": "c04-8", "quem": "CARAMELO", "texto": "O Zeca não conta. O Zeca é o advogado.", "pre": 0.5, "pos": 0.4},
-        {"id": "c04-9", "quem": "ZECA", "texto": "É um prazer, é uma honra, é uma dívida que a família vai herdar.", "pre": 0.4, "pos": 0.4},
-        {"id": "c04-10", "quem": "CARAMELO", "texto": "Ó. Igualzinho advogado de verdade.", "pre": 0.3, "pos": 0.4},
-        {"id": "c04-11", "quem": "ZECA", "texto": "É só uma formalidade, Excelência. Assina aqui, e aqui, e aqui. A formalidade é o que separa a gente dos bichos.", "pre": 0.4, "pos": 0.5},
-        {"id": "c04-12", "quem": "CARAMELO", "texto": "...Você tem quatro patas, Zeca.", "pre": 0.6, "pos": 0.4},
-        {"id": "c04-13", "quem": "ZECA", "texto": "Eu tenho quatro patas e três mandatos, Excelência. Respeite a hierarquia.", "pre": 0.4, "pos": 0.8}
+        {
+          "id": "c04-1",
+          "quem": "NARRADOR",
+          "texto": "Doze metros abaixo, no buraco mais fundo de Migalhópolis, funciona o Setor de Limpeza. É o único setor que funciona.",
+          "pre": 0.9,
+          "pos": 0.5,
+          "sfx_antes": [
+            "agua"
+          ]
+        },
+        {
+          "id": "c04-2",
+          "quem": "CORO",
+          "texto": "Bom dia, patrão Caramelo!",
+          "pre": 0.4,
+          "pos": 0.4
+        },
+        {
+          "id": "c04-3",
+          "quem": "CARAMELO",
+          "texto": "Bom dia, meus meninos bonitos.",
+          "pre": 0.3,
+          "pos": 0.3
+        },
+        {
+          "id": "c04-4",
+          "quem": "CORO",
+          "texto": "O senhor é lindo, patrão!",
+          "pre": 0.3,
+          "pos": 0.4
+        },
+        {
+          "id": "c04-5",
+          "quem": "CARAMELO",
+          "texto": "Eu sei. Recapitulando. Quem aqui foi visto conversando com alguém de fora?",
+          "pre": 0.5,
+          "pos": 0.7
+        },
+        {
+          "id": "c04-6",
+          "quem": "NARRADOR",
+          "texto": "Silêncio. Mas não era um silêncio de medo. Era um silêncio de quem combinou o silêncio na semana passada.",
+          "pre": 0.5,
+          "pos": 0.5
+        },
+        {
+          "id": "c04-7",
+          "quem": "CARAMELO",
+          "texto": "Bom. É por isso que eu gosto de vocês. Ninguém fala. Ninguém aparece. Ninguém tinha previdência.",
+          "pre": 0.4,
+          "pos": 0.5
+        },
+        {
+          "id": "c04-8",
+          "quem": "CARAMELO",
+          "texto": "O Zeca não conta. O Zeca é o advogado.",
+          "pre": 0.5,
+          "pos": 0.4
+        },
+        {
+          "id": "c04-9",
+          "quem": "ZECA",
+          "texto": "É um prazer, é uma honra, é uma dívida que a família vai herdar.",
+          "pre": 0.4,
+          "pos": 0.4
+        },
+        {
+          "id": "c04-10",
+          "quem": "CARAMELO",
+          "texto": "Ó. Igualzinho advogado de verdade.",
+          "pre": 0.3,
+          "pos": 0.4
+        },
+        {
+          "id": "c04-11",
+          "quem": "ZECA",
+          "texto": "É só uma formalidade, Excelência. Assina aqui, e aqui, e aqui. A formalidade é o que separa a gente dos bichos.",
+          "pre": 0.4,
+          "pos": 0.5
+        },
+        {
+          "id": "c04-12",
+          "quem": "CARAMELO",
+          "texto": "...Você tem quatro patas, Zeca.",
+          "pre": 0.6,
+          "pos": 0.4
+        },
+        {
+          "id": "c04-13",
+          "quem": "ZECA",
+          "texto": "Eu tenho quatro patas e três mandatos, Excelência. Respeite a hierarquia.",
+          "pre": 0.4,
+          "pos": 0.8
+        }
       ]
     },
     {
-      "id": "c05", "numero": 6, "rotulo": "CENA 5", "titulo": "O Plano",
-      "frame": "arte/frame-03-capuzes.jpg", "trilha": {"bed": "bueiro", "gain": 1.15},
+      "id": "c05",
+      "numero": 6,
+      "rotulo": "CENA 5",
+      "titulo": "O Plano",
+      "frame": "arte/frame-03-capuzes.jpg",
+      "trilha": {
+        "bed": "bueiro",
+        "gain": 1.15
+      },
       "falas": [
-        {"id": "c05-1", "quem": "NARRADOR", "texto": "E aqui é onde a história fica... bonita.", "pre": 0.6, "pos": 0.5},
-        {"id": "c05-2", "quem": "CARAMELO", "texto": "Escuta essa. O Pardal é prefeito há dezoito anos. Ele roubou a merenda escolar, roubou a ambulância e roubou o caixão do velório.", "pre": 0.4, "pos": 0.5},
-        {"id": "c05-3", "quem": "ZECA", "texto": "Roubar caixão não é corrupção, Excelência. É logística.", "pre": 0.3, "pos": 0.4},
-        {"id": "c05-4", "quem": "CARAMELO", "texto": "E agora ele quer roubar o pote. Ele quer cobrar imposto da minha comida.", "pre": 0.4, "pos": 0.4},
-        {"id": "c05-5", "quem": "CORO", "texto": "Oooooooh!", "pre": 0.3, "pos": 0.4},
-        {"id": "c05-6", "quem": "CARAMELO", "texto": "Tá bom, tá bom. Chorar não enche pote. A gente vai fazer isso do jeito que os humanos entendem. A gente vai fazer uma eleição.", "pre": 0.4, "pos": 0.4},
-        {"id": "c05-7", "quem": "CORO", "texto": "Uuuuuu!", "pre": 0.3, "pos": 0.3},
-        {"id": "c05-8", "quem": "CARAMELO", "texto": "E depois a gente vai fazer uma apuração.", "pre": 0.3, "pos": 0.3},
-        {"id": "c05-9", "quem": "CORO", "texto": "Uuuuuuuu!", "pre": 0.3, "pos": 0.4},
-        {"id": "c05-10", "quem": "CARAMELO", "texto": "E depois a gente vai fazer uma recontagem. E outra. E outra. Até o placar obedecer.", "pre": 0.3, "pos": 0.9}
+        {
+          "id": "c05-1",
+          "quem": "NARRADOR",
+          "texto": "E aqui é onde a história fica... bonita.",
+          "pre": 0.6,
+          "pos": 0.5
+        },
+        {
+          "id": "c05-2",
+          "quem": "CARAMELO",
+          "texto": "Escuta essa. O Pardal é prefeito há dezoito anos. Ele roubou a merenda escolar, roubou a ambulância e roubou o caixão do velório.",
+          "pre": 0.4,
+          "pos": 0.5
+        },
+        {
+          "id": "c05-3",
+          "quem": "ZECA",
+          "texto": "Roubar caixão não é corrupção, Excelência. É logística.",
+          "pre": 0.3,
+          "pos": 0.4
+        },
+        {
+          "id": "c05-4",
+          "quem": "CARAMELO",
+          "texto": "E agora ele quer roubar o pote. Ele quer cobrar imposto da minha comida.",
+          "pre": 0.4,
+          "pos": 0.4
+        },
+        {
+          "id": "c05-5",
+          "quem": "CORO",
+          "texto": "Oooooooh!",
+          "pre": 0.3,
+          "pos": 0.4
+        },
+        {
+          "id": "c05-6",
+          "quem": "CARAMELO",
+          "texto": "Tá bom, tá bom. Chorar não enche pote. A gente vai fazer isso do jeito que os humanos entendem. A gente vai fazer uma eleição.",
+          "pre": 0.4,
+          "pos": 0.4
+        },
+        {
+          "id": "c05-7",
+          "quem": "CORO",
+          "texto": "Uuuuuu!",
+          "pre": 0.3,
+          "pos": 0.3
+        },
+        {
+          "id": "c05-8",
+          "quem": "CARAMELO",
+          "texto": "E depois a gente vai fazer uma apuração.",
+          "pre": 0.3,
+          "pos": 0.3
+        },
+        {
+          "id": "c05-9",
+          "quem": "CORO",
+          "texto": "Uuuuuuuu!",
+          "pre": 0.3,
+          "pos": 0.4
+        },
+        {
+          "id": "c05-10",
+          "quem": "CARAMELO",
+          "texto": "E depois a gente vai fazer uma recontagem. E outra. E outra. Até o placar obedecer.",
+          "pre": 0.3,
+          "pos": 0.9
+        }
       ]
     },
     {
-      "id": "c06", "numero": 7, "rotulo": "CENA 6", "titulo": "A Prefeitura",
-      "frame": "arte/frame-05-posse.jpg", "trilha": {"bed": "tensao", "gain": 1.05},
+      "id": "c06",
+      "numero": 7,
+      "rotulo": "CENA 6",
+      "titulo": "A Prefeitura",
+      "frame": "arte/frame-05-posse.jpg",
+      "trilha": {
+        "bed": "tensao",
+        "gain": 1.05
+      },
       "falas": [
-        {"id": "c06-1", "quem": "PARDAL", "texto": "Quem foi o desgraçado que autorizou isso? Agora pra fazer o meu churrasco vai ter que ter licitação?", "pre": 0.6, "pos": 0.4, "sfx_antes": ["ventilador"]},
-        {"id": "c06-2", "quem": "XAVIER", "texto": "Excelência, não foi licitação. Foi uma associação de moradores.", "pre": 0.3, "pos": 0.4},
-        {"id": "c06-3", "quem": "PARDAL", "texto": "Moradores do quê? Aqui só mora eu, a minha família e a minha dívida.", "pre": 0.3, "pos": 0.4},
-        {"id": "c06-4", "quem": "XAVIER", "texto": "É uma associação de moradores... caninos, Excelência.", "pre": 0.4, "pos": 0.5},
-        {"id": "c06-5", "quem": "PARDAL", "texto": "Xavier. Vem cá. Isso parece, pra você, um adversário político?", "pre": 0.5, "pos": 0.4},
-        {"id": "c06-6", "quem": "XAVIER", "texto": "Excelência, o senhor já perdeu pra um poste em 2016.", "pre": 0.3, "pos": 0.5},
-        {"id": "c06-7", "quem": "PARDAL", "texto": "O poste tinha legenda partidária. Mas esse cachorro aí tem pedigree?", "pre": 0.3, "pos": 0.4},
-        {"id": "c06-8", "quem": "XAVIER", "texto": "Tem a Marta vizinha.", "pre": 0.3, "pos": 0.4},
-        {"id": "c06-9", "quem": "PARDAL", "texto": "A Marta? Bom, então já era. Isso aí é quatro mil votos na hora.", "pre": 0.3, "pos": 0.4},
-        {"id": "c06-10", "quem": "XAVIER", "texto": "Excelência. A Marta tem quarenta e três grupos de WhatsApp. E ela é administradora de todos.", "pre": 0.4, "pos": 0.5},
-        {"id": "c06-11", "quem": "PARDAL", "texto": "...Xavier. Chama o Zeca.", "pre": 0.6, "pos": 0.4},
-        {"id": "c06-12", "quem": "XAVIER", "texto": "O Zeca não atende o senhor, Excelência. O Zeca atende o dono do Zeca.", "pre": 0.3, "pos": 0.5},
-        {"id": "c06-13", "quem": "PARDAL", "texto": "E quem é o dono do Zeca?", "pre": 0.4, "pos": 0.5},
-        {"id": "c06-14", "quem": "XAVIER", "texto": "...O pote.", "pre": 0.7, "pos": 0.9}
+        {
+          "id": "c06-1",
+          "quem": "PARDAL",
+          "texto": "Quem foi o desgraçado que autorizou isso? Agora pra fazer o meu churrasco vai ter que ter licitação?",
+          "pre": 0.6,
+          "pos": 0.4,
+          "sfx_antes": [
+            "ventilador"
+          ]
+        },
+        {
+          "id": "c06-2",
+          "quem": "XAVIER",
+          "texto": "Excelência, não foi licitação. Foi uma associação de moradores.",
+          "pre": 0.3,
+          "pos": 0.4
+        },
+        {
+          "id": "c06-3",
+          "quem": "PARDAL",
+          "texto": "Moradores do quê? Aqui só mora eu, a minha família e a minha dívida.",
+          "pre": 0.3,
+          "pos": 0.4
+        },
+        {
+          "id": "c06-4",
+          "quem": "XAVIER",
+          "texto": "É uma associação de moradores... caninos, Excelência.",
+          "pre": 0.4,
+          "pos": 0.5
+        },
+        {
+          "id": "c06-5",
+          "quem": "PARDAL",
+          "texto": "Xavier. Vem cá. Isso parece, pra você, um adversário político?",
+          "pre": 0.5,
+          "pos": 0.4
+        },
+        {
+          "id": "c06-6",
+          "quem": "XAVIER",
+          "texto": "Excelência, o senhor já perdeu pra um poste em 2016.",
+          "pre": 0.3,
+          "pos": 0.5
+        },
+        {
+          "id": "c06-7",
+          "quem": "PARDAL",
+          "texto": "O poste tinha legenda partidária. Mas esse cachorro aí tem pedigree?",
+          "pre": 0.3,
+          "pos": 0.4
+        },
+        {
+          "id": "c06-8",
+          "quem": "XAVIER",
+          "texto": "Tem a Marta vizinha.",
+          "pre": 0.3,
+          "pos": 0.4
+        },
+        {
+          "id": "c06-9",
+          "quem": "PARDAL",
+          "texto": "A Marta? Bom, então já era. Isso aí é quatro mil votos na hora.",
+          "pre": 0.3,
+          "pos": 0.4
+        },
+        {
+          "id": "c06-10",
+          "quem": "XAVIER",
+          "texto": "Excelência. A Marta tem quarenta e três grupos de WhatsApp. E ela é administradora de todos.",
+          "pre": 0.4,
+          "pos": 0.5
+        },
+        {
+          "id": "c06-11",
+          "quem": "PARDAL",
+          "texto": "...Xavier. Chama o Zeca.",
+          "pre": 0.6,
+          "pos": 0.4
+        },
+        {
+          "id": "c06-12",
+          "quem": "XAVIER",
+          "texto": "O Zeca não atende o senhor, Excelência. O Zeca atende o dono do Zeca.",
+          "pre": 0.3,
+          "pos": 0.5
+        },
+        {
+          "id": "c06-13",
+          "quem": "PARDAL",
+          "texto": "E quem é o dono do Zeca?",
+          "pre": 0.4,
+          "pos": 0.5
+        },
+        {
+          "id": "c06-14",
+          "quem": "XAVIER",
+          "texto": "...O pote.",
+          "pre": 0.7,
+          "pos": 0.9
+        }
       ]
     },
     {
-      "id": "c07", "numero": 8, "rotulo": "CENA 7", "titulo": "Capítulo Um: O Progresso",
-      "frame": "arte/frame-01-praca.jpg", "trilha": {"bed": "drama", "gain": 1.0},
+      "id": "c07",
+      "numero": 8,
+      "rotulo": "CENA 7",
+      "titulo": "Capítulo Um: O Progresso",
+      "frame": "arte/frame-01-praca.jpg",
+      "trilha": {
+        "bed": "drama",
+        "gain": 1.0
+      },
       "falas": [
-        {"id": "c07-1", "quem": "NARRADOR", "texto": "Capítulo um. O progresso.", "pre": 0.9, "pos": 0.7},
-        {"id": "c07-2", "quem": "NARRADOR", "texto": "Em 1997, Migalhópolis recebeu do Governo do Estado uma verba de duzentos mil reais, destinada à construção de um bueiro.", "pre": 0.5, "pos": 0.5},
-        {"id": "c07-3", "quem": "NARRADOR", "texto": "O bueiro nunca foi construído. Mas nunca é uma palavra muito forte nessa região.", "pre": 0.5, "pos": 0.5},
-        {"id": "c07-4", "quem": "NARRADOR", "texto": "O dinheiro foi aplicado. Em linguiça. A linguiça foi distribuída. Durante o churrasco que elegeu o Pardal.", "pre": 0.5, "pos": 0.6},
-        {"id": "c07-5", "quem": "NARRADOR", "texto": "E é por isso que, vinte e seis anos depois, ninguém nesta cidade consegue se lembrar quem foi que começou a alimentar o cachorro.", "pre": 0.5, "pos": 0.5},
-        {"id": "c07-6", "quem": "NARRADOR", "texto": "Curiosidade final: o bueiro existe. A verba é que não. E o cachorro, esse aí nunca precisou de verba nenhuma.", "pre": 0.5, "pos": 0.8}
+        {
+          "id": "c07-1",
+          "quem": "NARRADOR",
+          "texto": "Capítulo um. O progresso.",
+          "pre": 0.9,
+          "pos": 0.7
+        },
+        {
+          "id": "c07-2",
+          "quem": "NARRADOR",
+          "texto": "Em 1997, Migalhópolis recebeu do Governo do Estado uma verba de duzentos mil reais, destinada à construção de um bueiro.",
+          "pre": 0.5,
+          "pos": 0.5
+        },
+        {
+          "id": "c07-3",
+          "quem": "NARRADOR",
+          "texto": "O bueiro nunca foi construído. Mas nunca é uma palavra muito forte nessa região.",
+          "pre": 0.5,
+          "pos": 0.5
+        },
+        {
+          "id": "c07-4",
+          "quem": "NARRADOR",
+          "texto": "O dinheiro foi aplicado. Em linguiça. A linguiça foi distribuída. Durante o churrasco que elegeu o Pardal.",
+          "pre": 0.5,
+          "pos": 0.6
+        },
+        {
+          "id": "c07-5",
+          "quem": "NARRADOR",
+          "texto": "E é por isso que, vinte e seis anos depois, ninguém nesta cidade consegue se lembrar quem foi que começou a alimentar o cachorro.",
+          "pre": 0.5,
+          "pos": 0.5
+        },
+        {
+          "id": "c07-6",
+          "quem": "NARRADOR",
+          "texto": "Curiosidade final: o bueiro existe. A verba é que não. E o cachorro, esse aí nunca precisou de verba nenhuma.",
+          "pre": 0.5,
+          "pos": 0.8
+        }
       ]
     },
     {
-      "id": "c08", "numero": 9, "rotulo": "CENA 8", "titulo": "Horário Eleitoral Gratuito",
-      "frame": "arte/frame-02-marta.jpg", "trilha": {"bed": "jingle", "gain": 1.4},
+      "id": "c08",
+      "numero": 9,
+      "rotulo": "CENA 8",
+      "titulo": "Horário Eleitoral Gratuito",
+      "frame": "arte/frame-02-marta.jpg",
+      "trilha": {
+        "bed": "jingle",
+        "gain": 1.4
+      },
       "falas": [
-        {"id": "c08-1", "quem": "NARRADOR", "texto": "Este é o programa eleitoral gratuito da coligação Pote, Osso e Esperança. Imagens ilustrativas. Qualquer semelhança com pessoas vivas, desaparecidas ou congeladas é mera conveniência.", "pre": 0.8, "pos": 0.4},
-        {"id": "c08-2", "quem": "MARTA", "texto": "Ele é caramelo, ele é cidadão! Ele come da lata, mas ele tem razão!", "pre": 0.4, "pos": 0.3},
-        {"id": "c08-3", "quem": "CIDA", "texto": "A gente não tem nada, mas a gente tem o cão! Vinte e nove, vinte e nove!", "pre": 0.3, "pos": 0.4},
-        {"id": "c08-4", "quem": "MARTA", "texto": "Ai, Cida, pelo amor de Deus, você é desafinada, mulher.", "pre": 0.3, "pos": 0.3},
-        {"id": "c08-5", "quem": "CIDA", "texto": "Eu avisei que eu não era de cantar. Eu sou de aplaudir. Eu sou de comer.", "pre": 0.3, "pos": 0.3},
-        {"id": "c08-6", "quem": "MARTA", "texto": "Ó, então come quieta, que a gente tá gravando pro grupo da igreja. E o grupo da igreja tem cunhado. E cunhado é pior que juiz.", "pre": 0.3, "pos": 0.8}
+        {
+          "id": "c08-1",
+          "quem": "NARRADOR",
+          "texto": "Este é o programa eleitoral gratuito da coligação Pote, Osso e Esperança. Imagens ilustrativas. Qualquer semelhança com pessoas vivas, desaparecidas ou congeladas é mera conveniência.",
+          "pre": 0.8,
+          "pos": 0.4
+        },
+        {
+          "id": "c08-2",
+          "quem": "MARTA",
+          "texto": "Ele é caramelo, ele é cidadão! Ele come da lata, mas ele tem razão!",
+          "pre": 0.4,
+          "pos": 0.3
+        },
+        {
+          "id": "c08-3",
+          "quem": "CIDA",
+          "texto": "A gente não tem nada, mas a gente tem o cão! Vinte e nove, vinte e nove!",
+          "pre": 0.3,
+          "pos": 0.4
+        },
+        {
+          "id": "c08-4",
+          "quem": "MARTA",
+          "texto": "Ai, Cida, pelo amor de Deus, você é desafinada, mulher.",
+          "pre": 0.3,
+          "pos": 0.3
+        },
+        {
+          "id": "c08-5",
+          "quem": "CIDA",
+          "texto": "Eu avisei que eu não era de cantar. Eu sou de aplaudir. Eu sou de comer.",
+          "pre": 0.3,
+          "pos": 0.3
+        },
+        {
+          "id": "c08-6",
+          "quem": "MARTA",
+          "texto": "Ó, então come quieta, que a gente tá gravando pro grupo da igreja. E o grupo da igreja tem cunhado. E cunhado é pior que juiz.",
+          "pre": 0.3,
+          "pos": 0.8
+        }
       ]
     },
     {
-      "id": "c09", "numero": 10, "rotulo": "CENA 9", "titulo": "O Quarto do Fabinho",
-      "frame": "arte/frame-04-fabinho.jpg", "trilha": {"bed": "fabinho", "gain": 1.0},
+      "id": "c09",
+      "numero": 10,
+      "rotulo": "CENA 9",
+      "titulo": "O Quarto do Fabinho",
+      "frame": "arte/frame-04-fabinho.jpg",
+      "trilha": {
+        "bed": "fabinho",
+        "gain": 1.0
+      },
       "falas": [
-        {"id": "c09-1", "quem": "FABINHO", "texto": "Caramelo? Caramelo, eu sei que você tá aí embaixo. A minha mãe falou que eu não podia mais conversar com você.", "pre": 0.9, "pos": 0.5, "sfx_antes": ["grilos"]},
-        {"id": "c09-2", "quem": "CARAMELO", "texto": "Deixa a luz acesa, Fabinho. Eu tenho medo do escuro.", "pre": 0.5, "pos": 0.4},
-        {"id": "c09-3", "quem": "FABINHO", "texto": "Mentira! Os tios de boné vermelho falaram que você não tem medo de nada.", "pre": 0.3, "pos": 0.4},
-        {"id": "c09-4", "quem": "CARAMELO", "texto": "Eu tenho medo de uma coisa só. Você quer saber qual?", "pre": 0.4, "pos": 0.4},
-        {"id": "c09-5", "quem": "FABINHO", "texto": "Qual?", "pre": 0.3, "pos": 0.4},
-        {"id": "c09-6", "quem": "CARAMELO", "texto": "De ser esquecido.", "pre": 0.5, "pos": 0.7},
-        {"id": "c09-7", "quem": "FABINHO", "texto": "E a Dona Cleide te esqueceu?", "pre": 0.5, "pos": 0.4},
-        {"id": "c09-8", "quem": "CARAMELO", "texto": "A Dona Cleide tentou me tirar da memória. E olha, memória é um buraco, Fabinho. Quem cai, some. Quem cava, manda.", "pre": 0.4, "pos": 0.5},
-        {"id": "c09-9", "quem": "FABINHO", "texto": "Eu não vou te esquecer nunca, Caramelo. Eu vou ser sua amiga pra sempre. Eu prometo por Deus.", "pre": 0.5, "pos": 0.5},
-        {"id": "c09-10", "quem": "CARAMELO", "texto": "Eu sei, meu bem.", "pre": 0.5, "pos": 0.6},
-        {"id": "c09-11", "quem": "CARAMELO", "texto": "...É exatamente por isso que eu nunca te levo lá embaixo. Você é o meu ativo.", "pre": 0.4, "pos": 0.9}
+        {
+          "id": "c09-1",
+          "quem": "FABINHO",
+          "texto": "Caramelo? Caramelo, eu sei que você tá aí embaixo. A minha mãe falou que eu não podia mais conversar com você.",
+          "pre": 0.9,
+          "pos": 0.5,
+          "sfx_antes": [
+            "grilos"
+          ]
+        },
+        {
+          "id": "c09-2",
+          "quem": "CARAMELO",
+          "texto": "Deixa a luz acesa, Fabinho. Eu tenho medo do escuro.",
+          "pre": 0.5,
+          "pos": 0.4
+        },
+        {
+          "id": "c09-3",
+          "quem": "FABINHO",
+          "texto": "Mentira! Os tios de boné vermelho falaram que você não tem medo de nada.",
+          "pre": 0.3,
+          "pos": 0.4
+        },
+        {
+          "id": "c09-4",
+          "quem": "CARAMELO",
+          "texto": "Eu tenho medo de uma coisa só. Você quer saber qual?",
+          "pre": 0.4,
+          "pos": 0.4
+        },
+        {
+          "id": "c09-5",
+          "quem": "FABINHO",
+          "texto": "Qual?",
+          "pre": 0.3,
+          "pos": 0.4
+        },
+        {
+          "id": "c09-6",
+          "quem": "CARAMELO",
+          "texto": "De ser esquecido.",
+          "pre": 0.5,
+          "pos": 0.7
+        },
+        {
+          "id": "c09-7",
+          "quem": "FABINHO",
+          "texto": "E a Dona Cleide te esqueceu?",
+          "pre": 0.5,
+          "pos": 0.4
+        },
+        {
+          "id": "c09-8",
+          "quem": "CARAMELO",
+          "texto": "A Dona Cleide tentou me tirar da memória. E olha, memória é um buraco, Fabinho. Quem cai, some. Quem cava, manda.",
+          "pre": 0.4,
+          "pos": 0.5
+        },
+        {
+          "id": "c09-9",
+          "quem": "FABINHO",
+          "texto": "Eu não vou te esquecer nunca, Caramelo. Eu vou ser sua amiga pra sempre. Eu prometo por Deus.",
+          "pre": 0.5,
+          "pos": 0.5
+        },
+        {
+          "id": "c09-10",
+          "quem": "CARAMELO",
+          "texto": "Eu sei, meu bem.",
+          "pre": 0.5,
+          "pos": 0.6
+        },
+        {
+          "id": "c09-11",
+          "quem": "CARAMELO",
+          "texto": "...É exatamente por isso que eu nunca te levo lá embaixo. Você é o meu ativo.",
+          "pre": 0.4,
+          "pos": 0.9
+        }
       ]
     },
     {
-      "id": "c10", "numero": 11, "rotulo": "CENA 10", "titulo": "O Comício",
-      "frame": "arte/frame-05-posse.jpg", "trilha": {"bed": "comicio", "gain": 1.35},
+      "id": "c10",
+      "numero": 11,
+      "rotulo": "CENA 10",
+      "titulo": "O Comício",
+      "frame": "arte/frame-05-posse.jpg",
+      "trilha": {
+        "bed": "comicio",
+        "gain": 1.35
+      },
       "falas": [
-        {"id": "c10-1", "quem": "XAVIER", "texto": "Vinte e nove! Vinte e nove! É o Pardal! É o trabalho! É a continuidade! É o mesmo, mas com menos vergonha!", "pre": 0.6, "pos": 0.5, "sfx_antes": ["crowd"]},
-        {"id": "c10-2", "quem": "PARDAL", "texto": "Meu povo! Eu peço desculpas. Eu peço desculpas publicamente por não ter roubado o suficiente.", "pre": 0.5, "pos": 0.5},
-        {"id": "c10-3", "quem": "PARDAL", "texto": "Porque se eu tivesse roubado mais, esse bonde já tinha trilho, minha gente!", "pre": 0.4, "pos": 0.5},
-        {"id": "c10-4", "quem": "PARDAL", "texto": "Eu prometo uma creche! Uma creche para cada criança que não foi pra creche!", "pre": 0.4, "pos": 0.4},
-        {"id": "c10-5", "quem": "PARDAL", "texto": "E água encanada! Não necessariamente dentro da casa, mas encanada!", "pre": 0.4, "pos": 0.5},
-        {"id": "c10-6", "quem": "PARDAL", "texto": "Vocês preferem continuar na minha mão, que já é conhecida, ou vão entregar o destino de vocês pra um bicho que come da lata?", "pre": 0.4, "pos": 0.5},
-        {"id": "c10-7", "quem": "MARTA", "texto": "Ele ajuda os pobres! Ele come da mão do pobre!", "pre": 0.4, "pos": 0.4},
-        {"id": "c10-8", "quem": "CIDA", "texto": "Ele já comeu a mão do pobre, Marta! Olha o que você tá dizendo, mulher!", "pre": 0.4, "pos": 0.8}
+        {
+          "id": "c10-1",
+          "quem": "XAVIER",
+          "texto": "Vinte e nove! Vinte e nove! É o Pardal! É o trabalho! É a continuidade! É o mesmo, mas com menos vergonha!",
+          "pre": 0.6,
+          "pos": 0.5,
+          "sfx_antes": [
+            "crowd"
+          ]
+        },
+        {
+          "id": "c10-2",
+          "quem": "PARDAL",
+          "texto": "Meu povo! Eu peço desculpas. Eu peço desculpas publicamente por não ter roubado o suficiente.",
+          "pre": 0.5,
+          "pos": 0.5
+        },
+        {
+          "id": "c10-3",
+          "quem": "PARDAL",
+          "texto": "Porque se eu tivesse roubado mais, esse bonde já tinha trilho, minha gente!",
+          "pre": 0.4,
+          "pos": 0.5
+        },
+        {
+          "id": "c10-4",
+          "quem": "PARDAL",
+          "texto": "Eu prometo uma creche! Uma creche para cada criança que não foi pra creche!",
+          "pre": 0.4,
+          "pos": 0.4
+        },
+        {
+          "id": "c10-5",
+          "quem": "PARDAL",
+          "texto": "E água encanada! Não necessariamente dentro da casa, mas encanada!",
+          "pre": 0.4,
+          "pos": 0.5
+        },
+        {
+          "id": "c10-6",
+          "quem": "PARDAL",
+          "texto": "Vocês preferem continuar na minha mão, que já é conhecida, ou vão entregar o destino de vocês pra um bicho que come da lata?",
+          "pre": 0.4,
+          "pos": 0.5
+        },
+        {
+          "id": "c10-7",
+          "quem": "MARTA",
+          "texto": "Ele ajuda os pobres! Ele come da mão do pobre!",
+          "pre": 0.4,
+          "pos": 0.4
+        },
+        {
+          "id": "c10-8",
+          "quem": "CIDA",
+          "texto": "Ele já comeu a mão do pobre, Marta! Olha o que você tá dizendo, mulher!",
+          "pre": 0.4,
+          "pos": 0.8
+        }
       ]
     },
     {
-      "id": "c11", "numero": 12, "rotulo": "CENA 11", "titulo": "O Debate",
-      "frame": "arte/frame-05-posse.jpg", "trilha": {"bed": "tensao", "gain": 1.0},
+      "id": "c11",
+      "numero": 12,
+      "rotulo": "CENA 11",
+      "titulo": "O Debate",
+      "frame": "arte/frame-05-posse.jpg",
+      "trilha": {
+        "bed": "tensao",
+        "gain": 1.0
+      },
       "falas": [
-        {"id": "c11-1", "quem": "REPORTER", "texto": "Boa noite. Estamos ao vivo, direto da praça central. Senhor candidato, a pergunta que o povo quer saber: o senhor vai acabar com a fome em Migalhópolis?", "pre": 0.8, "pos": 0.5},
-        {"id": "c11-2", "quem": "CARAMELO", "texto": "Não. Eu vou organizar a fome.", "pre": 0.6, "pos": 0.5},
-        {"id": "c11-3", "quem": "REPORTER", "texto": "Como assim, senhor?", "pre": 0.4, "pos": 0.4},
-        {"id": "c11-4", "quem": "CARAMELO", "texto": "Todo mundo vai comer. Uma vez por semana. Só que a fila vai ser em ordem alfabética, e quem sorrir passa na frente.", "pre": 0.4, "pos": 0.5},
-        {"id": "c11-5", "quem": "REPORTER", "texto": "...Muito bem. E para a juventude, senhor? O senhor tem alguma proposta para a juventude?", "pre": 0.5, "pos": 0.4},
-        {"id": "c11-6", "quem": "CARAMELO", "texto": "Tenho. Sumir. Para não dar trabalho. Juventude é um problema de fluxo.", "pre": 0.4, "pos": 0.5},
-        {"id": "c11-7", "quem": "REPORTER", "texto": "E o senhor vai nomear secretários? Como fica a máquina pública?", "pre": 0.5, "pos": 0.4},
-        {"id": "c11-8", "quem": "CARAMELO", "texto": "Já nomeei. O Zeca é secretário de Fazenda, de Obras, de Educação, de Saúde e de Assuntos Internos.", "pre": 0.4, "pos": 0.4},
-        {"id": "c11-9", "quem": "REPORTER", "texto": "E de Assuntos Externos?", "pre": 0.4, "pos": 0.4},
-        {"id": "c11-10", "quem": "CARAMELO", "texto": "O Zeca não faz externo. O Zeca tem mais é que resolver as nossas questões internas.", "pre": 0.4, "pos": 0.4},
-        {"id": "c11-11", "quem": "ZECA", "texto": "É sigilo. Sigilo profissional, sigilo de cliente e sigilo literalmente. Eu não conto nada pra ninguém. Nem pra mim mesmo.", "pre": 0.4, "pos": 0.5},
-        {"id": "c11-12", "quem": "PARDAL", "texto": "Isso é resposta de gente que tem culpa!", "pre": 0.5, "pos": 0.3},
-        {"id": "c11-13", "quem": "CARAMELO", "texto": "E o senhor tem culpa?", "pre": 0.4, "pos": 0.3},
-        {"id": "c11-14", "quem": "PARDAL", "texto": "Eu tenho mandato!", "pre": 0.3, "pos": 0.4},
-        {"id": "c11-15", "quem": "CARAMELO", "texto": "É a mesma coisa. Só que com foto.", "pre": 0.4, "pos": 0.9}
+        {
+          "id": "c11-1",
+          "quem": "REPORTER",
+          "texto": "Boa noite. Estamos ao vivo, direto da praça central. Senhor candidato, a pergunta que o povo quer saber: o senhor vai acabar com a fome em Migalhópolis?",
+          "pre": 0.8,
+          "pos": 0.5
+        },
+        {
+          "id": "c11-2",
+          "quem": "CARAMELO",
+          "texto": "Não. Eu vou organizar a fome.",
+          "pre": 0.6,
+          "pos": 0.5
+        },
+        {
+          "id": "c11-3",
+          "quem": "REPORTER",
+          "texto": "Como assim, senhor?",
+          "pre": 0.4,
+          "pos": 0.4
+        },
+        {
+          "id": "c11-4",
+          "quem": "CARAMELO",
+          "texto": "Todo mundo vai comer. Uma vez por semana. Só que a fila vai ser em ordem alfabética, e quem sorrir passa na frente.",
+          "pre": 0.4,
+          "pos": 0.5
+        },
+        {
+          "id": "c11-5",
+          "quem": "REPORTER",
+          "texto": "...Muito bem. E para a juventude, senhor? O senhor tem alguma proposta para a juventude?",
+          "pre": 0.5,
+          "pos": 0.4
+        },
+        {
+          "id": "c11-6",
+          "quem": "CARAMELO",
+          "texto": "Tenho. Sumir. Para não dar trabalho. Juventude é um problema de fluxo.",
+          "pre": 0.4,
+          "pos": 0.5
+        },
+        {
+          "id": "c11-7",
+          "quem": "REPORTER",
+          "texto": "E o senhor vai nomear secretários? Como fica a máquina pública?",
+          "pre": 0.5,
+          "pos": 0.4
+        },
+        {
+          "id": "c11-8",
+          "quem": "CARAMELO",
+          "texto": "Já nomeei. O Zeca é secretário de Fazenda, de Obras, de Educação, de Saúde e de Assuntos Internos.",
+          "pre": 0.4,
+          "pos": 0.4
+        },
+        {
+          "id": "c11-9",
+          "quem": "REPORTER",
+          "texto": "E de Assuntos Externos?",
+          "pre": 0.4,
+          "pos": 0.4
+        },
+        {
+          "id": "c11-10",
+          "quem": "CARAMELO",
+          "texto": "O Zeca não faz externo. O Zeca tem mais é que resolver as nossas questões internas.",
+          "pre": 0.4,
+          "pos": 0.4
+        },
+        {
+          "id": "c11-11",
+          "quem": "ZECA",
+          "texto": "É sigilo. Sigilo profissional, sigilo de cliente e sigilo literalmente. Eu não conto nada pra ninguém. Nem pra mim mesmo.",
+          "pre": 0.4,
+          "pos": 0.5
+        },
+        {
+          "id": "c11-12",
+          "quem": "PARDAL",
+          "texto": "Isso é resposta de gente que tem culpa!",
+          "pre": 0.5,
+          "pos": 0.3
+        },
+        {
+          "id": "c11-13",
+          "quem": "CARAMELO",
+          "texto": "E o senhor tem culpa?",
+          "pre": 0.4,
+          "pos": 0.3
+        },
+        {
+          "id": "c11-14",
+          "quem": "PARDAL",
+          "texto": "Eu tenho mandato!",
+          "pre": 0.3,
+          "pos": 0.4
+        },
+        {
+          "id": "c11-15",
+          "quem": "CARAMELO",
+          "texto": "É a mesma coisa. Só que com foto.",
+          "pre": 0.4,
+          "pos": 0.9
+        }
       ]
     },
     {
-      "id": "c12", "numero": 13, "rotulo": "CENA 12", "titulo": "A Apuração",
-      "frame": "arte/frame-01-praca.jpg", "trilha": {"bed": "suspense", "gain": 1.0},
+      "id": "c12",
+      "numero": 13,
+      "rotulo": "CENA 12",
+      "titulo": "A Apuração",
+      "frame": "arte/frame-01-praca.jpg",
+      "trilha": {
+        "bed": "suspense",
+        "gain": 1.0
+      },
       "falas": [
-        {"id": "c12-1", "quem": "NARRADOR", "texto": "O primeiro turno terminou empatado, porque os dois candidatos apresentaram exatamente o mesmo boleto.", "pre": 0.8, "pos": 0.5},
-        {"id": "c12-2", "quem": "NARRADOR", "texto": "O segundo turno foi anulado porque a urna de uma das seções foi comida.", "pre": 0.5, "pos": 0.5},
-        {"id": "c12-3", "quem": "NARRADOR", "texto": "E o terceiro turno não existia na lei. O que, por si só, já resolvia o problema.", "pre": 0.5, "pos": 0.5},
-        {"id": "c12-4", "quem": "NARRADOR", "texto": "No dia da posse, quarenta e três mil pessoas apareceram na praça central. Migalhópolis tem onze mil habitantes.", "pre": 0.5, "pos": 0.5},
-        {"id": "c12-5", "quem": "NARRADOR", "texto": "Ninguém pergunta. Aqui, ninguém nunca pergunta.", "pre": 0.5, "pos": 0.8}
+        {
+          "id": "c12-1",
+          "quem": "NARRADOR",
+          "texto": "O primeiro turno terminou empatado, porque os dois candidatos apresentaram exatamente o mesmo boleto.",
+          "pre": 0.8,
+          "pos": 0.5
+        },
+        {
+          "id": "c12-2",
+          "quem": "NARRADOR",
+          "texto": "O segundo turno foi anulado porque a urna de uma das seções foi comida.",
+          "pre": 0.5,
+          "pos": 0.5
+        },
+        {
+          "id": "c12-3",
+          "quem": "NARRADOR",
+          "texto": "E o terceiro turno não existia na lei. O que, por si só, já resolvia o problema.",
+          "pre": 0.5,
+          "pos": 0.5
+        },
+        {
+          "id": "c12-4",
+          "quem": "NARRADOR",
+          "texto": "No dia da posse, quarenta e três mil pessoas apareceram na praça central. Migalhópolis tem onze mil habitantes.",
+          "pre": 0.5,
+          "pos": 0.5
+        },
+        {
+          "id": "c12-5",
+          "quem": "NARRADOR",
+          "texto": "Ninguém pergunta. Aqui, ninguém nunca pergunta.",
+          "pre": 0.5,
+          "pos": 0.8
+        }
       ]
     },
     {
-      "id": "c13", "numero": 14, "rotulo": "CENA 13", "titulo": "A Posse",
-      "frame": "arte/frame-05-posse.jpg", "trilha": {"bed": "forro", "gain": 1.4},
+      "id": "c13",
+      "numero": 14,
+      "rotulo": "CENA 13",
+      "titulo": "A Posse",
+      "frame": "arte/frame-05-posse.jpg",
+      "trilha": {
+        "bed": "forro",
+        "gain": 1.4
+      },
       "falas": [
-        {"id": "c13-1", "quem": "REPORTER", "texto": "É uma cena inédita na história do Brasil. Um cachorro, candidato pela coligação Migalhas Para Todos, acaba de tomar posse como prefeito de Migalhópolis.", "pre": 0.9, "pos": 0.5, "sfx_antes": ["fogos", "flash"]},
-        {"id": "c13-2", "quem": "REPORTER", "texto": "O prefeito anterior, Xerxes Pardal, segue agora na Vice-Prefeitura. E a Vice-Prefeitura, segundo o novo prefeito, fica no bueiro.", "pre": 0.4, "pos": 0.5},
-        {"id": "c13-3", "quem": "PARDAL", "texto": "Eu limpo! Eu limpo todo dia! Me dá um crachá! Pelo amor de Deus, me dá um crachá!", "pre": 0.4, "pos": 0.5},
-        {"id": "c13-4", "quem": "CARAMELO", "texto": "Crachá não. Crachá estraga. Vai limpar, Pardal. Limpar é uma forma de pagar.", "pre": 0.5, "pos": 0.5},
-        {"id": "c13-5", "quem": "CARAMELO", "texto": "Meu povo. Migalhópolis vai mudar.", "pre": 0.6, "pos": 0.6},
-        {"id": "c13-6", "quem": "CARAMELO", "texto": "A partir de hoje, ninguém mais vai precisar fingir que acredita em mim. Vocês vão acreditar de verdade. Com contrato assinado.", "pre": 0.4, "pos": 0.5},
-        {"id": "c13-7", "quem": "CARAMELO", "texto": "Eu não vou roubar. Eu não vou mentir. Eu não vou prometer.", "pre": 0.5, "pos": 0.6},
-        {"id": "c13-8", "quem": "CARAMELO", "texto": "Eu vou cumprir.", "pre": 0.5, "pos": 0.6},
-        {"id": "c13-9", "quem": "NARRADOR", "texto": "Naquele momento, a praça inteira ficou em silêncio. O silêncio de quem acabou de assinar um documento sem ler.", "pre": 0.6, "pos": 0.5},
-        {"id": "c13-10", "quem": "CARAMELO", "texto": "...Bem. Já são sete da noite. E todo mundo aqui sabe o que acontece às sete da noite.", "pre": 0.6, "pos": 0.9}
+        {
+          "id": "c13-1",
+          "quem": "REPORTER",
+          "texto": "É uma cena inédita na história do Brasil. Um cachorro, candidato pela coligação Migalhas Para Todos, acaba de tomar posse como prefeito de Migalhópolis.",
+          "pre": 0.9,
+          "pos": 0.5,
+          "sfx_antes": [
+            "fogos",
+            "flash"
+          ]
+        },
+        {
+          "id": "c13-2",
+          "quem": "REPORTER",
+          "texto": "O prefeito anterior, Xerxes Pardal, segue agora na Vice-Prefeitura. E a Vice-Prefeitura, segundo o novo prefeito, fica no bueiro.",
+          "pre": 0.4,
+          "pos": 0.5
+        },
+        {
+          "id": "c13-3",
+          "quem": "PARDAL",
+          "texto": "Eu limpo! Eu limpo todo dia! Me dá um crachá! Pelo amor de Deus, me dá um crachá!",
+          "pre": 0.4,
+          "pos": 0.5
+        },
+        {
+          "id": "c13-4",
+          "quem": "CARAMELO",
+          "texto": "Crachá não. Crachá estraga. Vai limpar, Pardal. Limpar é uma forma de pagar.",
+          "pre": 0.5,
+          "pos": 0.5
+        },
+        {
+          "id": "c13-5",
+          "quem": "CARAMELO",
+          "texto": "Meu povo. Migalhópolis vai mudar.",
+          "pre": 0.6,
+          "pos": 0.6
+        },
+        {
+          "id": "c13-6",
+          "quem": "CARAMELO",
+          "texto": "A partir de hoje, ninguém mais vai precisar fingir que acredita em mim. Vocês vão acreditar de verdade. Com contrato assinado.",
+          "pre": 0.4,
+          "pos": 0.5
+        },
+        {
+          "id": "c13-7",
+          "quem": "CARAMELO",
+          "texto": "Eu não vou roubar. Eu não vou mentir. Eu não vou prometer.",
+          "pre": 0.5,
+          "pos": 0.6
+        },
+        {
+          "id": "c13-8",
+          "quem": "CARAMELO",
+          "texto": "Eu vou cumprir.",
+          "pre": 0.5,
+          "pos": 0.6
+        },
+        {
+          "id": "c13-9",
+          "quem": "NARRADOR",
+          "texto": "Naquele momento, a praça inteira ficou em silêncio. O silêncio de quem acabou de assinar um documento sem ler.",
+          "pre": 0.6,
+          "pos": 0.5
+        },
+        {
+          "id": "c13-10",
+          "quem": "CARAMELO",
+          "texto": "...Bem. Já são sete da noite. E todo mundo aqui sabe o que acontece às sete da noite.",
+          "pre": 0.6,
+          "pos": 0.9
+        }
       ]
     },
     {
-      "id": "c14", "numero": 15, "rotulo": "CENA 14", "titulo": "O Primeiro Churrasco da Gestão",
-      "frame": "arte/frame-01-praca.jpg", "trilha": {"bed": "cotidiano", "gain": 1.05},
+      "id": "c14",
+      "numero": 15,
+      "rotulo": "CENA 14",
+      "titulo": "O Primeiro Churrasco da Gestão",
+      "frame": "arte/frame-01-praca.jpg",
+      "trilha": {
+        "bed": "cotidiano",
+        "gain": 1.05
+      },
       "falas": [
-        {"id": "c14-1", "quem": "REPORTER", "texto": "Senhor Prefeito! Senhor Prefeito, por favor! Qual é o sabor? Como é que está a carne do primeiro churrasco da gestão?", "pre": 0.7, "pos": 0.5, "sfx_antes": ["churrasqueira"]},
-        {"id": "c14-2", "quem": "CARAMELO", "texto": "Está boa.", "pre": 0.5, "pos": 0.4},
-        {"id": "c14-3", "quem": "REPORTER", "texto": "Está boa? O senhor pode nos dizer o que é?", "pre": 0.4, "pos": 0.4},
-        {"id": "c14-4", "quem": "CARAMELO", "texto": "É linguiça.", "pre": 0.4, "pos": 0.4},
-        {"id": "c14-5", "quem": "REPORTER", "texto": "De quê?", "pre": 0.4, "pos": 0.5},
-        {"id": "c14-6", "quem": "CARAMELO", "texto": "Artesanal.", "pre": 0.6, "pos": 0.5},
-        {"id": "c14-7", "quem": "NARRADOR", "texto": "A repórter não fez mais nenhuma pergunta. Foi a última entrevista que ela concedeu na vida. E também a última que ela pediu para conceder.", "pre": 0.6, "pos": 0.6},
-        {"id": "c14-8", "quem": "CARAMELO", "texto": "Ó. Migalhópolis cumpriu a promessa. Comeu todo mundo. E o que sobrou, a gente congela. Congelar é uma forma de guardar carinho.", "pre": 0.5, "pos": 0.8}
+        {
+          "id": "c14-1",
+          "quem": "REPORTER",
+          "texto": "Senhor Prefeito! Senhor Prefeito, por favor! Qual é o sabor? Como é que está a carne do primeiro churrasco da gestão?",
+          "pre": 0.7,
+          "pos": 0.5,
+          "sfx_antes": [
+            "churrasqueira"
+          ]
+        },
+        {
+          "id": "c14-2",
+          "quem": "CARAMELO",
+          "texto": "Está boa.",
+          "pre": 0.5,
+          "pos": 0.4
+        },
+        {
+          "id": "c14-3",
+          "quem": "REPORTER",
+          "texto": "Está boa? O senhor pode nos dizer o que é?",
+          "pre": 0.4,
+          "pos": 0.4
+        },
+        {
+          "id": "c14-4",
+          "quem": "CARAMELO",
+          "texto": "É linguiça.",
+          "pre": 0.4,
+          "pos": 0.4
+        },
+        {
+          "id": "c14-5",
+          "quem": "REPORTER",
+          "texto": "De quê?",
+          "pre": 0.4,
+          "pos": 0.5
+        },
+        {
+          "id": "c14-6",
+          "quem": "CARAMELO",
+          "texto": "Artesanal.",
+          "pre": 0.6,
+          "pos": 0.5
+        },
+        {
+          "id": "c14-7",
+          "quem": "NARRADOR",
+          "texto": "A repórter não fez mais nenhuma pergunta. Foi a última entrevista que ela concedeu na vida. E também a última que ela pediu para conceder.",
+          "pre": 0.6,
+          "pos": 0.6
+        },
+        {
+          "id": "c14-8",
+          "quem": "CARAMELO",
+          "texto": "Ó. Migalhópolis cumpriu a promessa. Comeu todo mundo. E o que sobrou, a gente congela. Congelar é uma forma de guardar carinho.",
+          "pre": 0.5,
+          "pos": 0.8
+        }
       ]
     },
     {
-      "id": "c15", "numero": 16, "rotulo": "FINAL", "titulo": "Boa Noite, Migalhópolis",
-      "frame": "arte/frame-06-final.jpg", "trilha": {"bed": "final", "gain": 1.25},
+      "id": "c15",
+      "numero": 16,
+      "rotulo": "FINAL",
+      "titulo": "Boa Noite, Migalhópolis",
+      "frame": "arte/frame-06-final.jpg",
+      "trilha": {
+        "bed": "final",
+        "gain": 1.25
+      },
       "falas": [
-        {"id": "c15-1", "quem": "NARRADOR", "texto": "No fim, todo mundo ficou feliz. Uns na praça, com casquinha crocante. Outros no bueiro, com crachá, com macacão e com plano de carreira.", "pre": 0.9, "pos": 0.5},
-        {"id": "c15-2", "quem": "NARRADOR", "texto": "E o Caramelo continuou ali, no topo da colina, no trono de linguiça dele. Com o coque apertado, o boleto pago e o melhor amigo que dinheiro nenhum nunca comprou.", "pre": 0.5, "pos": 0.6},
-        {"id": "c15-3", "quem": "NARRADOR", "texto": "Migalhópolis. A cidade mais limpa do Brasil. Até que a gente consiga esquecer.", "pre": 0.5, "pos": 0.8, "sfx_antes": ["vento"]},
-        {"id": "c15-4", "quem": "CARAMELO", "texto": "...Ah. E obrigado por assistir sozinho. É do jeito que eu prefiro.", "pre": 0.9, "pos": 1.2}
+        {
+          "id": "c15-1",
+          "quem": "NARRADOR",
+          "texto": "No fim, todo mundo ficou feliz. Uns na praça, com casquinha crocante. Outros no bueiro, com crachá, com macacão e com plano de carreira.",
+          "pre": 0.9,
+          "pos": 0.5
+        },
+        {
+          "id": "c15-2",
+          "quem": "NARRADOR",
+          "texto": "E o Caramelo continuou ali, no topo da colina, no trono de linguiça dele. Com o coque apertado, o boleto pago e o melhor amigo que dinheiro nenhum nunca comprou.",
+          "pre": 0.5,
+          "pos": 0.6
+        },
+        {
+          "id": "c15-3",
+          "quem": "NARRADOR",
+          "texto": "Migalhópolis. A cidade mais limpa do Brasil. Até que a gente consiga esquecer.",
+          "pre": 0.5,
+          "pos": 0.8,
+          "sfx_antes": [
+            "vento"
+          ]
+        },
+        {
+          "id": "c15-4",
+          "quem": "CARAMELO",
+          "texto": "...Ah. E obrigado por assistir sozinho. É do jeito que eu prefiro.",
+          "pre": 0.9,
+          "pos": 1.2
+        }
       ]
     }
   ]

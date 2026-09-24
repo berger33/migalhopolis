@@ -36,13 +36,12 @@ def zoompan(i, d, dur):
         x, y = "iw/2-(iw/zoom/2)", f"(ih-ih/zoom)*(1-on/{d})"
     return f"zoompan=z='{z}':x='{x}':y='{y}':d={d}:s={W}x{H}:fps={FPS}"
 
-def renderiza_segmento(caminho_img, ini, fim, saida, escurece=False, idx=0):
+def renderiza_segmento(caminho_img, ini, fim, saida, escurece=False, indice=0):
     dur = fim - ini
     d = max(int(round(fim * FPS)) - int(round(ini * FPS)), 2)
-    base = "scale=2400:1350:force_original_aspect_ratio=increase,crop=2400:1350"
-    filtro = f"{base},{zoompan(idx, d, dur)},trim=end_frame={d},setpts=PTS-STARTPTS,format=yuv420p"
+    filtro = f"scale=2400:1350:force_original_aspect_ratio=increase,crop=2400:1350,{zoompan(indice, d, dur)},trim=end_frame={d},setpts=PTS-STARTPTS,format=yuv420p"
     if escurece:
-        filtro = f"{base},colorchannelmixer=rr=0.44:gg=0.44:bb=0.44,{zoompan(idx + 1, d, dur)},trim=end_frame={d},setpts=PTS-STARTPTS,format=yuv420p"
+        filtro = f"scale=2400:1350:force_original_aspect_ratio=increase,crop=2400:1350,colorchannelmixer=rr=0.44:gg=0.44:bb=0.44,{zoompan(indice, d, dur)},trim=end_frame={d},setpts=PTS-STARTPTS,format=yuv420p"
     sh([FF, "-y", "-loglevel", "error", "-loop", "1", "-i", caminho_img,
         "-vf", filtro, "-r", str(FPS), "-frames:v", str(d),
         "-c:v", "libx264", "-crf", "18", "-preset", "veryfast", "-pix_fmt", "yuv420p", "-an", saida])
@@ -56,14 +55,18 @@ def monta(tl_arq, ass_arq, mix_mp3, saida_mp4, cartao_frame, final_frame):
     total_frames = 0
     ct = tl["cartao_titulo"]
     cfi = tl["cartao_final_ini"]
-    d = renderiza_segmento(cartao_frame, 0.0, ct, f"{SEG}/seg_000.mp4", escurece=True)
+    d = renderiza_segmento(cartao_frame, 0.0, ct, f"{SEG}/seg_000.mp4", escurece=True, indice=0)
     segs.append(f"{SEG}/seg_000.mp4"); total_frames += d
-    for i, c in enumerate(tl["cenas"], start=1):
+    cenas = tl["cenas"]
+    for i, c in enumerate(cenas, start=1):
         caminho = os.path.join(RAIZ, c["frame"])
+        # Hold the scene frame through inter-scene gaps so video, subtitles,
+        # and the absolute audio timeline stay locked.
+        fim_video = cenas[i]["ini"] if i < len(cenas) else cfi
         saida = f"{SEG}/seg_{i:03d}.mp4"
-        d = renderiza_segmento(caminho, c["ini"], c["fim"], saida)
+        d = renderiza_segmento(caminho, c["ini"], fim_video, saida, indice=i)
         segs.append(saida); total_frames += d
-    d = renderiza_segmento(final_frame, cfi, tl["dur"], f"{SEG}/seg_999.mp4", escurece=True)
+    d = renderiza_segmento(final_frame, cfi, tl["dur"], f"{SEG}/seg_999.mp4", escurece=True, indice=99)
     segs.append(f"{SEG}/seg_999.mp4"); total_frames += d
     lista = f"{SEG}/lista.txt"
     with open(lista, "w") as fp:

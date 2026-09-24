@@ -197,7 +197,7 @@ def processa_pacote(pac):
     if cortes is None:
         print(f"  !! {pac['nome']}: alinhamento falhou")
         return None
-    # cortes são ÍNDICES DE NÓ (1..C = candidatos) -> converte p/ amostras (centro do silêncio)
+    # DP retorna índices de nós (1..len(cand)); converter para amostras.
     nos = [0] + [int((cand[i - 1][2] + cand[i - 1][3]) / 2) for i in cortes] + [len(x)]
     saida = []
     chars = np.array([max(len(t), 1) for t in textos], float)
@@ -222,9 +222,6 @@ def main():
     os.makedirs(os.path.join(AUD, "segments"), exist_ok=True)
     todas, cvs = [], []
     for pac in packlist["packs"]:
-        if not os.path.exists(os.path.join(AUD, pac["arquivo"])):
-            print(f"  -- {pac['nome']}: bloco ausente, pulando (personagem sem áudio ainda)")
-            continue
         r = processa_pacote(pac)
         if r:
             todas += r[0]

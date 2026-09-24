@@ -1,7 +1,7 @@
 {
- "dur": 61.576,
+ "dur": 53.071,
  "cartao_titulo": 0.6,
- "cartao_final_ini": 60.076,
+ "cartao_final_ini": 51.571,
  "cenas": [
   {
    "id": "c00",
@@ -12,7 +12,7 @@
    "bed": "tema",
    "gain": 1.35,
    "ini": 0.6,
-   "fim": 14.659
+   "fim": 14.824
   },
   {
    "id": "c03",
@@ -22,8 +22,8 @@
    "frame": "arte/frame-02-marta.jpg",
    "bed": "cotidiano",
    "gain": 1.0,
-   "ini": 15.284,
-   "fim": 17.149
+   "ini": 15.449,
+   "fim": 17.694
   },
   {
    "id": "c04",
@@ -33,8 +33,8 @@
    "frame": "arte/frame-03-capuzes.jpg",
    "bed": "bueiro",
    "gain": 1.3,
-   "ini": 17.774,
-   "fim": 23.603
+   "ini": 18.319,
+   "fim": 23.388
   },
   {
    "id": "c06",
@@ -44,8 +44,8 @@
    "frame": "arte/frame-05-posse.jpg",
    "bed": "tensao",
    "gain": 1.05,
-   "ini": 24.228,
-   "fim": 29.149
+   "ini": 24.013,
+   "fim": 27.784
   },
   {
    "id": "c07",
@@ -55,8 +55,8 @@
    "frame": "arte/frame-01-praca.jpg",
    "bed": "drama",
    "gain": 1.0,
-   "ini": 29.774,
-   "fim": 40.251
+   "ini": 28.409,
+   "fim": 32.926
   },
   {
    "id": "c09",
@@ -66,8 +66,8 @@
    "frame": "arte/frame-04-fabinho.jpg",
    "bed": "fabinho",
    "gain": 1.0,
-   "ini": 40.876,
-   "fim": 42.925
+   "ini": 33.551,
+   "fim": 35.34
   },
   {
    "id": "c14",
@@ -77,8 +77,8 @@
    "frame": "arte/frame-01-praca.jpg",
    "bed": "cotidiano",
    "gain": 1.05,
-   "ini": 43.55,
-   "fim": 46.133
+   "ini": 35.965,
+   "fim": 38.638
   },
   {
    "id": "c15",
@@ -88,8 +88,8 @@
    "frame": "arte/frame-06-final.jpg",
    "bed": "final",
    "gain": 1.25,
-   "ini": 46.758,
-   "fim": 59.676
+   "ini": 39.263,
+   "fim": 51.171
   }
  ],
  "falas": [
@@ -99,8 +99,8 @@
    "quem": "NARRADOR",
    "texto": "Migalhópolis. Eleita, por três anos consecutivos, a Cidade Mais Limpa do Brasil. Por uma revista que ninguém nunca leu. Num concurso que ninguém nunca viu. Com um troféu que sumiu no primeiro dia.",
    "ini": 1.344,
-   "fim": 14.524,
-   "dur": 13.18,
+   "fim": 14.689,
+   "dur": 13.345,
    "sfx": [
     "latido"
    ]
@@ -110,9 +110,9 @@
    "cena": "c03",
    "quem": "CIDA",
    "texto": "A Dona Cleide sumiu.",
-   "ini": 15.532,
-   "fim": 16.952,
-   "dur": 1.42,
+   "ini": 15.697,
+   "fim": 17.497,
+   "dur": 1.8,
    "sfx": []
   },
   {
@@ -120,9 +120,9 @@
    "cena": "c04",
    "quem": "ZECA",
    "texto": "Eu tenho quatro patas e três mandatos, Excelência. Respeite a hierarquia.",
-   "ini": 18.022,
-   "fim": 23.282,
-   "dur": 5.26,
+   "ini": 18.567,
+   "fim": 23.067,
+   "dur": 4.5,
    "sfx": []
   },
   {
@@ -130,9 +130,9 @@
    "cena": "c06",
    "quem": "XAVIER",
    "texto": "Excelência, o senhor já perdeu pra um poste em 2016.",
-   "ini": 24.414,
-   "fim": 29.014,
-   "dur": 4.6,
+   "ini": 24.199,
+   "fim": 27.649,
+   "dur": 3.45,
    "sfx": []
   },
   {
@@ -140,9 +140,9 @@
    "cena": "c07",
    "quem": "NARRADOR",
    "texto": "O dinheiro foi aplicado. Em linguiça. A linguiça foi distribuída. Durante o churrasco que elegeu o Pardal.",
-   "ini": 30.084,
-   "fim": 40.054,
-   "dur": 9.97,
+   "ini": 28.719,
+   "fim": 32.729,
+   "dur": 4.01,
    "sfx": []
   },
   {
@@ -150,9 +150,9 @@
    "cena": "c09",
    "quem": "CARAMELO",
    "texto": "De ser esquecido.",
-   "ini": 41.186,
-   "fim": 42.666,
-   "dur": 1.48,
+   "ini": 33.861,
+   "fim": 35.081,
+   "dur": 1.22,
    "sfx": []
   },
   {
@@ -160,9 +160,9 @@
    "cena": "c14",
    "quem": "CARAMELO",
    "texto": "É linguiça.",
-   "ini": 43.798,
-   "fim": 44.648,
-   "dur": 0.85,
+   "ini": 36.213,
+   "fim": 37.013,
+   "dur": 0.8,
    "sfx": []
   },
   {
@@ -170,9 +170,9 @@
    "cena": "c14",
    "quem": "CARAMELO",
    "texto": "Artesanal.",
-   "ini": 45.268,
-   "fim": 45.998,
-   "dur": 0.73,
+   "ini": 37.633,
+   "fim": 38.503,
+   "dur": 0.87,
    "sfx": []
   },
   {
@@ -180,9 +180,9 @@
    "cena": "c15",
    "quem": "NARRADOR",
    "texto": "Migalhópolis. A cidade mais limpa do Brasil. Até que a gente consiga esquecer.",
-   "ini": 47.068,
-   "fim": 52.308,
-   "dur": 5.24,
+   "ini": 39.573,
+   "fim": 44.633,
+   "dur": 5.06,
    "sfx": [
     "vento"
    ]
@@ -192,9 +192,9 @@
    "cena": "c15",
    "quem": "CARAMELO",
    "texto": "...Ah. E obrigado por assistir sozinho. É do jeito que eu prefiro.",
-   "ini": 53.362,
-   "fim": 58.732,
-   "dur": 5.37,
+   "ini": 45.687,
+   "fim": 50.227,
+   "dur": 4.54,
    "sfx": []
   }
  ]
