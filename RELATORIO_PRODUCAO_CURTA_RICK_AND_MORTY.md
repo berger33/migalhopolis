@@ -118,67 +118,62 @@ A **Parte 4** é o núcleo cômico e jurídico-eleitoral do episódio, onde Cara
 
 ## 5. ESPECIFICAÇÕES DOS RIGS DE PERSONAGEM NA PARTE 4
 
-### 5.1 Prefeito Caramelo com a Linguiça de THC (Cena 024)
-- **Localização Facial:** Mandíbula e focinho em `(x: 820..920, y: 220..310)`.
-- **Linguiça Radioativa:** Elemento em `(x: 910..980, y: 180..260)` com pulso senoidal de brilho verde esmeralda e partículas de fumaça subindo.
+### 5.1 Prefeito Caramelo Autoritário (Cena 021)
+- **Localização Facial:** Mandíbula e boca desenhada aberta em `(x: 680..760, y: 290..360)`.
+- **Lip Sync:** Jaw drop dinâmico proporcional a `env_fala * 12.0` com ampliação da cavidade bucal, dentes afiados e língua.
+- **Puppet Acting:** Pata dianteira apontando para a planta de engenharia cancelada com X vermelho piscante. Filhotes operários tremendo em uníssono.
 
-### 5.2 Dr. Zeca no Celular do WhatsApp da Dona Marta (Cena 027)
-- **Localização Facial:** Boca em `(x: 580..680, y: 280..380)` com expressão aterrorizada.
-- **Tela do Smartphone:** `(x: 640..740, y: 240..460)` com rolagem infinita de avatares furiosos da Dona Marta.
+### 5.2 Dr. Zeca na Obra Lamacenta (Cena 022)
+- **Localização Facial:** Boca e focinho com sorriso malandro em `(x: 470..550, y: 310..380)`.
+- **Lip Sync:** Boca abrindo com dentes e língua articulando na linha do sorriso.
+- **Cenário Vivo:** Poça de lodo tóxico verde neon borbulhando com emanação de gás; fumaça saindo do escapamento da retroescavadeira.
 
-### 5.3 Xerxes Pardal Desesperado com a Calculadora (Cena 028)
-- **Localização Facial:** Boca e rugas em `(x: 810..920, y: 340..460)`.
-- **Efeito Visual de Pupilas:** Reflexo dinâmico de votos e gráficos nas íris.
-- **Cascata de Suor:** Gotículas descendo pela calvície e pingando no colarinho.
+### 5.3 Dr. Zeca Médico Fajuta (Cena 023)
+- **Localização Facial:** Focinho e boca em `(x: 780..860, y: 330..400)`.
+- **Lip Sync:** Articulação de fala cínica com piscada cúmplice para o espectador.
+- **VFX e Cenário:** Cruz vermelha neon pulsante na parede; planta carnívora no vaso mastigando mosca; frascos de conserva com alienígenas borbulhando.
 
----
+### 5.4 Prefeito Caramelo com a Linguiça de THC (Cena 024)
+- **Localização Facial:** Focinho e mandíbula em `(x: 610..750, y: 450..520)`.
+- **Lip Sync:** Abertura canina expressiva e perplexa na linha inferior do focinho.
+- **VFX de THC:** Fórmula química do THC em neon verde esmeralda no topo da tela pulsando; linguiça assada com aura radioativa verde e vapor aromático.
 
-A **Parte 3** aprofunda a sátira política e burocrática de Migalhópolis, revelando a relação de poder entre o Prefeito Caramelo, o Seu Jorge e a chegada do lendário **Zeca, o cachorro advogado de seis dedos**:
+### 5.5 Dr. Zeca Carimbando no IPTU (Cena 025)
+- **Localização Facial:** Boca desenhada sorridente e cheia de dentes em `(x: 730..850, y: 260..340)`.
+- **Lip Sync:** Jaw drop com energia vigorosa articulando as justificativas tributárias.
+- **Puppet Acting:** Pata empunhando o carimbo de madeira gigante que sobe e desce com impacto sobre a folha nos picos de ênfase vocal; texto verde em fósforo piscando no monitor CRT antigo; globo terrestre girando.
 
-### 4.1 Mapeamento Plano a Plano da Parte 3:
+### 5.6 Xerxes Pardal no Poste Eleitoral (Cena 026)
+- **Localização Facial:** Boca e queixo furioso em `(x: 390..455, y: 335..390)`.
+- **Lip Sync:** Boca gritando agressivamente com jaw drop de 12 px e queixo tremendo de raiva política.
+- **Puppet Acting:** Braço e dedo indicador apontando freneticamente para os cartazes no poste; cartazes rasgados oscilando com o vento da rua; moradores tristes ao fundo.
 
-| Bloco | Cena | Falante | Duração | Personagens em Tela | Ações de Animação e Atuação (Puppet Acting) | Cenário Vivo e Efeitos Visuais (VFX) | Trilha Sonora e Efeitos de Foley (SFX) |
-|---|---|---|---|---|---|---|---|
-| **014** | `014.jpg` | NARRADOR | 8.05s | Cidadão idoso coçando a cabeça; silhueta em balão de pensamento; álbum de fotos | **NENHUMA BOCA MEXE (Voz do Narrador em off).**<br>**Cidadão Idoso:** Mão coçando a cabeça com movimento rítmico perplexo; sobrancelhas erguidas em dúvida cômica.<br>**Silhueta Misteriosa:** No balão de pensamento, a mão da silhueta desce alimentando o cachorrinho. | Ponto de interrogação gigante em neon amarelo piscando acima da cabeça; nuvem do balão de pensamento ondulando suavemente; folhas do álbum de fotos folheando com a brisa; partículas de poeira da memória. | Narração oficial de documentário + Cama incidental nostálgica/irônica `suspense.mp3` (-17 dBFS) + som sutil de páginas de álbum virando. |
-| **015** | `015.jpg` | NARRADOR | 8.59s | Tampa de bueiro reluzente de um lado, cofre vazio do outro, Caramelo no centro comendo em tigela de ouro | **NENHUMA BOCA MEXE (Voz do Narrador em off).**<br>**Caramelo:** Cabeça mergulhando na tigela de ouro mastigando ração; rabinho balançando com felicidade gastronômica; faixa verde de prefeito reluzindo.<br>**Cofre:** Porta aberta vazia revelando o vazio institucional. | Tampa de bueiro com brilho metálico estelar estalando (`+` sparkle); teias de aranha dentro do cofre vazio balançando com o vento; raios de luz dourada saindo da tigela de ouro. | Narração + Trilha de cinismo financeiro `cotidiano.mp3` (-18 dBFS) + som de mastigação e lambidas de cão + eco metálico de cofre vazio. |
-| **016** | `016.jpg` | NARRADOR | 4.49s | Close-up do Caramelo no pedestal farejando a multidão faminta | **NENHUMA BOCA MEXE (Voz do Narrador em off).**<br>**Caramelo:** Focinho arrebitado farejando o ar com espasmo rítmico nas narinas; olhos semicerrados de morto-vivo olhando de cima para baixo com superioridade moral e burocrática; orelha direita tem reflexo sutil. | Brisa matinal da praça agitando os pelos do peito; multidão ao fundo fazendo micro-movimentos de súplica silenciosa. | Narração + Trilha de expectativa e tensão `tensao.mp3` (-16 dBFS) + efeito sonoro de farejada de cachorro. |
-| **017** | `017.jpg` | **SEU_JORGE** | 5.38s | Seu Jorge comemorando o prato cheio; morador rejeitado com esfregão e balde | **SEU JORGE: LIP SYNC ANATÔMICO COM JAW DROP.** Boca do Seu Jorge mexendo com expressão vitoriosa e debochada (`x: 343, y: 388`); o prato cheio de churrasco é levantado para o alto em comemoração; Seu Jorge dá um riso de canto.<br>**Morador Rejeitado:** Ao fundo, o homem rejeitado abaixa os ombros em decepção e segura o cabo do esfregão cabisbaixo. | Vapor quente subindo do prato de carne do Seu Jorge; água suja ondulando no balde do morador rejeitado. | Voz triunfante do Seu Jorge ("Quem ele não escolhe...") + Trilha `cotidiano.mp3` (-17 dBFS) + som de talheres e prato batendo. |
-| **018** | `018.jpg` | **ZECA** | 7.37s | Zeca (o cachorro advogado de terno cinza largo, gravata vermelha e seis dedos) na mesa bagunçada | **ZECA: LIP SYNC ANATÔMICO PRÓPRIO.** Focinho de cão advogado abrindo e fechando com dentes pontiagudos e língua malandra; sorriso cínico de operador do direito.<br>**Pata de Seis Dedos:** A pata direita bate na mesa apontando com firmeza as linhas do contrato nos momentos exatos (*"aqui, e aqui, e aqui"*); a gravata vermelha balança com a ênfase corporal. | Pilha de contratos e despachos deslizando na mesa em direção à câmera; carimbo da prefeitura oscilando; caneta tinteiro brilhando. | Voz rouca e malandra do Zeca + Trilha de jazz/suspense de repartição pública `tensao.mp3` / `bueiro.mp3` (-16 dBFS) + som de papel sendo batido na mesa (*thump*). |
-| **019** | `019.jpg` | **CARAMELO** | 5.86s | Close-up do Prefeito Caramelo no gabinete: erguendo as quatro patas | **CARAMELO: LIP SYNC ANATÔMICO PRÓPRIO DE PREFEITO.** Pela primeira vez o Prefeito Caramelo fala com a própria voz!<br>Focinho abrindo com autoridade executiva e dentes caninos; olhos semicerrados de desprezo burocrático; ergue a pata direita com firmeza impondo autoridade institucional (*"Respeite a hierarquia"*); corrente de ouro de prefeito balançando no peito. | Bandeira do município ao fundo ondulando sutilmente com a brisa do ar-condicionado; veneziana da janela com oscilação de luz natural. | Voz grave, seca e autoritária do Caramelo + Trilha de poder e autoridade `drama.mp3` / `tema.mp3` (-15 dBFS) + balanço metálico de medalha/corrente de ouro. |
-| **020** | `020.jpg` | **ZECA** | 6.07s | Zeca na central logística dirigindo o roubo/transporte do caixão para a caçamba do caminhão | **ZECA: LIP SYNC ANATÔMICO COM JAW DROP.** Boca do Zeca articulando com cinismo administrativo (*"Roubar caixão não é corrupção... É logística"*).<br>**Gesticulação:** Zeca segura a prancheta com a pata de seis dedos e gesticula com a outra apontando para o caminhão e para o fluxograma da lousa.<br>**Operários Caninos:** Cachorros com capacete de obra operam as cordas do guincho. | Caixão funerário balançando nas cordas enquanto é içado para a caçamba; faróis do caminhão acesos com feixes de luz volumétrica; setas e gráficos na lousa branca com brilho. | Voz cínica e convincente do Zeca + Trilha animada e irônica de trambique `forro.mp3` / `comicio.mp3` (-16 dBFS) + motor de caminhão a diesel em marcha lenta + rangido de cordas e metal. |
+### 5.7 Dr. Zeca no Celular do WhatsApp da Dona Marta (Cena 027)
+- **Localização Facial:** Boca trêmula em `(x: 760..860, y: 350..430)`.
+- **Lip Sync:** Boca canina apavorada abrindo e tremendo de medo eleitoral com dentes e língua.
+- **VFX do Smartphone:** Tela gigante do celular com iluminação verde esmeralda volumétrica no rosto do Zeca; feed de dezenas de avatares furiosos da Dona Marta rolando pela tela; ícones de notificação vibrando.
 
----
-
-## 5. ESPECIFICAÇÕES DOS RIGS DE PERSONAGEM NA PARTE 3
-
-### 5.1 Zeca — O Cachorro Advogado de Seis Dedos (Cenas 018 e 020)
-- **Localização Facial:** Focinho e boca canina em `(x: 360..480, y: 240..340)`.
-- **Lip Sync Canino:** Abertura da mandíbula inferior proporcional à energia de fala com dentes afiados e língua pontiaguda.
-- **Pata de Seis Dedos:** Elemento cômico central da Bíblia Visual do desenho. Pata articulada com 6 dedos visíveis que gesticula e bate na mesa em sincronia com os três picos de ênfase do áudio (*"assina aqui [1], e aqui [2], e aqui [3]"*).
-
-### 5.2 Caramelo — O Prefeito Falando (Cena 019)
-- **Localização Facial:** Mandíbula e focinho em `(x: 610..740, y: 260..360)`.
-- **Lip Sync de Autoridade:** Abertura precisa e contida, estilo político cansado e inabalável que não grita porque não precisa.
-- **Gesticulação:** Pata dianteira erguida em ângulo de autoridade hierárquica.
-
-### 5.3 Seu Jorge Triunfante (Cena 017)
-- **Localização Facial:** Mandíbula em `(x: 343, y: 388)`.
-- **Gesticulação:** Prato de churrasco erguido em vitória; vapor subindo do alimento.
+### 5.8 Xerxes Pardal Desesperado com a Calculadora (Cena 028)
+- **Localização Facial:** Boca trêmula em `(x: 620..780, y: 480..560)`.
+- **Lip Sync:** Boca gaguejando e tremendo de pânico eleitoral com jaw drop de até 14 px.
+- **VFX de Pupilas e Suor:** Olhos com roleta de votação girando como cassino nas íris; cascata contínua de gotículas de suor escorrendo pela calvície e pingando no colarinho; visor da calculadora com dígitos vermelhos "4,251,999" vibrando.
 
 ---
 
-## 6. SOUND DESIGN E MIXAGEM MULTI-PISTA DA PARTE 3
+## 6. SOUND DESIGN E MIXAGEM MULTI-PISTA DA PARTE 4
 
-1. **Diálogos:** Zeca, Caramelo, Seu Jorge e Narrador masterizados a -1.0 dBFS.
+1. **Diálogos:** Caramelo, Dr. Zeca e Xerxes Pardal masterizados com clareza a -1.0 dBFS pico.
 2. **Camas Musicais:**
-   - 014: `suspense.mp3` nostálgico (-17 dBFS).
-   - 015-016: `cotidiano.mp3` e `tensao.mp3` (-16 dBFS).
-   - 017: `cotidiano.mp3` com swing brasileiro (-16 dBFS).
-   - 018: `bueiro.mp3` de repartição soturna (-16 dBFS).
-   - 019: `tema.mp3` solene de autoridade municipal (-15 dBFS).
-   - 020: `forro.mp3` / `comicio.mp3` cômico de operação logística (-16 dBFS).
+   - 021: `cotidiano.mp3` tenso e cômico (-16 dBFS).
+   - 022: `forro.mp3` de malandragem na obra (-16 dBFS).
+   - 023: `suspense.mp3` de consultório médico fajuto (-16 dBFS).
+   - 024: `fabinho.mp3` com sintetizadores espaciais e cômicos (-16 dBFS).
+   - 025: `comicio.mp3` dinâmico e burocrático (-16 dBFS).
+   - 026: `tensao.mp3` agressivo de briga eleitoral (-16 dBFS).
+   - 027: `suspense.mp3` de terror psicológico digital (-15 dBFS).
+   - 028: `comicio.mp3` com clímax de pânico eleitoral (-15 dBFS).
 3. **SFX/Foley:**
-   - Notificações, talheres, papéis de contrato, motor diesel de caminhão, guincho do caixão e faróis.
+   - Papéis estapeados, lama borbulhando, bipe de monitor cardíaco, zumbido elétrico de neon, impacto de carimbo na madeira (*CLACK-THUD*), vento de sarjeta, notificações em massa de WhatsApp (*pling-pling-pling*), e clique frenético de teclas de calculadora.
 
 ---
-*Relatório de engenharia da Parte 3 devidamente arquivado e comitado no repositório.*
+*Relatório de engenharia da Parte 4 devidamente arquivado e comitado no repositório.*
