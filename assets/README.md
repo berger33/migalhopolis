@@ -12,7 +12,10 @@ pronto para ser composto sobre qualquer cena.
 - Fidelidade: todos os assets são derivados dos personagens/objetos já
   estabelecidos nas 79 imagens de `imagens/`.
 - Geração: imagem gerada sobre fundo verde croma → chroma key com tratamento de
-  borda (feather), despill e recorte automático (`raw/chroma_key.py` fora do repo).
+  borda (feather), despill e recorte automático via `assets/tools/chroma_key.py`
+  (no repo): flood fill do fundo pela moldura, vazamento de croma preso em
+  buracos fechados (raios de roda, janelas, frestas) preservando estruturas
+  finas, despill na franja da silhueta e trim no bounding box.
 - Nomenclatura: `assets/<categoria>/<nn>_<nome>.png` (nn = ordem dentro da categoria).
 - Total planejado: **~342 imagens** (ver tabela abaixo). Produção em lotes de
   **10 por turno**, 1 commit por imagem no GitHub.
@@ -106,17 +109,33 @@ para 45.0–48.9s), criança com pipa soltando/empinando, gato pulando, velha ac
 | `vida_urbana/29_ze_cafe_caminhando.png` | Zé do Café caminhando com bandeja e duas canecas | 6 restantes |
 | `vida_urbana/30_ciclista_pedal_alto.png` | Ciclista em pose intermediária, joelho alto no pedal | 2 restantes |
 
+### Lote 4 —  9/10 ENTREGUE (39/342) — fechamento dos ciclos de movimento
+
+| Arquivo | Descrição |
+|---|---|
+| `vida_urbana/31_carroceiro_puxando_redeas.png` | Carroceiro em pé puxando as rédeas, cavalo em meio-trote (ciclo de passo) |
+| `vida_urbana/32_zikas_andando.png` | Dupla de Zikas caminhando lado a lado em passada larga |
+| `vida_urbana/33_cachorro_andando.png` | Vira-lata cinza em passo de caminhada, pata dianteira estendida |
+| `vida_urbana/34_gato_andando.png` | Gato preto em passo de ronda, pata dianteira erguida, cauda alta |
+| `vida_urbana/35_carro_velho_estacionado.png` | Fusca azul-bebê parado, janelas vazadas transparentes com vidro trincado |
+| `vida_urbana/36_crianca_correndo.png` | Menino correndo puxando a linha, pipa e rabiola no alto |
+| `vida_urbana/37_velha_levantando.png` | Vovó no meio do movimento de levantar da cadeira de plástico |
+| `vida_urbana/38_vizinha_fechando_janela.png` | **PENDENTE** — geração estourou o limite de 10 imagens do turno; entra no próximo lote |
+| `vida_urbana/39_ze_cafe_limpando_balcao.png` | Zé do Café limpando o balcão com pano e bule na outra mão |
+| `vida_urbana/40_ciclista_pedal_baixo.png` | Ciclista com pedalada completa (perna estendida embaixo), roda com raios vazados |
+
 Todos os arquivos do lote foram pós-processados e validados como PNG RGBA com
 fundo transparente real (canal alpha), sem cenário incorporado.
 
-**Próximo lote (4):** assets 31–40, continuando o ciclo de movimento dos mesmos
-dez elementos de Vida Urbana, com prioridade para caminhada/trote, reações e poses
-de transição que permitam interpolação suave.
+**Próximo lote (5):** completar o Lote 4 com `38_vizinha_fechando_janela.png` e
+seguir com 41–49 (ciclos restantes: carroceiro, zikas, cachorros, gato, carro,
+criança, velha, Zé do Café), mantendo 10 gerações por turno.
 
 ### Progresso
 
 - [x] Lote 1 — 10 imagens (heroes dos 10 elementos)
 - [x] Lote 2 — 10 imagens (variações de pose da cena c00)
 - [x] Lote 3 — 10 imagens (poses intermediárias e segundo cão)
-- [ ] Lote 4..9 — Vida Urbana completa (54 restantes)
+- [~] Lote 4 — 9/10 imagens (38_vizinha_fechando_janela pendente p/ próximo turno)
+- [ ] Lote 5..9 — Vida Urbana completa (44 restantes após o 38)
 - [ ] Demais categorias (258)
