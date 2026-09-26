@@ -165,18 +165,33 @@ def remove_specks(alpha: np.ndarray) -> np.ndarray:
     return alpha
 
 
-def despill(f: np.ndarray, alpha: np.ndarray) -> np.ndarray:
-    """Tira o verde vazado: forte na franja da silhueta, leve no interior."""
+def despill(f: np.ndarray, alpha: np.ndarray, key_rgb: np.ndarray | None = None) -> np.ndarray:
+    """Tira a cor do fundo vazada na franja: forte na borda, leve no interior.
+
+    Com croma verde (padrão) remove o excesso de verde; com croma **azul**
+    (``--key blue``, recomendado para o Caramelo por causa da faixa verde)
+    remove o excesso de azul. Sem `key_rgb` mantém o comportamento verde.
+    """
     out = f.copy()
     r, g, b = out[..., 0], out[..., 1], out[..., 2]
-    ceiling = np.maximum(r, b)
-    spill = np.clip(g - ceiling, 0.0, None)
+
+    canal = 1  # verde
+    if key_rgb is not None:
+        key = np.asarray(key_rgb, dtype=float).reshape(-1)
+        if key[2] > key[1]:  # fundo azul dominante
+            canal = 2
+    if canal == 2:
+        ceiling = np.maximum(r, g)
+        spill = np.clip(b - ceiling, 0.0, None)
+    else:
+        ceiling = np.maximum(r, b)
+        spill = np.clip(g - ceiling, 0.0, None)
 
     # banda de borda: até 5px do transparente → despill forte
     dist_zero = ndimage.distance_transform_edt(alpha > 0.02)
     band = (alpha > 0.02) & (dist_zero <= 5)
     strength = np.where(band, 0.85, 0.10)
-    out[..., 1] = g - spill * strength
+    out[..., canal] = out[..., canal] - spill * strength
     return out
 
 
@@ -189,7 +204,7 @@ def process(src: Path, dst: Path, key: str = "auto", feather: float = 2.0, pad: 
     alpha = punch_green_holes(f, alpha, key_rgb)
     alpha = punch_edge_blobs(alpha, f, key_rgb)
     alpha = remove_specks(alpha)
-    f = despill(f, alpha)
+    f = despill(f, alpha, key_rgb)
 
     out = np.dstack([np.clip(f, 0, 1), alpha[..., None]])
     out = (np.clip(out, 0, 1) * 255.0 + 0.5).astype(np.uint8)
