@@ -535,6 +535,8 @@ modelo e os stills das 79 imagens — até 10 gerações por turno.
 - [x] Lote 14 — 10 imagens (`35`, 38–46): Marta, rig de visemas/piscadas de Pardal e Zeca, cabeças-base de Repórter/Fabinho e pata do Caramelo — 130/342
 - [x] Lote 15 — 10 imagens (47–56: rig completo de visemas e piscadas de Marta e Cida) — **140/342**
 - [x] Lote 16 — 10 imagens (58–67: fecha o rig de Seu Jorge e abre os rigs da Repórter e do Fabinho) — **151/342**
+- [x] Lote 17 — 10 imagens (68–77: visemas finais do Fabinho, poses de Seu Jorge/Repórter/Fabinho e cauda do Caramelo; PR #22) — **161/342**
+- [ ] Lote 18 — 8 de 10 (78–83, 86–87: poses de atuação de Zeca, Pardal e Cida; `84`/`85` de Marta pendentes por falha do gerador) — **169/342**, aguardando aprovação
 - [ ] Personagens principais restantes e demais categorias
 
 ### Lote 17 — poses e fechamento dos visemas do Fabinho
@@ -575,4 +577,64 @@ modelo e os stills das 79 imagens — até 10 gerações por turno.
 - Revisão em fundo escuro dos dez assets e em fundo claro do recorte manual `72`.
   Intermediários e prévias em `raw/` (ignorados pelo Git).
 
-**Status:** Lote 17 entregue para revisão; merge depende de autorização expressa.
+**Status:** Lote 17 aprovado e integrado à `main` pelo PR #22 (merge `ffa18c6`).
+
+### Lote 18 — poses de atuação de Zeca, Pardal, Marta e Cida — 8/10 entregues
+
+| Arquivo | Descrição | Dimensões | bbox | Croma |
+|---|---|---|---|---|
+| `personagens/78_zeca_prancheta.png` | Zeca com prancheta virada para o espectador, caneta indicando a linha de assinatura (fala 18) | 591×732 | 575×716 | verde |
+| `personagens/79_zeca_explicando.png` | Zeca argumentando: mão aberta em gesto de explicação, outro braço junto ao corpo; sem props (falas 20–25) | 732×954 | 716×938 | verde |
+| `personagens/80_zeca_bracos_cruzados.png` | Zeca de braços cruzados, expressão confiante e burocrática (fala 66) | 568×904 | 552×888 | verde |
+| `personagens/81_pardal_discursando.png` | Pardal de terno e bóton 29, indicador erguido e mão aberta em debate; sem púlpito/microfone (falas 26–33) | 668×1155 | 652×1139 | verde |
+| `personagens/82_pardal_surpreso.png` | Pardal surpreso, tronco recuado, mãos abertas e gotas de suor (falas 39–40) | 544×830 | 528×814 | verde |
+| `personagens/83_pardal_implorando_cracha.png` | Pardal de macacão azul e botas do bueiro, pano numa mão e a outra erguida em súplica; sem mop (fala 79) | 697×1016 | 681×1000 | verde |
+| `personagens/86_cida_gritando.png` | Cida chamando na rua, mão em concha junto à boca aberta e outra na cintura; sem fachada (fala 5) | 307×630 | 291×614 | verde |
+| `personagens/87_cida_maos_cintura.png` | Cida de mãos na cintura, postura firme e expressão seca (“É linguiça”, fala 74) | 580×1016 | 564×1000 | verde |
+
+**Pendentes (não contabilizados):** `84_marta_celular_whatsapp` e `85_marta_bracos_erguidos`.
+As duas gerações falharam no gerador (resposta sem imagem). Como o turno tinha exatamente 10
+gerações, não houve re-tentativa. Os números 84 e 85 ficam reservados para o próximo lote.
+
+**Total após o lote (se aprovado): 169/342 assets — 84 de vida urbana + 85 de personagens.**
+
+Produção e pós-processamento:
+
+- **Exatamente 10 gerações** no turno, uma por asset (78–87), todas sobre verde croma #00FF00 e
+  com referências: folha de modelo (`personagens/0N_*.jpg`), asset isolado existente do
+  personagem (`03`, `02`, `23`, `04`, `05`) e recorte do still pertinente (`018`, `026`, `031`,
+  `066`, `079`, `005`, `074`; `006` para Marta). 8 devolveram imagem e 2 falharam.
+- Recorte com `assets/tools/chroma_key.py --key auto`: chave medida na moldura ≈ RGB (6–15, 239–249, 2–6).
+- `78` e `86` vieram como folhas com 3 poses. Pela regra "1 arquivo = 1 asset", só entrou a
+  pose pedida: o meio da `78` (prancheta virada, caneta na linha de assinatura) e a esquerda
+  da `86`. O isolamento foi feito por **componente conexo do alpha**, já que a cauda do
+  Zeca invadia horizontalmente a pose vizinha e impedia o corte por colunas. As demais
+  poses ficaram em `raw/`. Por isso a `86` tem resolução menor (307×630).
+- Limpeza direcionada de croma preso em frestas, feita depois do chroma key e sem nova geração:
+  - **78**: furo do clipe da prancheta e pontas do pelo — 39 px com alpha zerado.
+  - **83**: frestas entre os dedos da mão erguida — 24 px com alpha zerado.
+  - **80**: pontas de traço internas da calça — só despill, sem abrir furos.
+  - **86**: frestas atrás do brinco, entre rosto e mão e entre as pernas — despill.
+  - As folhas verdes do avental da Cida (`86`/`87`) e o miolo teal das flores são arte e foram
+    preservados. Na `86`, 148 px internos alterados por engano foram restaurados a partir do
+    recorte sem limpeza.
+
+Validação (`assets/validacao/lote18.json`):
+
+- 8/8 PNG **RGBA**, alpha mínimo **0** e máximo **255**. Nenhum sujeito toca a borda do
+  canvas original, portanto cabeça, mãos, pés e cauda estão inteiros.
+- **0** pixels a distância RGB < 0,32 da chave com alpha > 0,02. **0** pixels de franja verde
+  (G > max(R,B) + 0,15) a até 3 px da transparência. Verde-croma restante: 0, exceto as folhas
+  internas do avental da Cida, nenhuma junto à transparência.
+- Revisão visual em fundo claro, escuro e magenta, com zoom em mãos, bordas, clipe e frestas.
+  Não há cenário, sombra de chão ou personagem extra. A métrica não substitui essa inspeção.
+
+Ressalvas para a aprovação visual:
+
+- **Seis dedos do Zeca:** não aparecem de forma legível. Na `78`, uma mão está fechada na
+  caneta e a outra mostra quatro dedos com o polegar oculto; na `79`, a mão aberta tem cinco
+  dígitos. Não houve correção por edição.
+- **83:** o macacão veio com uma etiqueta "PARDAL" no peito.
+- **86:** resolução menor, por ter sido recortada de uma folha de 3 poses.
+
+**Status:** Lote 18 entregue para revisão; merge depende de autorização expressa.
