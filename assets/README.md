@@ -76,8 +76,29 @@ pronto para ser composto sobre qualquer cena.
 **Próximo lote (2):** variações de pose — carroceiro, zikas, cachorros (deitado/dormindo
 para 45.0–48.9s), criança com pipa soltando/empinando, gato pulando, velha acenando.
 
+### Lote 2 — ✅ CONCLUÍDO (20/342) — variações de pose para a cena c00 (praça)
+
+| Arquivo | Descrição | Poses restantes |
+|---|---|---|
+| `vida_urbana/11_carroceiro_passando.png` | Carroceiro em pé na carroça acenando e gritando, cavalo andando (8.7–22.1s) | 7 restantes |
+| `vida_urbana/12_zikas_esquina.png` | Zikas/Mandrakes encostados na esquina, um olhando o céu (22.7–29.1s) | 9 restantes |
+| `vida_urbana/13_cachorro_dormindo.png` | Vira-lata cinza dormindo enrolado, olhos fechados (45.0–48.9s) | 8 restantes |
+| `vida_urbana/14_gato_saltando.png` | Gato preto pulando no ar, corpo esticado (29.9–37.4s) | 6 restantes |
+| `vida_urbana/15_carro_velho_andando.png` | Fusca azul-bebê rodando, fumacinha no escapamento (38.2–44.4s) | 4 restantes |
+| `vida_urbana/16_crianca_pipa_empinando.png` | Menino puxando a linha com o corpo, pipa no alto (22.7–29.1s) | 7 restantes |
+| `vida_urbana/17_velha_acenando.png` | Vovó sentada na cadeira de plástico, acenando com a mão, sorriso | 7 restantes |
+| `vida_urbana/18_vizinha_fofocando.png` | Vizinha fofoqueira na janela com xícara de café, apontando pra rua (29.9–37.4s) | 6 restantes |
+| `vida_urbana/19_ze_cafe_servindo.png` | Zé do Café oferecendo duas canecas fumegantes (45.0–48.9s) | 7 restantes |
+| `vida_urbana/20_ciclista_passando.png` | Ciclista pedalando, olhando por cima do ombro (38.2–44.4s) | 3 restantes |
+
+**Próximo lote (3):** continuar variações de pose — carroceiro (7), zikas (9),
+cachorros (8, incluindo o segundo cão dormindo para 45.0–48.9s), criança com pipa
+(7), velha com cadeira (7), Zé do Café (7), vizinha (6), gato (6), carro velho (4),
+ciclista (3).
+
 ### Progresso
 
 - [x] Lote 1 — 10 imagens (heroes dos 10 elementos)
-- [ ] Lote 2..9 — Vida Urbana completa (84)
+- [x] Lote 2 — 10 imagens (variações de pose da cena c00)
+- [ ] Lote 3..9 — Vida Urbana completa (84)
 - [ ] Demais categorias (258)
