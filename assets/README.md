@@ -263,11 +263,48 @@ legítimos de arte preservados (faixa do Caramelo, gravata do Pardal, vestido da
 Marta). 10/10 validados como PNG RGBA com alpha real 0–255. 10 gerações no
 turno.
 
-**Próximo lote (10):** heróis de Cida (05), Seu Jorge (06), Fabinho (07) e
-Repórter (08) + Caramelo andando de perfil (09), Caramelo dormindo enrolado
-(10), Caramelo em pé apoiado na borda do pote (11), Caramelo cabeça 3/4 neutra
-para base de bocas (12), Pardal suando desesperado com calculadora (13) e Zeca
-com celular verde do WhatsApp (14) — 10 gerações.
+### Lote 10 — 9/10 ENTREGUE (97/342) — heróis restantes + poses de cena do Caramelo, Pardal e Zeca
+
+| Arquivo | Descrição |
+|---|---|
+| `personagens/05_cida_em_pe.png` | **RESERVADO** — o gerador devolveu resposta sem imagem (falha do modelo, não moderação); sem re-tentativa no turno (limite de 10 gerações). Entra no Lote 11 |
+| `personagens/06_seu_jorge_em_pe.png` | **Seu Jorge** herói: em pé 3/4, chapéu bucket oliva, regata manchada, jeans, sandália, prato de isopor com carne e garfo (ref.: `06_seu_jorge.jpg` + `imagens/007.jpg`) |
+| `personagens/07_fabinho_em_pe.png` | **Fabinho** herói: em pé 3/4, boné teal pra trás, camiseta com carinha de cachorro, bermuda, all-star vermelho, sorriso esperançoso (ref.: `07_fabinho.jpg` + `imagens/078.jpg`) |
+| `personagens/08_reporter_em_pe.png` | **Repórter** herói: em pé 3/4, blazer azul-marinho, saia lápis, microfone com cubo TV MIGALHA, mão apresentando algo fora de quadro (ref.: `08_reporter.jpg`) |
+| `personagens/09_caramelo_andando.png` | Caramelo andando de perfil (esquerda), meio passo, cauda baixa, faixa e medalhão de lado — ciclo de caminhada (ref.: folha + herói 01) |
+| `personagens/10_caramelo_dormindo.png` | Caramelo dormindo enrolado em bola, faixa visível no dorso — cenas 003 / créditos (ref.: folha + herói 01) |
+| `personagens/11_caramelo_apoiado.png` | Caramelo em pé nas patas traseiras, patas dianteiras apoiadas numa borda invisível — para compor dentro do pote (003/004/077) com o pote em camada própria (ref.: folha + `imagens/077.jpg`) |
+| `personagens/12_caramelo_cabeca_neutra.png` | Cabeça do Caramelo 3/4, boca fechada, olhos semicerrados, até a coleira — **base para troca de bocas e olhos** (ref.: folha + `imagens/043.jpg`) |
+| `personagens/13_pardal_suando_calculadora.png` | Pardal em pânico com a calculadora, mão na cabeça, gotas de suor voando, botton 29 — cena 028 (ref.: folha + `imagens/028.jpg`) |
+| `personagens/14_zeca_celular.png` | Zeca segurando o celular com as duas patas, olhos arregalados, careta nervosa; tela neutra sem brilho verde (o verde do WhatsApp entra na composição) — cena 027 (ref.: folha + `imagens/027.jpg`) |
+
+Pós-processamento do lote:
+
+- **Correção na ferramenta** (`chroma_key.py`, guarda `KEY_GUARD = 0.32`): o
+  vazamento de "verde preso em buracos fechados" estava apagando **verde de
+  arte** quando ele formava uma região fechada — a faixa lima do Caramelo
+  (`09`, `11`), a parte sombreada/oliva da faixa e até verde-escuro de
+  contorno (`14`). Agora só vaza pixel cuja cor está perto da cor do fundo;
+  raios de roda e janelas continuam vazando normalmente.
+- **`01_caramelo_sentado` (Lote 9) corrigido**: a mesma falha tinha aberto um
+  buraco na faixa abaixo do medalhão (passou despercebido na revisão do
+  contato). Preenchido com o lima padrão da faixa; nenhum outro asset da pasta
+  tem buraco fora de vãos legítimos (braço/quadril, braço/celular).
+- `10`: o gerador pintou a faixa metade creme e metade verde-croma; recolorida
+  inteira para o lima da folha (dois tons = luz/sombra), medalhão preservado.
+- `06` veio como folha de modelo (3 poses + 4 cabeças); só a pose pedida foi
+  mantida. Franja de croma limpa por matiz em todos.
+- **Recomendação para os próximos Caramelos**: gerar sobre croma **azul**
+  (`--key blue`) para eliminar de vez o conflito com a faixa verde.
+- 9/9 validados como PNG RGBA com alpha real 0–255. 10 gerações no turno
+  (1 falhou sem imagem).
+
+**Próximo lote (11):** `05` Cida herói (re-geração) + Caramelo cabeça olhos
+fechados (piscar) (15), Caramelo cabeça boca aberta "A" (16), boca "O" (17),
+boca "E/I" (18), Caramelo farejando a fila (19, cena 016), Pardal de macacão
+azul com mop no bueiro (20), Zeca carimbando o IPTU (21), Marta pregando de
+braços abertos (22), Fabinho ajoelhado com a mão no alambrado (23) — 10
+gerações, Caramelos em croma azul.
 
 ### Progresso
 
@@ -280,5 +317,6 @@ com celular verde do WhatsApp (14) — 10 gerações.
 - [x] Lote 7 — 10 imagens (60–69: brindes, reações e cochilos; letreiro do 61 removido) — 69/342
 - [x] Lote 8 — 9 imagens (70–76, 78–79; 77 reservado por bloqueio de moderação) — 78/342
 - [x] Lote 9 — 10 imagens (77, 80–84 fecham Vida Urbana 84/84; personagens 01–04: heróis Caramelo, Pardal, Zeca, Marta) — 88/342
-- [ ] Lote 10 — heróis Cida/Jorge/Fabinho/Repórter + poses do Caramelo, Pardal e Zeca — 98/342
-- [ ] Personagens principais restantes (131) e demais categorias (123)
+- [x] Lote 10 — 9 imagens (personagens 06–14; 05 Cida reservado por falha do gerador; correção do 01 e da ferramenta) — 97/342
+- [ ] Lote 11 — 05 Cida + cabeças/bocas do Caramelo + poses de cena (Pardal, Zeca, Marta, Fabinho) — 107/342
+- [ ] Personagens principais restantes (122) e demais categorias (123)
