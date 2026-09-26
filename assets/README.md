@@ -461,6 +461,23 @@ Pós-processamento e validação:
 seguindo as folhas de modelo e stills das 79 cenas; depois retomar poses de
 corpo dos protagonistas. Serão novamente no máximo 10 assets isolados.
 
+### Lote 15 — 🔄 EM PRODUÇÃO (131/342) — rig de visemas de Marta + Cida
+
+Fecha o lip sync de **Marta** (bocas A/O/E-I/U + piscada fechada/semicerrada)
+e de **Cida** (bocas A/O/E-I + piscada), todos em croma verde e registrados na
+escala das cabeças-base `35`/`36`. Das 10 tentativas de geração permitidas no
+turno, 9 falharam por erro transitório do gerador ("response contains no
+images") e 1 entregou imagem; o restante segue no próximo turno.
+
+| Arquivo | Descrição | Croma |
+|---|---|---|
+| `personagens/51_marta_cabeca_olhos_fechados.png` | **Marta** piscada — pálpebras fechadas com linha de cílios, boca fechada da base; cachos com mechas douradas, argolas e cruz idênticos à base `35` (ref.: `04_marta.jpg` + still `006`; IoU vs `35` = 0,99; 716×708, alpha 0–255) | verde |
+
+Restam neste lote (próximo turno): `47` boca A, `48` boca O, `49` boca E/I,
+`50` boca U, `52` olhos semicerrados (Marta) e `53` boca A, `54` boca O,
+`55` boca E/I, `56` olhos fechados (Cida). Visemas de Seu Jorge passam para o
+Lote 16 para respeitar o teto de 10 imagens por turno.
+
 ### Progresso
 
 - [x] Lote 1 — 10 imagens (heroes dos 10 elementos)
@@ -477,5 +494,5 @@ corpo dos protagonistas. Serão novamente no máximo 10 assets isolados.
 - [x] Lote 12 — 10 imagens (visemas 18–21 + Caramelo farejando 22 em croma azul; poses 23–27 de Pardal/Zeca/Marta/Fabinho/Cida) — 111/342
 - [x] Lote 13 — 9 imagens (visemas 28–32 e cabeças-base 33–34, 36–37); o slot `35_marta_cabeca_neutra` foi concluído no Lote 14 — 120/342
 - [x] Lote 14 — 10 imagens (`35`, 38–46): Marta, rig de visemas/piscadas de Pardal e Zeca, cabeças-base de Repórter/Fabinho e pata do Caramelo — **130/342**
-- [ ] Lote 15 — visemas/piscadas de Marta, Cida e Seu Jorge; continuidade das poses principais
+- [~] Lote 15 — em produção: 1/10 (51 Marta piscada); 9 gerações seguem no próximo turno; Seu Jorge no Lote 16
 - [ ] Personagens principais restantes e demais categorias
