@@ -461,23 +461,34 @@ Pós-processamento e validação:
 seguindo as folhas de modelo e stills das 79 cenas; depois retomar poses de
 corpo dos protagonistas. Serão novamente no máximo 10 assets isolados.
 
-### Lote 15 — 🔄 EM PRODUÇÃO (132/342) — rig de visemas de Marta + Cida
+### Lote 15 — ✅ CONCLUÍDO (140/342) — rig de visemas e expressões de Marta e Cida
 
-Fecha o lip sync de **Marta** (bocas A/O/E-I/U + piscada fechada/semicerrada)
-e de **Cida** (bocas A/O/E-I + piscada), todos em croma verde e registrados na
-escala das cabeças-base `35`/`36`. O backend de geração está instável
-(maioria das tentativas retorna "response contains no images"); o restante
-segue no próximo turno.
+Fecha integralmente o lip sync de **Marta** (bocas A, O, E/I, U + piscadas fechada e semicerrada)
+e de **Cida** (bocas A, O, E/I + piscada fechada), todos em croma verde e registrados na
+escala das cabeças-base `35`/`36` com `registra_cabecas.py`.
 
 | Arquivo | Descrição | Croma |
 |---|---|---|
-| `personagens/50_marta_cabeca_boca_u.png` | **Marta** visema U — lábios bicudos em bico fechado, olhos abertos da base; design idêntico à base `35` (IoU 0,99; 722×703, alpha 0–255) | verde |
-| `personagens/51_marta_cabeca_olhos_fechados.png` | **Marta** piscada — pálpebras fechadas com linha de cílios, boca fechada da base; cachos com mechas douradas, argolas e cruz idênticos à base `35` (ref.: `04_marta.jpg` + still `006`; IoU vs `35` = 0,99; 716×708, alpha 0–255) | verde |
+| `personagens/47_marta_cabeca_boca_a.png` | **Marta** visema A — mandíbula aberta articulando "A", língua e dentes à mostra; olhos abertos da base (721×705, bbox 717×703, alpha 0–255) | verde |
+| `personagens/48_marta_cabeca_boca_o.png` | **Marta** visema O — lábios arredondados abertos articulando "O"; olhos abertos da base (721×705, bbox 717×703, alpha 0–255) | verde |
+| `personagens/49_marta_cabeca_boca_ei.png` | **Marta** visema E/I — sorriso aberto largo mostrando dentes superiores e inferiores articulando "E/I" (721×704, bbox 717×702, alpha 0–255) | verde |
+| `personagens/50_marta_cabeca_boca_u.png` | **Marta** visema U — lábios bicudos em bico fechado, olhos abertos da base; design idêntico à base `35` (722×703, bbox 718×703, alpha 0–255) | verde |
+| `personagens/51_marta_cabeca_olhos_fechados.png` | **Marta** piscada — pálpebras fechadas com linha de cílios, boca fechada da base; cachos com mechas douradas, argolas e cruz idênticos à base `35` (716×708, bbox 712×704, alpha 0–255) | verde |
+| `personagens/52_marta_cabeca_olhos_semicerrados.png` | **Marta** olhos semicerrados — pálpebras pela metade em expressão de julgamento/desconfiança, boca fechada da base (722×705, bbox 718×703, alpha 0–255) | verde |
+| `personagens/53_cida_cabeca_boca_a.png` | **Cida** visema A — boca aberta articulando "A", dentes e língua, bobes e óculos idênticos à base `36` (580×657, bbox 570×647, alpha 0–255) | verde |
+| `personagens/54_cida_cabeca_boca_o.png` | **Cida** visema O — boca redonda aberta articulando "O", lábios projetados (580×657, bbox 570×647, alpha 0–255) | verde |
+| `personagens/55_cida_cabeca_boca_ei.png` | **Cida** visema E/I — boca aberta em sorriso largo articulando "E/I", dentes à mostra (579×657, bbox 569×648, alpha 0–255) | verde |
+| `personagens/56_cida_cabeca_olhos_fechados.png` | **Cida** piscada — pálpebras fechadas em piscar suave com rugas de expressão, sorriso sereno fechado da base (580×657, bbox 571×648, alpha 0–255) | verde |
 
-Restam neste lote (próximo turno): `47` boca A, `48` boca O, `49` boca E/I,
-`52` olhos semicerrados (Marta) e `53` boca A, `54` boca O, `55` boca E/I,
-`56` olhos fechados (Cida). Visemas de Seu Jorge passam para o Lote 16 para
-respeitar o teto de 10 imagens por turno.
+### Lote 16 — 🔄 EM PRODUÇÃO (141/342) — rig de visemas e expressões de Seu Jorge
+
+Abre o lip sync e atuação facial de **Seu Jorge**, registrado na escala da cabeça-base `37` (bbox 739 px) sobre croma verde.
+
+| Arquivo | Descrição | Croma |
+|---|---|---|
+| `personagens/57_seu_jorge_cabeca_boca_a.png` | **Seu Jorge** visema A — boca aberta cansada articulando "A", dentes inferiores e superiores aparentes, chapéu bucket oliva e barba grisalha idênticos à base `37` (608×744, bbox 598×739, alpha 0–255) | verde |
+
+Restam no Lote 16 (próximo turno): `58` boca O, `59` boca E/I, `60` olhos fechados/cochilo de Seu Jorge; visemas da Repórter (`61` boca A, `62` boca O, `63` piscada) e visemas do Fabinho (`64` boca A, `65` boca O, `66` piscada) — até 10 gerações por turno.
 
 ### Progresso
 
@@ -494,6 +505,7 @@ respeitar o teto de 10 imagens por turno.
 - [x] Lote 11 — 4 novos de 10 gerações (05 Cida fecha o slot reservado do Lote 10; 15 Seu Jorge na cadeira, 16 Fabinho com lanterna, 17 Zeca notificações; 6 takes duplicados de 06–14 descartados) — 101/342
 - [x] Lote 12 — 10 imagens (visemas 18–21 + Caramelo farejando 22 em croma azul; poses 23–27 de Pardal/Zeca/Marta/Fabinho/Cida) — 111/342
 - [x] Lote 13 — 9 imagens (visemas 28–32 e cabeças-base 33–34, 36–37); o slot `35_marta_cabeca_neutra` foi concluído no Lote 14 — 120/342
-- [x] Lote 14 — 10 imagens (`35`, 38–46): Marta, rig de visemas/piscadas de Pardal e Zeca, cabeças-base de Repórter/Fabinho e pata do Caramelo — **130/342**
-- [~] Lote 15 — em produção: 2/10 (50 boca U, 51 piscada — Marta); 8 gerações seguem no próximo turno; Seu Jorge no Lote 16
+- [x] Lote 14 — 10 imagens (`35`, 38–46): Marta, rig de visemas/piscadas de Pardal e Zeca, cabeças-base de Repórter/Fabinho e pata do Caramelo — 130/342
+- [x] Lote 15 — 10 imagens (47–56: rig completo de visemas e piscadas de Marta e Cida) — **140/342**
+- [~] Lote 16 — em produção: 1/10 (57 Seu Jorge boca A); 9 gerações restantes seguem no próximo turno — **141/342**
 - [ ] Personagens principais restantes e demais categorias
