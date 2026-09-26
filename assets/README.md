@@ -120,22 +120,44 @@ para 45.0–48.9s), criança com pipa soltando/empinando, gato pulando, velha ac
 | `vida_urbana/35_carro_velho_estacionado.png` | Fusca azul-bebê parado, janelas vazadas transparentes com vidro trincado |
 | `vida_urbana/36_crianca_correndo.png` | Menino correndo puxando a linha, pipa e rabiola no alto |
 | `vida_urbana/37_velha_levantando.png` | Vovó no meio do movimento de levantar da cadeira de plástico |
-| `vida_urbana/38_vizinha_fechando_janela.png` | **PENDENTE** — geração estourou o limite de 10 imagens do turno; entra no próximo lote |
+| `vida_urbana/38_vizinha_fechando_janela.png` | Entregue no Lote 5 (ver abaixo) — geração havia estourado o limite de 10 imagens do turno |
 | `vida_urbana/39_ze_cafe_limpando_balcao.png` | Zé do Café limpando o balcão com pano e bule na outra mão |
 | `vida_urbana/40_ciclista_pedal_baixo.png` | Ciclista com pedalada completa (perna estendida embaixo), roda com raios vazados |
 
 Todos os arquivos do lote foram pós-processados e validados como PNG RGBA com
 fundo transparente real (canal alpha), sem cenário incorporado.
 
-**Próximo lote (5):** completar o Lote 4 com `38_vizinha_fechando_janela.png` e
-seguir com 41–49 (ciclos restantes: carroceiro, zikas, cachorros, gato, carro,
-criança, velha, Zé do Café), mantendo 10 gerações por turno.
+### Lote 5 — ✅ CONCLUÍDO (49/342) — fechamento do Lote 4 + reações e ciclos
+
+| Arquivo | Descrição |
+|---|---|
+| `vida_urbana/38_vizinha_fechando_janela.png` | Vizinha espremendo o rosto entre as folhas da janela enquanto empurra para fechar (completa o Lote 4) |
+| `vida_urbana/41_carroceiro_a_pe.png` | Carroceiro a pé ao lado da carroça, puxando o cavalo pelas rédeas em passo lento |
+| `vida_urbana/42_zikas_rindo_apontando.png` | Dupla de Zikas rindo alto, um apontando para a rua e o outro batendo na barriga |
+| `vida_urbana/43_cachorro_latindo.png` | Vira-lata cinza sentado latindo, boca escancarada, orelhas para trás |
+| `vida_urbana/44_gato_agachado_pulo.png` | Gato preto espreitando, corpo agachado com pata dianteira erguida antes do bote |
+| `vida_urbana/45_carro_velho_frente.png` | Fusca azul-bebê com farol aceso e janelas vazadas transparentes (vista lateral com luz) |
+| `vida_urbana/46_crianca_pipa_caida.png` | Menino ajoelhado segurando a pipa caída e murcha, beicinho de choro |
+| `vida_urbana/47_velha_abanando.png` | Vovó sentada na cadeira de plástico abanando-se com jornal dobrado |
+| `vida_urbana/48_ze_cafe_bule_alto.png` | Zé do Café servindo café de longe: bule erguido no alto e xícara baixa na outra mão |
+| `vida_urbana/49_ciclista_parado.png` | Ciclista parado com o pé no chão, olhando por cima do ombro (fecha o ciclo do ciclista, 5/5) |
+
+Pós-processamento do lote: recorte croma padrão + limpeza de resíduos de croma
+por matiz em `45` (luz de farol pintada de verde e reflexo do fundo nos vidros)
+e `47` (franja verde na fresta entre cabeça e jornal); verdes legítimos de arte
+(olhos do gato em `44`, fitas da rabiola em `46`) preservados. Todos validados
+como PNG RGBA com alpha real.
+
+**Próximo lote (6):** 50–59 — ciclos restantes: carroceiro (50), zikas (51–52),
+cachorros (53–54), gato (55), carro (56, fecha o elemento em 6/6), criança (57),
+velha (58) e vizinha (59), mantendo 10 gerações por turno.
 
 ### Progresso
 
 - [x] Lote 1 — 10 imagens (heroes dos 10 elementos)
 - [x] Lote 2 — 10 imagens (variações de pose da cena c00)
 - [x] Lote 3 — 10 imagens (poses intermediárias e segundo cão)
-- [~] Lote 4 — 9/10 imagens (38_vizinha_fechando_janela pendente p/ próximo turno)
-- [ ] Lote 5..9 — Vida Urbana completa (44 restantes após o 38)
+- [x] Lote 4 — 10 imagens (38 entregue junto com o Lote 5)
+- [x] Lote 5 — 10 imagens (reações, ciclos e fechamento do ciclista 5/5) — 49/342
+- [ ] Lote 6..9 — Vida Urbana completa (35 restantes)
 - [ ] Demais categorias (258)
