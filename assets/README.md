@@ -19,6 +19,13 @@ pronto para ser composto sobre qualquer cena.
 - Nomenclatura: `assets/<categoria>/<nn>_<nome>.png` (nn = ordem dentro da categoria).
 - Total planejado: **~342 imagens** (ver tabela abaixo). Produção em lotes de
   **10 por turno**, 1 commit por imagem no GitHub.
+- Fidelidade dos personagens principais: cada geração recebe como referência a
+  folha de modelo (`personagens/0N_*.jpg`, raiz do repo) **e** um still das 79
+  imagens em que o personagem aparece — nada é redesenhado de memória.
+- Regra "1 arquivo = 1 asset": se o gerador devolver uma folha com várias poses
+  ou cabeças na mesma imagem, só a pose pedida entra no repo (recorte por
+  colunas vazias do alpha); o resto fica em `raw/` (ignorado pelo Git) e não
+  conta no total.
 
 ## Plano geral (342 imagens)
 
@@ -48,6 +55,30 @@ pronto para ser composto sobre qualquer cena.
 | 8 | Vizinha na Janela | 8 | Média |
 | 9 | Zé do Café | 9 | Média |
 | 10 | Ciclista | 5 | Baixa |
+
+**Vida Urbana concluída no Lote 9: 84/84** (01–84, todos com fundo transparente).
+
+## Personagens principais (135 assets — 8 personagens) — pasta `assets/personagens/`
+
+Sub-plano por personagem. "Poses" = corpo inteiro para puppet/interpolação;
+"cabeças" = expressões recortadas para troca de rosto; "bocas" = visemas
+isolados (fechada, A, E/I, O, U, F/V…) para lip sync; "olhos" = aberto /
+meio / fechado para o ciclo de piscar. Cada item é **um arquivo PNG RGBA**.
+
+| Personagem | Poses | Cabeças | Bocas | Olhos | Extras | Total |
+|---|---|---|---|---|---|---|
+| Caramelo | 12 | 8 | 8 | 4 | 2 (patas, cauda) | 34 |
+| Xerxes Pardal | 10 | 6 | 6 | 2 | — | 24 |
+| Zeca | 8 | 4 | 6 | 2 | — | 20 |
+| Marta | 5 | 3 | 4 | 2 | — | 14 |
+| Cida | 4 | 2 | 3 | 1 | — | 10 |
+| Seu Jorge | 4 | 2 | 3 | 1 | — | 10 |
+| Fabinho | 5 | 3 | 4 | 1 | — | 13 |
+| Repórter | 4 | 2 | 3 | 1 | — | 10 |
+| **Total** | | | | | | **135** |
+
+Ordem de produção: 1 herói (pose neutra de corpo inteiro) por personagem →
+poses das cenas em que cada um fala → cabeças/bocas/olhos.
 
 ### Integração com a cena c00 (praça)
 
@@ -202,14 +233,41 @@ lote futuro. 10/10 validados como PNG RGBA com alpha real.
 | `vida_urbana/74_vizinha_rindo.png` | Vizinha gargalhando com a cabeça jogada pra trás, mão na barriga |
 | `vida_urbana/75_zikas_se_escondendo.png` | Dupla de Zikas agachada se escondendo atrás de um muro invisível, mãos na cabeça, cara de medo |
 | `vida_urbana/76_cachorro_rolando.png` | Vira-lata rolando de barriga pra cima, patas no ar, língua de fora (fecha cachorros 10/10) |
-| `vida_urbana/77_crianca_linha_enroscada.png` | **RESERVADO** — geração bloqueada pela moderação de conteúdo (criança enroscada na linha); entra no Lote 9 com pose segura |
+| `vida_urbana/77_crianca_procurando_pipa.png` | Entregue no Lote 9 (ver abaixo) — a pose original (criança enroscada na linha) foi bloqueada pela moderação; substituída por pose segura |
 | `vida_urbana/78_velha_conversando.png` | Vovó sentada conversando animada, gesticulando com as duas mãos (fecha velha 9/9) |
 | `vida_urbana/79_vizinha_acenando.png` | Vizinha acenando da janela com sorriso, cotovelo no peitoril (fecha vizinha 8/8) |
 
 Pós-processamento: recorte croma padrão; verde do vestido floral do `78` conferido por HSV — são folhas pintadas (0,1% pixels croma-like), não resíduo. 9/9 entregues validados como PNG RGBA com alpha real. 10 gerações por turno respeitadas (1 bloqueada, sem re-tentativa).
 
-**Próximo lote (9):** `77` (pose segura da criança) + zikas (1), carroceiro (1), gato (1)
-e zé do café (2) = 6 gerações — fecha os 84 de Vida Urbana.
+### Lote 9 — ✅ CONCLUÍDO (88/342) — fecha Vida Urbana (84/84) + heróis dos 4 protagonistas
+
+| Arquivo | Descrição |
+|---|---|
+| `vida_urbana/77_crianca_procurando_pipa.png` | Menino parado com a mão em pala sobre os olhos procurando a pipa no céu, carretel na outra mão (fecha criança 9/9; substitui a pose bloqueada) |
+| `vida_urbana/80_zikas_dancando.png` | Dupla de Zikas dançando passinho lado a lado, joelhos dobrados e braço no alto (fecha zikas 11/11) |
+| `vida_urbana/81_carroceiro_dando_agua_cavalo.png` | Carroceiro a pé dando água ao cavalo num balde amassado e fazendo carinho no pescoço — sem carroça (fecha carroceiro 9/9) |
+| `vida_urbana/82_gato_dormindo_enrolado.png` | Gato preto dormindo enrolado em bola, rabo sobre o focinho (fecha gato 8/8) |
+| `vida_urbana/83_ze_cafe_chamando_fregues.png` | Zé do Café chamando freguês: mão em concha na boca, bule erguido no alto |
+| `vida_urbana/84_ze_cafe_contando_moedas.png` | Zé do Café contando moedas na palma com o indicador, olhar desconfiado, bule pendurado no pulso (fecha zé 9/9) |
+| `personagens/01_caramelo_sentado.png` | **Caramelo** herói: sentado 3/4 de frente, faixa verde/ouro com medalhão, coleira cinza, peito branco, olhos semicerrados de tédio digno (ref.: `personagens/01_caramelo.jpg` + `imagens/077.jpg`) |
+| `personagens/02_pardal_em_pe.png` | **Xerxes Pardal** herói: em pé 3/4, terno marrom-oliva amarrotado, gravata curta listrada, botton 29, sorriso nervoso de político, mão erguida em aceno tímido, gotas de suor (ref.: `02_pardal.jpg` + `imagens/026.jpg`) |
+| `personagens/03_zeca_em_pe.png` | **Zeca** herói: em pé 3/4, terno cinza largo, gravata vermelha, prancheta numa pata e a outra aberta em gesto de "confia" (ref.: `03_zeca.jpg` + `imagens/018.jpg`) |
+| `personagens/04_marta_em_pe.png` | **Marta** herói: em pé 3/4, mão na cintura, celular erguido lendo mensagem com boca escandalizada, argolas, cruz, vestido teal estampado (ref.: `04_marta.jpg` + `imagens/006.jpg`) |
+
+Pós-processamento do lote: recorte croma padrão; `80` e `04_marta` vieram
+como folha de modelo (segundo par de zikas / vista lateral + 6 cabeças de
+expressão da Marta) — só a pose pedida foi mantida (recorte pelas colunas
+vazias do alpha), o restante ficou em `raw/`; limpeza por matiz de franja de
+croma presa nas rédeas e no balde do `81` e na alça do bule do `83`; verdes
+legítimos de arte preservados (faixa do Caramelo, gravata do Pardal, vestido da
+Marta). 10/10 validados como PNG RGBA com alpha real 0–255. 10 gerações no
+turno.
+
+**Próximo lote (10):** heróis de Cida (05), Seu Jorge (06), Fabinho (07) e
+Repórter (08) + Caramelo andando de perfil (09), Caramelo dormindo enrolado
+(10), Caramelo em pé apoiado na borda do pote (11), Caramelo cabeça 3/4 neutra
+para base de bocas (12), Pardal suando desesperado com calculadora (13) e Zeca
+com celular verde do WhatsApp (14) — 10 gerações.
 
 ### Progresso
 
@@ -221,5 +279,6 @@ e zé do café (2) = 6 gerações — fecha os 84 de Vida Urbana.
 - [x] Lote 6 — 10 imagens (ações secundárias; carro fechado em 6/6) — 59/342
 - [x] Lote 7 — 10 imagens (60–69: brindes, reações e cochilos; letreiro do 61 removido) — 69/342
 - [x] Lote 8 — 9 imagens (70–76, 78–79; 77 reservado por bloqueio de moderação) — 78/342
-- [ ] Lote 9 — fecha Vida Urbana (77 + zikas/carroceiro/gato/zé = 6 imagens) — 84/342
-- [ ] Demais categorias (258)
+- [x] Lote 9 — 10 imagens (77, 80–84 fecham Vida Urbana 84/84; personagens 01–04: heróis Caramelo, Pardal, Zeca, Marta) — 88/342
+- [ ] Lote 10 — heróis Cida/Jorge/Fabinho/Repórter + poses do Caramelo, Pardal e Zeca — 98/342
+- [ ] Personagens principais restantes (131) e demais categorias (123)
