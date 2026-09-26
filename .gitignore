@@ -1,6 +1,9 @@
 # Python and local development artifacts
 __pycache__/
 *.pyc
+
+# Intermediários de croma e previews de validação (entregáveis vão para assets/)
+raw/
 .pytest_cache/
 .venv/
 node_modules/
