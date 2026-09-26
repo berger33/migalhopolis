@@ -480,15 +480,42 @@ escala das cabeças-base `35`/`36` com `registra_cabecas.py`.
 | `personagens/55_cida_cabeca_boca_ei.png` | **Cida** visema E/I — boca aberta em sorriso largo articulando "E/I", dentes à mostra (579×657, bbox 569×648, alpha 0–255) | verde |
 | `personagens/56_cida_cabeca_olhos_fechados.png` | **Cida** piscada — pálpebras fechadas em piscar suave com rugas de expressão, sorriso sereno fechado da base (580×657, bbox 571×648, alpha 0–255) | verde |
 
-### Lote 16 — 🔄 EM PRODUÇÃO (141/342) — rig de visemas e expressões de Seu Jorge
+### Lote 16 — ✅ CONCLUÍDO (151/342) — rigs de visemas e expressões de Seu Jorge, Repórter e Fabinho
 
-Abre o lip sync e atuação facial de **Seu Jorge**, registrado na escala da cabeça-base `37` (bbox 739 px) sobre croma verde.
+Fecha o rig facial de **Seu Jorge** (boca O, boca E/I e cochilo) e abre os rigs da
+**Repórter** (bocas A/O/E-I + piscada) e do **Fabinho** (bocas A/O + piscada), todos em
+croma verde e registrados na escala das cabeças-base `37` (bbox 740 px), `44` (bbox 780 px)
+e `45` (bbox 713 px) com `registra_cabecas.py`.
 
 | Arquivo | Descrição | Croma |
 |---|---|---|
 | `personagens/57_seu_jorge_cabeca_boca_a.png` | **Seu Jorge** visema A — boca aberta cansada articulando "A", dentes inferiores e superiores aparentes, chapéu bucket oliva e barba grisalha idênticos à base `37` (608×744, bbox 598×739, alpha 0–255) | verde |
+| `personagens/58_seu_jorge_cabeca_boca_o.png` | **Seu Jorge** visema O — lábios arredondados em abertura redonda articulando "O", olhos cansados da base; chapéu bucket e barba idênticos à base `37` (608×744, bbox 598×739, alpha 0–255) | verde |
+| `personagens/59_seu_jorge_cabeca_boca_ei.png` | **Seu Jorge** visema E/I — boca aberta em sorriso largo com dentes superiores e inferiores à mostra articulando "E/I", olhos cansados da base (608×744, bbox 598×739, alpha 0–255) | verde |
+| `personagens/60_seu_jorge_cabeca_olhos_fechados.png` | **Seu Jorge** cochilo — pálpebras fechadas em expressão sonolenta, boca fechada relaxada da base; chapéu e barba idênticos à base `37` (607×744, bbox 597×739, alpha 0–255) | verde |
+| `personagens/61_reporter_cabeca_boca_a.png` | **Repórter** visema A — mandíbula caída articulando "A" com dentes e língua à mostra, cabelos loiros e blazer idênticos à base `44` (659×791, bbox 648×779, alpha 0–255) | verde |
+| `personagens/62_reporter_cabeca_boca_o.png` | **Repórter** visema O — lábios arredondados em abertura pequena articulando "O", olhos abertos da base (659×791, bbox 647×779, alpha 0–255) | verde |
+| `personagens/63_reporter_cabeca_boca_ei.png` | **Repórter** visema E/I — sorriso aberto largo de estúdio mostrando dentes articulando "E/I", olhos abertos da base (659×791, bbox 649×779, alpha 0–255) | verde |
+| `personagens/64_reporter_cabeca_olhos_fechados.png` | **Repórter** piscada — pálpebras fechadas com linha de cílios, boca fechada neutra da base; brinco de argola e blazer idênticos à base `44` (659×791, bbox 647×779, alpha 0–255) | verde |
+| `personagens/65_fabinho_cabeca_boca_a.png` | **Fabinho** visema A — boca aberta arredondada articulando "A" com língua à mostra, boné teal com "F" e cachos idênticos à base `45` (661×718, bbox 651×713, alpha 0–255) | verde |
+| `personagens/66_fabinho_cabeca_boca_o.png` | **Fabinho** visema O — lábios arredondados em "O" articulando "O", olhos arregalados da base (660×718, bbox 650×713, alpha 0–255) | verde |
+| `personagens/67_fabinho_cabeca_olhos_fechados.png` | **Fabinho** piscada — olhos fechados em piscar contente com sorriso fechado, boné e sardas idênticos à base `45` (661×718, bbox 651×713, alpha 0–255) | verde |
 
-Restam no Lote 16 (próximo turno): `58` boca O, `59` boca E/I, `60` olhos fechados/cochilo de Seu Jorge; visemas da Repórter (`61` boca A, `62` boca O, `63` piscada) e visemas do Fabinho (`64` boca A, `65` boca O, `66` piscada) — até 10 gerações por turno.
+Pós-processamento e validação:
+
+- Foram feitas **exatamente 10 gerações** neste turno, uma por arquivo (`58`–`67`),
+  todas sobre fundo verde croma #00FF00.
+- Recorte via `chroma_key.py` (flood fill pela moldura, despill e trim) e registro de
+  escala via `registra_cabecas.py` em alpha premultiplicado: trio do Jorge na altura de
+  bbox da base `37` (740 px → sujeitos 739 px), quarteto da Repórter na base `44`
+  (780 px → 779 px) e trio do Fabinho na base `45` (713 px → 713 px).
+- Validação numérica: 10/10 PNG **RGBA** com alpha real 0–255; **zero** pixels de croma
+  sólido ou halo na cor do fundo (#00FF00) dentro das silhuetas; revisão visual em fundo
+  claro e escuro sem franja verde e sem cenário incorporado. **10 gerações no turno.**
+
+**Próximo lote (17):** fechar o rig do Fabinho (bocas E/I e U) e retomar as poses de
+corpo dos protagonistas (Seu Jorge, Repórter e Fabinho em cena), seguindo as folhas de
+modelo e os stills das 79 imagens — até 10 gerações por turno.
 
 ### Progresso
 
@@ -507,5 +534,5 @@ Restam no Lote 16 (próximo turno): `58` boca O, `59` boca E/I, `60` olhos fecha
 - [x] Lote 13 — 9 imagens (visemas 28–32 e cabeças-base 33–34, 36–37); o slot `35_marta_cabeca_neutra` foi concluído no Lote 14 — 120/342
 - [x] Lote 14 — 10 imagens (`35`, 38–46): Marta, rig de visemas/piscadas de Pardal e Zeca, cabeças-base de Repórter/Fabinho e pata do Caramelo — 130/342
 - [x] Lote 15 — 10 imagens (47–56: rig completo de visemas e piscadas de Marta e Cida) — **140/342**
-- [~] Lote 16 — em produção: 1/10 (57 Seu Jorge boca A); 9 gerações restantes seguem no próximo turno — **141/342**
+- [x] Lote 16 — 10 imagens (58–67: fecha o rig de Seu Jorge e abre os rigs da Repórter e do Fabinho) — **151/342**
 - [ ] Personagens principais restantes e demais categorias
