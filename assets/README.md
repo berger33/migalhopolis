@@ -333,10 +333,68 @@ os assets já aprovados.
 - 4/4 validados como PNG RGBA com alpha real 0–255. **10 gerações no turno**
   (limite respeitado; sem re-tentativa).
 
-**Lote 12** (slots 18–27) está entregue no PR #14, aguardando aprovação —
-não mergeado neste branch. Numeração do Lote 13 continua a partir de 28.
+### Lote 12 — ✅ CONCLUÍDO (111/342) — primeiro set de visemas do Caramelo + 5 poses de cena
 
-### Lote 13 — 9/10 ENTREGUE (110/342 neste branch; 120/342 com o Lote 12) — visemas restantes do Caramelo + cabeças-base
+| Arquivo | Descrição | Croma |
+|---|---|---|
+| `personagens/18_caramelo_cabeca_olhos_fechados.png` | Caramelo cabeça 3/4 — **olhos fechados** (piscar), boca neutra igual à base `12` | azul |
+| `personagens/19_caramelo_cabeca_boca_a.png` | Caramelo cabeça — **boca "A"**: mandíbula caída, língua e caninos à mostra | azul |
+| `personagens/20_caramelo_cabeca_boca_o.png` | Caramelo cabeça — **boca "O"**: focinho projetado, abertura redonda pequena | azul |
+| `personagens/21_caramelo_cabeca_boca_ei.png` | Caramelo cabeça — **boca "E/I"**: focinho esticado na horizontal, dentes em careta | azul |
+| `personagens/22_caramelo_farejando.png` | Caramelo em pé com o focinho erguido farejando o ar, orelhas atentas (cena 016) | azul |
+| `personagens/23_pardal_macacao_mop.png` | Pardal de **macacão azul** e botas, passando mop no bueiro, ar derrotado (cena 040/070) | verde |
+| `personagens/24_zeca_carimbando_iptu.png` | Zeca esmagando o **carimbo** na folha do IPTU, sorriso safado, 6 dedos (cena 025) | verde |
+| `personagens/25_marta_pregando.png` | Marta pregando de **braços abertos**, celular numa mão e bíblia na outra (cena 006) | verde |
+| `personagens/26_fabinho_ajoelhado.png` | Fabinho **ajoelhado**, lanterna baixa, olhar preocupado (cena 062) | verde |
+| `personagens/27_cida_apontando.png` | Cida **apontando o dedo** indignada, pacote de linguiça na outra mão (cena 074) | verde |
+
+#### Rig de lip sync — convenção de registro
+
+As cabeças de visema precisam ser **trocáveis** sobre a cabeça neutra `12`.
+Cada geração devolveu uma escala diferente, então todas foram normalizadas pela
+**altura do bounding box do sujeito** (= 701 px, medida na base `12`):
+
+| Cabeça | Tamanho final | bbox do sujeito | IoU vs. base `12` |
+|---|---|---|---|
+| `12` neutra (base) | 753×717 | 737×701 | — |
+| `19` boca A | 739×707 | 727×701 | 0,90 |
+| `20` boca O | 732×708 | 716×700 | 0,88 |
+| `18` olhos fechados | 629×709 | 613×701 | 0,73 |
+| `21` boca E/I | 680×701 | 680×701 | 0,69 |
+
+- `19` e `20` encaixam direto (IoU ≥ 0,88).
+- `18` veio com recorte mais fechado (menos ombro) e `21` com a careta mais
+  larga — alinhar pelo **centro do bbox + escala pela largura** no rig.
+- IoU baixa em `21` é esperada: a careta "E/I" muda a silhueta do focinho.
+
+#### Ferramentas
+
+- `assets/tools/chroma_key.py`: **despill agora é ciente da cor do fundo** — com
+  `--key blue` remove o vazamento de azul na franja (antes só tratava verde), o
+  que viabiliza gerar o Caramelo em croma azul sem halo.
+- `assets/tools/registra_cabecas.py` (**novo**): recorta o maior componente
+  (folha de modelo), registra a escala pela cabeça-base e faz o resize em
+  **alpha premultiplicado** — sem isso o RGB do fundo croma vaza para a borda e
+  cria halo azul/esverdeado.
+
+#### Pós-processamento e validação
+
+- `21` saiu como **folha de modelo** (cabeça + elemento extra no canto): só a
+  cabeça pedida foi mantida (maior componente + dilatação de 2 px), resto
+  descartado.
+- `26`: franja verde presa na borda — 4 rodadas de limpeza por matiz (1.738 px)
+  + despill forte nos 123 px restantes; verde de arte preservado (0,10%).
+- `24`: 1 buraco fechado de 7.205 px entre braço e tronco — vão legítimo.
+- 10/10 validados como PNG RGBA com alpha real 0–255; franja de croma zero em
+  todos (os pixels quase transparentes das cabeças têm alpha ≈ 0,04, invisíveis
+  na composição). **10 gerações no turno.**
+
+**Próximo lote (13):** fecha o set de cabeças do Caramelo — boca "U" (28), boca
+"F/V" (29), olhos arregalados (30), olhos semicerrados (31) e cabeça de êxtase
+(32), todos em croma azul — e abre as **cabeças-base dos demais** para bocas:
+Pardal (33), Zeca (34), Marta (35), Cida (36) e Seu Jorge (37) — 10 gerações.
+
+### Lote 13 — 9/10 ENTREGUE (120/342) — visemas restantes do Caramelo + cabeças-base
 
 Fecha o set de cabeças do Caramelo (croma **azul**, registradas na escala da
 base `12`) e abre as **cabeças-base** de Pardal, Zeca, Cida e Seu Jorge
@@ -389,7 +447,7 @@ erguida — 10 gerações.
 - [x] Lote 9 — 10 imagens (77, 80–84 fecham Vida Urbana 84/84; personagens 01–04: heróis Caramelo, Pardal, Zeca, Marta) — 88/342
 - [x] Lote 10 — 9 imagens (personagens 06–14; 05 Cida reservado por falha do gerador; correção do 01 e da ferramenta) — 97/342
 - [x] Lote 11 — 4 novos de 10 gerações (05 Cida fecha o slot reservado do Lote 10; 15 Seu Jorge na cadeira, 16 Fabinho com lanterna, 17 Zeca notificações; 6 takes duplicados de 06–14 descartados) — 101/342
-- [ ] Lote 12 — cabeças/bocas do Caramelo (18–22, croma azul) + poses de cena Pardal/Zeca/Marta/Fabinho/Cida (23–27) — 111/342 — **entregue no PR #14, aguardando aprovação**
-- [x] Lote 13 — 9 imagens (Caramelo visemas U/F-V + olhos aberto/meio + êxtase 28–32; cabeças-base Pardal/Zeca/Cida/Jorge 33–34, 36–37; 35 Marta reservado) — 110/342 neste branch
-- [ ] Lote 14 — Marta 35 (slot reservado) + visemas Pardal/Zeca + cabeças Repórter/Fabinho
+- [x] Lote 12 — 10 imagens (visemas 18–21 + Caramelo farejando 22 em croma azul; poses 23–27 de Pardal/Zeca/Marta/Fabinho/Cida) — 111/342
+- [x] Lote 13 — 9 imagens (visemas 28–32 e cabeças-base 33–34, 36–37); `35_marta_cabeca_neutra` reservado após falha sem imagem — 120/342
+- [ ] Lote 14 — `35_marta_cabeca_neutra` (slot reservado) + visemas de Pardal/Zeca + cabeças-base de Repórter/Fabinho + pose extra do Caramelo — 10 gerações
 - [ ] Personagens principais restantes e demais categorias
