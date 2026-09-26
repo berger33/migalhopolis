@@ -536,7 +536,8 @@ modelo e os stills das 79 imagens — até 10 gerações por turno.
 - [x] Lote 15 — 10 imagens (47–56: rig completo de visemas e piscadas de Marta e Cida) — **140/342**
 - [x] Lote 16 — 10 imagens (58–67: fecha o rig de Seu Jorge e abre os rigs da Repórter e do Fabinho) — **151/342**
 - [x] Lote 17 — 10 imagens (68–77: visemas finais do Fabinho, poses de Seu Jorge/Repórter/Fabinho e cauda do Caramelo; PR #22) — **161/342**
-- [ ] Lote 18 — 8 de 10 (78–83, 86–87: poses de atuação de Zeca, Pardal e Cida; `84`/`85` de Marta pendentes por falha do gerador) — **169/342**, aguardando aprovação
+- [x] Lote 18 — 8 de 10 (78–83, 86–87: poses de atuação de Zeca, Pardal e Cida; `84`/`85` de Marta pendentes por falha do gerador) — **169/342**, aprovado e integrado pelo PR #23 (merge `366a1d5`)
+- [ ] Lote 19 — **0 de 10**: as 10 gerações foram feitas mas nenhuma imagem foi aprovada para entrada no repo; slots `84`/`85` e `88`–`95` permanecem reservados, total segue **169/342**
 - [ ] Personagens principais restantes e demais categorias
 
 ### Lote 17 — poses e fechamento dos visemas do Fabinho
@@ -637,4 +638,22 @@ Ressalvas para a aprovação visual:
 - **83:** o macacão veio com uma etiqueta "PARDAL" no peito.
 - **86:** resolução menor, por ter sido recortada de uma folha de 3 poses.
 
-**Status:** Lote 18 entregue para revisão; merge depende de autorização expressa.
+**Status:** Lote 18 aprovado e integrado à `main` pelo PR #23 (merge `366a1d5`).
+
+### Lote 19 — tentativa sem entrega (0/10)
+
+O lote foi aberto para recuperar os dois slots pendentes de Marta (`84`, `85`) e
+abrir as poses restantes de Marta/Zeca/Repórter/Pardal (`88`–`95`). As 10
+gerações foram executadas sobre verde #00FF00 com as referências do repo
+(folha de modelo + asset isolado composto sobre croma), mas **nenhuma imagem
+foi aprovada para entrada no repositório** e nenhuma entrou em pós-processamento.
+
+- Nenhum arquivo foi criado em `assets/personagens/`; nenhum `lote19.json` foi
+  escrito em `assets/validacao/`.
+- Os números `84`, `85` e `88`–`95` continuam **reservados** (não contabilizados).
+- Total permanece **169/342** — 84 de vida urbana + 85 de personagens
+  (`ls assets/personagens/*.png` = 85, conferido).
+
+**Próximo lote (20):** retomar exatamente os 10 slots do Lote 19, com uma
+geração por asset e a imagem usada diretamente (sem rodada de escolha entre
+opções, que foi o que travou este turno).
