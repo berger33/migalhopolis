@@ -1,0 +1,247 @@
+{
+  "lote": 18,
+  "gerações_no_turno": 10,
+  "imagens_devolvidas": 8,
+  "falhas_do_gerador_sem_imagem": [
+    "84_marta_celular_whatsapp",
+    "85_marta_bracos_erguidos"
+  ],
+  "criterio_croma": "Distância RGB normalizada < 0.32 da chave medida na moldura (#00FF00 aprox.), alpha > 0.02; não substitui revisão visual.",
+  "criterio_franja": "Pixels visíveis a até 3 px do transparente com G > max(R,B) + 0.15.",
+  "revisao_visual": "Fundos claro (#F5F5F0), escuro (#19191E) e magenta (#FF00FF) em zoom de mãos/bordas.",
+  "assets": [
+    {
+      "arquivo": "78_zeca_prancheta.png",
+      "geracao": "raw/lote18/gen_78.png",
+      "tamanho": [
+        591,
+        732
+      ],
+      "bbox": [
+        575,
+        716
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "chave_medida_rgb": [
+        12,
+        243,
+        3
+      ],
+      "pixels_proximos_croma": 0,
+      "franja_verde_borda_3px": 0,
+      "alpha_max_nas_bordas_do_canvas": 0,
+      "transparente_pct": 49.6,
+      "limpeza_pos_chroma": {
+        "alpha_zerado_px": 39,
+        "despill_interno_px": 9,
+        "despill_traco_escuro_px": 48
+      },
+      "selecao_pose": "folha de 3 poses; pose do meio isolada por componente conexo"
+    },
+    {
+      "arquivo": "79_zeca_explicando.png",
+      "geracao": "raw/lote18/gen_79.png",
+      "tamanho": [
+        732,
+        954
+      ],
+      "bbox": [
+        716,
+        938
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "chave_medida_rgb": [
+        6,
+        248,
+        4
+      ],
+      "pixels_proximos_croma": 0,
+      "franja_verde_borda_3px": 0,
+      "alpha_max_nas_bordas_do_canvas": 0,
+      "transparente_pct": 47.6,
+      "limpeza_pos_chroma": {}
+    },
+    {
+      "arquivo": "80_zeca_bracos_cruzados.png",
+      "geracao": "raw/lote18/gen_80.png",
+      "tamanho": [
+        568,
+        904
+      ],
+      "bbox": [
+        552,
+        888
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "chave_medida_rgb": [
+        8,
+        248,
+        5
+      ],
+      "pixels_proximos_croma": 0,
+      "franja_verde_borda_3px": 0,
+      "alpha_max_nas_bordas_do_canvas": 0,
+      "transparente_pct": 43.3,
+      "limpeza_pos_chroma": {
+        "alpha_zerado_px": 0,
+        "despill_interno_px": 77,
+        "despill_traco_escuro_px": 98
+      }
+    },
+    {
+      "arquivo": "81_pardal_discursando.png",
+      "geracao": "raw/lote18/gen_81.png",
+      "tamanho": [
+        668,
+        1155
+      ],
+      "bbox": [
+        652,
+        1139
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "chave_medida_rgb": [
+        7,
+        249,
+        5
+      ],
+      "pixels_proximos_croma": 0,
+      "franja_verde_borda_3px": 0,
+      "alpha_max_nas_bordas_do_canvas": 0,
+      "transparente_pct": 52.8,
+      "limpeza_pos_chroma": {}
+    },
+    {
+      "arquivo": "82_pardal_surpreso.png",
+      "geracao": "raw/lote18/gen_82.png",
+      "tamanho": [
+        544,
+        830
+      ],
+      "bbox": [
+        528,
+        814
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "chave_medida_rgb": [
+        8,
+        247,
+        6
+      ],
+      "pixels_proximos_croma": 0,
+      "franja_verde_borda_3px": 0,
+      "alpha_max_nas_bordas_do_canvas": 0,
+      "transparente_pct": 54.7,
+      "limpeza_pos_chroma": {}
+    },
+    {
+      "arquivo": "83_pardal_implorando_cracha.png",
+      "geracao": "raw/lote18/gen_83.png",
+      "tamanho": [
+        697,
+        1016
+      ],
+      "bbox": [
+        681,
+        1000
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "chave_medida_rgb": [
+        7,
+        249,
+        5
+      ],
+      "pixels_proximos_croma": 0,
+      "franja_verde_borda_3px": 0,
+      "alpha_max_nas_bordas_do_canvas": 0,
+      "transparente_pct": 59.0,
+      "limpeza_pos_chroma": {
+        "alpha_zerado_px": 24,
+        "despill_interno_px": 17,
+        "despill_traco_escuro_px": 39
+      }
+    },
+    {
+      "arquivo": "86_cida_gritando.png",
+      "geracao": "raw/lote18/gen_86.png",
+      "tamanho": [
+        307,
+        630
+      ],
+      "bbox": [
+        291,
+        614
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "chave_medida_rgb": [
+        15,
+        239,
+        6
+      ],
+      "pixels_proximos_croma": 0,
+      "franja_verde_borda_3px": 0,
+      "alpha_max_nas_bordas_do_canvas": 0,
+      "transparente_pct": 46.9,
+      "limpeza_pos_chroma": {
+        "alpha_zerado_px": 0,
+        "despill_interno_px": 159,
+        "despill_traco_escuro_px": 32,
+        "despill_traco_escuro_restrito_borda_6px": true,
+        "restaurados_interior_avental_px": 148
+      },
+      "selecao_pose": "folha de 3 poses; pose da esquerda isolada por componente conexo"
+    },
+    {
+      "arquivo": "87_cida_maos_cintura.png",
+      "geracao": "raw/lote18/gen_87.png",
+      "tamanho": [
+        580,
+        1016
+      ],
+      "bbox": [
+        564,
+        1000
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "chave_medida_rgb": [
+        6,
+        247,
+        4
+      ],
+      "pixels_proximos_croma": 0,
+      "franja_verde_borda_3px": 0,
+      "alpha_max_nas_bordas_do_canvas": 0,
+      "transparente_pct": 46.1,
+      "limpeza_pos_chroma": {}
+    }
+  ],
+  "ressalvas": [
+    "Seis dedos do Zeca não legíveis em 78/79",
+    "83 com etiqueta PARDAL no macacão",
+    "86 com resolução menor (recorte de folha multi-pose)"
+  ]
+}
