@@ -42,6 +42,7 @@ MIN_HOLE = 400  # buracos opacos menores que isso são tapados (ruído interno)
 MIN_OLIVE_HOLE = 1500  # olive só vaza buracos grandes (janelas), protege olhos
 MIN_SPECK = 25  # resíduos de alpha menores que isso são descartados
 GM = 0.06       # margem de dominância de verde (escala 0..1)
+KEY_GUARD = 0.32  # distância RGB (0..1) até a cor do fundo acima da qual o verde é arte, não croma
 
 
 def estimate_key(rgb: np.ndarray, key: str) -> np.ndarray:
@@ -101,7 +102,7 @@ def build_matte(rgb: np.ndarray, key_rgb: np.ndarray, feather: float) -> np.ndar
     return np.clip(matte, 0.0, 1.0)
 
 
-def punch_green_holes(f: np.ndarray, alpha: np.ndarray) -> np.ndarray:
+def punch_green_holes(f: np.ndarray, alpha: np.ndarray, key_rgb: np.ndarray | None = None) -> np.ndarray:
     """Fundo croma preso DENTRO do sujeito vira transparente.
 
     Componentes de "fundo provável" (alpha baixo, croma saturado ou olive)
@@ -109,10 +110,18 @@ def punch_green_holes(f: np.ndarray, alpha: np.ndarray) -> np.ndarray:
     majoritariamente verde, vaza o verde e preserva as estruturas finas que
     cruzam o buraco (raios de roda, trincas de vidro). Buracos pequenos
     não-verdes são tapados (ruído interno).
+
+    Guarda de cor (Lote 10): só vaza pixels cuja cor está PERTO da cor do
+    fundo (`key_rgb`, distância RGB < KEY_GUARD). Verde de arte — faixa
+    lima do Caramelo, oliva sombreado, verde-escuro de contorno — fica
+    longe do croma e é preservado mesmo quando forma uma região fechada.
     """
     alpha = alpha.copy()
     chroma_hi, olive = masks(f)
     verde = chroma_hi | olive
+    if key_rgb is not None:
+        dist_key = np.linalg.norm(f - key_rgb.astype(np.float32).reshape(1, 1, 3), axis=2)
+        verde = verde & (dist_key < KEY_GUARD)
     bglike = (alpha <= 0.5) | verde
     labels, n = ndimage.label(bglike, structure=np.ones((3, 3), dtype=np.int8))
     if n == 0:
@@ -135,9 +144,12 @@ def punch_green_holes(f: np.ndarray, alpha: np.ndarray) -> np.ndarray:
     return alpha
 
 
-def punch_edge_blobs(alpha: np.ndarray, f: np.ndarray) -> np.ndarray:
+def punch_edge_blobs(alpha: np.ndarray, f: np.ndarray, key_rgb: np.ndarray | None = None) -> np.ndarray:
     """Bolhas de croma pintadas sobre a silhueta, na franja da borda."""
     chroma_hi, _ = masks(f)
+    if key_rgb is not None:
+        dist_key = np.linalg.norm(f - key_rgb.astype(np.float32).reshape(1, 1, 3), axis=2)
+        chroma_hi = chroma_hi & (dist_key < KEY_GUARD)
     dist_zero = ndimage.distance_transform_edt(alpha > 0.02)
     band = (alpha > 0.02) & (dist_zero <= 8)
     alpha = alpha.copy()
@@ -174,8 +186,8 @@ def process(src: Path, dst: Path, key: str = "auto", feather: float = 2.0, pad: 
     key_rgb = estimate_key(f, key)
 
     alpha = build_matte(f, key_rgb, feather)
-    alpha = punch_green_holes(f, alpha)
-    alpha = punch_edge_blobs(alpha, f)
+    alpha = punch_green_holes(f, alpha, key_rgb)
+    alpha = punch_edge_blobs(alpha, f, key_rgb)
     alpha = remove_specks(alpha)
     f = despill(f, alpha)
 
