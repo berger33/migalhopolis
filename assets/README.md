@@ -547,3 +547,4 @@ modelo e os stills das 79 imagens — até 10 gerações por turno.
 | `personagens/71_seu_jorge_apontando.png` | Seu Jorge — apontando ao dar conselho, ação 17 | 376×713 | verde |
 | `personagens/72_reporter_coletiva_braco_estendido.png` | Repórter — coletiva com braço estendido e mão vazia, ação 42 | 309×590 | verde |
 | `personagens/73_reporter_andando.png` | Repórter — andando apressada com bloco de notas | 349×678 | verde |
+| `personagens/74_reporter_cabeca_surpresa.png` | Repórter — surpresa e sobrancelhas erguidas, base 44 | 659×791 | verde |
