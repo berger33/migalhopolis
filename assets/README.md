@@ -168,9 +168,32 @@ presas em frestas em `50` (vão entre vara e carroça), `53` (borda da língua) 
 `58` (lente do óculos vazada); verdes de arte preservados (olhos do gato em
 `55`, fitas da rabiola em `57`). 10/10 validados como PNG RGBA com alpha real.
 
-**Próximo lote (7):** 60–69 — zé do café (60), carroceiro (61), zikas (62),
-cachorros (63), gato (64), criança (65), velha (66), vizinha (67), zé do café
-(68) e carroceiro (69), mantendo 10 gerações por turno.
+### Lote 7 — ✅ CONCLUÍDO (69/342) — 60–69: brindes, reações e cochilos
+
+| Arquivo | Descrição |
+|---|---|
+| `vida_urbana/60_ze_cafe_brindando.png` | Zé do Café erguendo a caneca num brinde, bule na outra mão, sorrisão |
+| `vida_urbana/61_carroceiro_acenando_chapeu.png` | Carroceiro a pé ao lado da carroça erguendo o chapéu de palha em saudação; cavalo atrelado parado |
+| `vida_urbana/62_zikas_sentados_celular.png` | Dupla de Zikas sentada no meio-fio, um mostrando a tela do celular para o outro |
+| `vida_urbana/63_cachorro_cocando_orelha.png` | Vira-lata coçando a orelha com a pata traseira, cabeça inclinada, língua de fora |
+| `vida_urbana/64_gato_espreguicando.png` | Gato preto em espreguiçada profunda de gato, bocejando com a língua de fora |
+| `vida_urbana/65_crianca_apontando_ceu.png` | Menino com a pipa na mão apontando o céu, boca aberta gritando de alegria |
+| `vida_urbana/66_velha_tapando_ouvidos.png` | Vovó sentada na cadeira tampando os dois ouvidos, olhos apertados, cara de aborrecimento |
+| `vida_urbana/67_vizinha_falando_celular.png` | Vizinha na janela falando no celular com cara de fofoqueira, outra mão gesticulando |
+| `vida_urbana/68_ze_cafe_cansado.png` | Zé do Café sentado no caixote, exausto, enxugando o suor com a toalha, bule no chão |
+| `vida_urbana/69_carroceiro_cochilando.png` | Carroceiro cochilando sentado no bordo da carroça, chapéu sobre o rosto, cavalo parado |
+
+Pós-processamento do lote: recorte croma padrão + remoção do letreiro pintado
+"VELHARIAS & JUNK" no painel lateral da carroça do `61` (texto fora do padrão —
+o caibro do `50` é plano; reconstrução do grão de madeira por interpolação
+horizontal). Observação: o `63` saiu com o corpo levemente mais robusto que as
+poses `03/43/53/54` do mesmo cão — mesmo personagem (pelagem, olhos amarelos),
+variância aceitável de estilização; se atrapalhar a interpolação, re-gerar em
+lote futuro. 10/10 validados como PNG RGBA com alpha real.
+
+**Próximo lote (8):** 70–79 — fechamento de zikas (3), cachorros (2), criança
+(2), velha (2) e vizinha (2); sobram carroceiro (1), gato (1) e zé do café (2)
+para o lote 9, que encerra os 84 de Vida Urbana.
 
 ### Progresso
 
@@ -180,5 +203,6 @@ cachorros (63), gato (64), criança (65), velha (66), vizinha (67), zé do café
 - [x] Lote 4 — 10 imagens (38 entregue junto com o Lote 5)
 - [x] Lote 5 — 10 imagens (reações, ciclos e fechamento do ciclista 5/5) — 49/342
 - [x] Lote 6 — 10 imagens (ações secundárias; carro fechado em 6/6) — 59/342
-- [ ] Lote 7..9 — Vida Urbana completa (25 restantes)
+- [x] Lote 7 — 10 imagens (60–69: brindes, reações e cochilos; letreiro do 61 removido) — 69/342
+- [ ] Lote 8..9 — Vida Urbana completa (15 restantes)
 - [ ] Demais categorias (258)
