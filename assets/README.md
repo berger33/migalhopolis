@@ -536,3 +536,9 @@ modelo e os stills das 79 imagens — até 10 gerações por turno.
 - [x] Lote 15 — 10 imagens (47–56: rig completo de visemas e piscadas de Marta e Cida) — **140/342**
 - [x] Lote 16 — 10 imagens (58–67: fecha o rig de Seu Jorge e abre os rigs da Repórter e do Fabinho) — **151/342**
 - [ ] Personagens principais restantes e demais categorias
+
+### Lote 17 — poses e fechamento dos visemas do Fabinho
+
+| Arquivo | Descrição | Dimensões | Croma |
+|---|---|---|---|
+| `personagens/68_fabinho_cabeca_boca_ei.png` | Fabinho — visema E/I com dentes, base 45 | 661×718 | verde |
