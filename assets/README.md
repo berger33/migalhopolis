@@ -148,9 +148,29 @@ e `47` (franja verde na fresta entre cabeça e jornal); verdes legítimos de art
 (olhos do gato em `44`, fitas da rabiola em `46`) preservados. Todos validados
 como PNG RGBA com alpha real.
 
-**Próximo lote (6):** 50–59 — ciclos restantes: carroceiro (50), zikas (51–52),
-cachorros (53–54), gato (55), carro (56, fecha o elemento em 6/6), criança (57),
-velha (58) e vizinha (59), mantendo 10 gerações por turno.
+### Lote 6 — ✅ CONCLUÍDO (59/342) — ações secundárias e fechamento do carro (6/6)
+
+| Arquivo | Descrição |
+|---|---|
+| `vida_urbana/50_carroceiro_descarregando.png` | Carroceiro na traseira da carroça erguendo um caixote da pilha, cavalo atrelado parado |
+| `vida_urbana/51_zikas_correndo.png` | Dupla de Zikas fugindo em pânico em disparada, olhando por cima do ombro |
+| `vida_urbana/52_zikas_cumprimento.png` | Dupla de Zikas de frente fazendo cumprimento de rua elaborado, mãos clasadas no alto |
+| `vida_urbana/53_cachorro_correndo.png` | Vira-lata cinza em galope pleno, corpo esticado no ar, orelhas ao vento |
+| `vida_urbana/54_cachorro_farejando.png` | Vira-lata cinza farejando o chão, traseira erguida e cauda em pé |
+| `vida_urbana/55_gato_lambendo_pata.png` | Gato preto sentado lambendo a pata erguida, olhos semicerrados |
+| `vida_urbana/56_carro_velho_fumaceando.png` | Fusca azul-bebê em vista lateral fumaceando pelo escapamento, janelas vazadas (fecha o elemento em 6/6) |
+| `vida_urbana/57_crianca_pipa_vitoria.png` | Menino erguendo a pipa como troféu acima da cabeça, rabiola serpenteando |
+| `vida_urbana/58_velha_cochilando.png` | Vovó cochilando desabada na cadeira de plástico, óculos tortos no nariz |
+| `vida_urbana/59_vizinha_gritando_rua.png` | Vizinha debruçada na janela gritando para a rua com as mãos em concha |
+
+Pós-processamento: recorte croma padrão + limpeza por matiz de franjas de croma
+presas em frestas em `50` (vão entre vara e carroça), `53` (borda da língua) e
+`58` (lente do óculos vazada); verdes de arte preservados (olhos do gato em
+`55`, fitas da rabiola em `57`). 10/10 validados como PNG RGBA com alpha real.
+
+**Próximo lote (7):** 60–69 — zé do café (60), carroceiro (61), zikas (62),
+cachorros (63), gato (64), criança (65), velha (66), vizinha (67), zé do café
+(68) e carroceiro (69), mantendo 10 gerações por turno.
 
 ### Progresso
 
@@ -159,5 +179,6 @@ velha (58) e vizinha (59), mantendo 10 gerações por turno.
 - [x] Lote 3 — 10 imagens (poses intermediárias e segundo cão)
 - [x] Lote 4 — 10 imagens (38 entregue junto com o Lote 5)
 - [x] Lote 5 — 10 imagens (reações, ciclos e fechamento do ciclista 5/5) — 49/342
-- [ ] Lote 6..9 — Vida Urbana completa (35 restantes)
+- [x] Lote 6 — 10 imagens (ações secundárias; carro fechado em 6/6) — 59/342
+- [ ] Lote 7..9 — Vida Urbana completa (25 restantes)
 - [ ] Demais categorias (258)
