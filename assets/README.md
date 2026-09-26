@@ -299,12 +299,46 @@ Pós-processamento do lote:
 - 9/9 validados como PNG RGBA com alpha real 0–255. 10 gerações no turno
   (1 falhou sem imagem).
 
-**Próximo lote (11):** `05` Cida herói (re-geração) + Caramelo cabeça olhos
-fechados (piscar) (15), Caramelo cabeça boca aberta "A" (16), boca "O" (17),
-boca "E/I" (18), Caramelo farejando a fila (19, cena 016), Pardal de macacão
-azul com mop no bueiro (20), Zeca carimbando o IPTU (21), Marta pregando de
-braços abertos (22), Fabinho ajoelhado com a mão no alambrado (23) — 10
-gerações, Caramelos em croma azul.
+### Lote 11 — ✅ CONCLUÍDO (101/342) — `05` Cida (slot reservado) + 3 assets novos (15–17)
+
+| Arquivo | Descrição |
+|---|---|
+| `personagens/05_cida_em_pe.png` | **Cida** herói (slot reservado no Lote 10): em pé 3/4, cabelo de bobes com rede, avental floral sobre blusa estampada, uma mão em concha na boca gritando e a outra na cintura (ref.: `personagens/05_cida.jpg` + `imagens/005.jpg`) |
+| `personagens/15_seu_jorge_cadeira.png` | **Seu Jorge** sentado na cadeira de plástico — pose de cena (007/017), chapéu bucket, regata manchada, garfo de plástico erguido e prato de papel; distinto do herói em pé `06` (ref.: `06_seu_jorge.jpg` + `imagens/007.jpg`) |
+| `personagens/16_fabinho_lanterna.png` | **Fabinho** com a lanterna no túnel — pose de cena (059/060), boné virado pra trás, camiseta com estampa de cachorro, olhos grandes esperançosos (ref.: `07_fabinho.jpg` + `imagens/059.jpg`) |
+| `personagens/17_zeca_celular_notificacoes.png` | **Zeca** com o celular explodindo em notificações verdes do WhatsApp — cena 027; complementa o `14` (tela neutra) com a tempestade de bolhas em camada única, 6 dedos visíveis (ref.: `03_zeca.jpg` + `imagens/027.jpg`) |
+
+Pós-processamento do lote: as 10 imagens foram geradas **antes** do merge do
+Lote 10 (PR #12), então o plano do turno colidiu com os slots `06`–`14` que já
+estavam aprovados. Critério adotado: comparação automática de silhueta
+(IoU após normalização de escala) + posição relativa das patas de apoio contra
+os assets já aprovados.
+
+- **1 geração virou o slot reservado**: `05` Cida (fecha o Lote 10 em 98/342).
+- **3 gerações viraram assets novos** (`15`–`17`): IoU 0,43–0,52 e área/tipo de
+  pose distintos (sentado × em pé; com lanterna; tela com notificações × tela
+  neutra) — todos dentro do sub-plano de poses de cada personagem.
+- **6 gerações foram descartadas como takes duplicados** dos slots aprovados:
+  `08` repórter (IoU 0,77), `10` Caramelo dormindo (IoU 0,71, área idêntica),
+  `12` cabeça neutra (IoU 0,85), `13` Pardal calculadora (IoU 0,52, mesma
+  intenção de cena), `11` Caramelo no pote (o pote vinha embutido no asset,
+  contra a regra "1 arquivo = 1 asset") e `09` Caramelo andando (IoU 0,45 mas
+  **mesma fase de passo**: 4 patas em posições relativas 0,20/0,41/0,60/0,74
+  contra 0,22/0,43/0,65/0,84 do `09` aprovado — não serve como passo oposto do
+  ciclo). Arquivos preservados em `raw/lote11_duplicados/` (fora do Git) para
+  eventual reuso.
+- Recorte refeito com a ferramenta já corrigida (`KEY_GUARD`) sobre os RAW do
+  croma — nenhum buraco indevido; franja de croma zero em 3/4; no `17` o
+  verde restante (0,08%) é arte legítima: tela e bolhas do WhatsApp.
+- 4/4 validados como PNG RGBA com alpha real 0–255. **10 gerações no turno**
+  (limite respeitado; sem re-tentativa).
+
+**Próximo lote (12):** Caramelo cabeça olhos fechados/piscar (18), cabeça boca
+"A" (19), boca "O" (20), boca "E/I" (21), Caramelo farejando a fila (22, cena
+016) — todos em croma **azul** (`--key blue`) —, Pardal de macacão azul com mop
+no bueiro (23, cena 040/070), Zeca carimbando o IPTU (24, cena 025), Marta
+pregando de braços abertos (25, cena 006), Fabinho ajoelhado no alambrado (26,
+cena 062) e Cida atrás do balcão do mercadinho (27, cena 074) — 10 gerações.
 
 ### Progresso
 
@@ -318,5 +352,6 @@ gerações, Caramelos em croma azul.
 - [x] Lote 8 — 9 imagens (70–76, 78–79; 77 reservado por bloqueio de moderação) — 78/342
 - [x] Lote 9 — 10 imagens (77, 80–84 fecham Vida Urbana 84/84; personagens 01–04: heróis Caramelo, Pardal, Zeca, Marta) — 88/342
 - [x] Lote 10 — 9 imagens (personagens 06–14; 05 Cida reservado por falha do gerador; correção do 01 e da ferramenta) — 97/342
-- [ ] Lote 11 — 05 Cida + cabeças/bocas do Caramelo + poses de cena (Pardal, Zeca, Marta, Fabinho) — 107/342
-- [ ] Personagens principais restantes (122) e demais categorias (123)
+- [x] Lote 11 — 4 novos de 10 gerações (05 Cida fecha o slot reservado do Lote 10; 15 Seu Jorge na cadeira, 16 Fabinho com lanterna, 17 Zeca notificações; 6 takes duplicados de 06–14 descartados) — 101/342
+- [ ] Lote 12 — cabeças/bocas do Caramelo (18–22, croma azul) + poses de cena Pardal/Zeca/Marta/Fabinho/Cida (23–27) — 111/342
+- [ ] Personagens principais restantes (118) e demais categorias (123)
