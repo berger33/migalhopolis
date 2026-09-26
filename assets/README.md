@@ -191,9 +191,25 @@ poses `03/43/53/54` do mesmo cão — mesmo personagem (pelagem, olhos amarelos)
 variância aceitável de estilização; se atrapalhar a interpolação, re-gerar em
 lote futuro. 10/10 validados como PNG RGBA com alpha real.
 
-**Próximo lote (8):** 70–79 — fechamento de zikas (3), cachorros (2), criança
-(2), velha (2) e vizinha (2); sobram carroceiro (1), gato (1) e zé do café (2)
-para o lote 9, que encerra os 84 de Vida Urbana.
+### Lote 8 — 9/10 ENTREGUE (78/342) — reações finais e fechamento de 4 elementos
+
+| Arquivo | Descrição |
+|---|---|
+| `vida_urbana/70_zikas_discutindo.png` | Dupla de Zikas discutindo face a face: um apontando pro peito do outro, o outro jogando os braços pro alto indignado |
+| `vida_urbana/71_cachorro_sentado.png` | Vira-lata sentado e atento, orelhas em pé, cauda enrolada nas patas |
+| `vida_urbana/72_crianca_pulando.png` | Menino pulando no ar com os dois punhos erguidos, pipa balançando na mão |
+| `vida_urbana/73_velha_orando.png` | Vovó de mãos postas em oração, olhos fechados, rezando baixinho |
+| `vida_urbana/74_vizinha_rindo.png` | Vizinha gargalhando com a cabeça jogada pra trás, mão na barriga |
+| `vida_urbana/75_zikas_se_escondendo.png` | Dupla de Zikas agachada se escondendo atrás de um muro invisível, mãos na cabeça, cara de medo |
+| `vida_urbana/76_cachorro_rolando.png` | Vira-lata rolando de barriga pra cima, patas no ar, língua de fora (fecha cachorros 10/10) |
+| `vida_urbana/77_crianca_linha_enroscada.png` | **RESERVADO** — geração bloqueada pela moderação de conteúdo (criança enroscada na linha); entra no Lote 9 com pose segura |
+| `vida_urbana/78_velha_conversando.png` | Vovó sentada conversando animada, gesticulando com as duas mãos (fecha velha 9/9) |
+| `vida_urbana/79_vizinha_acenando.png` | Vizinha acenando da janela com sorriso, cotovelo no peitoril (fecha vizinha 8/8) |
+
+Pós-processamento: recorte croma padrão; verde do vestido floral do `78` conferido por HSV — são folhas pintadas (0,1% pixels croma-like), não resíduo. 9/9 entregues validados como PNG RGBA com alpha real. 10 gerações por turno respeitadas (1 bloqueada, sem re-tentativa).
+
+**Próximo lote (9):** `77` (pose segura da criança) + zikas (1), carroceiro (1), gato (1)
+e zé do café (2) = 6 gerações — fecha os 84 de Vida Urbana.
 
 ### Progresso
 
@@ -204,5 +220,6 @@ para o lote 9, que encerra os 84 de Vida Urbana.
 - [x] Lote 5 — 10 imagens (reações, ciclos e fechamento do ciclista 5/5) — 49/342
 - [x] Lote 6 — 10 imagens (ações secundárias; carro fechado em 6/6) — 59/342
 - [x] Lote 7 — 10 imagens (60–69: brindes, reações e cochilos; letreiro do 61 removido) — 69/342
-- [ ] Lote 8..9 — Vida Urbana completa (15 restantes)
+- [x] Lote 8 — 9 imagens (70–76, 78–79; 77 reservado por bloqueio de moderação) — 78/342
+- [ ] Lote 9 — fecha Vida Urbana (77 + zikas/carroceiro/gato/zé = 6 imagens) — 84/342
 - [ ] Demais categorias (258)
