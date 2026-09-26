@@ -1,0 +1,165 @@
+{
+  "criterio_croma": "Distância RGB normalizada < 0.32 da chave, alpha > 0.02; não substitui revisão visual.",
+  "assets": [
+    {
+      "arquivo": "68_fabinho_cabeca_boca_ei.png",
+      "tamanho": [
+        661,
+        718
+      ],
+      "bbox": [
+        650,
+        713
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "pixels_proximos_croma": 0
+    },
+    {
+      "arquivo": "69_fabinho_cabeca_boca_u.png",
+      "tamanho": [
+        660,
+        718
+      ],
+      "bbox": [
+        650,
+        713
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "pixels_proximos_croma": 0
+    },
+    {
+      "arquivo": "70_seu_jorge_fila_garfo.png",
+      "tamanho": [
+        304,
+        722
+      ],
+      "bbox": [
+        288,
+        706
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "pixels_proximos_croma": 0
+    },
+    {
+      "arquivo": "71_seu_jorge_apontando.png",
+      "tamanho": [
+        376,
+        713
+      ],
+      "bbox": [
+        360,
+        697
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "pixels_proximos_croma": 0
+    },
+    {
+      "arquivo": "72_reporter_coletiva_braco_estendido.png",
+      "tamanho": [
+        309,
+        590
+      ],
+      "bbox": [
+        293,
+        574
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "pixels_proximos_croma": 0
+    },
+    {
+      "arquivo": "73_reporter_andando.png",
+      "tamanho": [
+        349,
+        678
+      ],
+      "bbox": [
+        333,
+        662
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "pixels_proximos_croma": 0
+    },
+    {
+      "arquivo": "74_reporter_cabeca_surpresa.png",
+      "tamanho": [
+        659,
+        791
+      ],
+      "bbox": [
+        647,
+        779
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "pixels_proximos_croma": 0
+    },
+    {
+      "arquivo": "75_fabinho_correndo.png",
+      "tamanho": [
+        837,
+        906
+      ],
+      "bbox": [
+        821,
+        890
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "pixels_proximos_croma": 0
+    },
+    {
+      "arquivo": "76_fabinho_abracando.png",
+      "tamanho": [
+        452,
+        641
+      ],
+      "bbox": [
+        436,
+        625
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "pixels_proximos_croma": 0
+    },
+    {
+      "arquivo": "77_caramelo_cauda.png",
+      "tamanho": [
+        772,
+        575
+      ],
+      "bbox": [
+        756,
+        559
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "pixels_proximos_croma": 0
+    }
+  ]
+}

@@ -536,3 +536,43 @@ modelo e os stills das 79 imagens — até 10 gerações por turno.
 - [x] Lote 15 — 10 imagens (47–56: rig completo de visemas e piscadas de Marta e Cida) — **140/342**
 - [x] Lote 16 — 10 imagens (58–67: fecha o rig de Seu Jorge e abre os rigs da Repórter e do Fabinho) — **151/342**
 - [ ] Personagens principais restantes e demais categorias
+
+### Lote 17 — poses e fechamento dos visemas do Fabinho
+
+| Arquivo | Descrição | Dimensões | Croma |
+|---|---|---|---|
+| `personagens/68_fabinho_cabeca_boca_ei.png` | Fabinho — visema E/I com dentes, base 45 | 661×718 | verde |
+| `personagens/69_fabinho_cabeca_boca_u.png` | Fabinho — visema U com lábios em bico, base 45 | 660×718 | verde |
+| `personagens/70_seu_jorge_fila_garfo.png` | Seu Jorge — em pé na fila com garfo e prato, ação 7 | 304×722 | verde |
+| `personagens/71_seu_jorge_apontando.png` | Seu Jorge — apontando ao dar conselho, ação 17 | 376×713 | verde |
+| `personagens/72_reporter_coletiva_braco_estendido.png` | Repórter — coletiva com braço estendido e mão vazia, ação 42 | 309×590 | verde |
+| `personagens/73_reporter_andando.png` | Repórter — andando apressada com bloco de notas | 349×678 | verde |
+| `personagens/74_reporter_cabeca_surpresa.png` | Repórter — surpresa e sobrancelhas erguidas, base 44 | 659×791 | verde |
+| `personagens/75_fabinho_correndo.png` | Fabinho — correndo com boné teal | 837×906 | verde |
+| `personagens/76_fabinho_abracando.png` | Fabinho — braços abertos para abraçar Caramelo, ação 78 | 452×641 | verde |
+| `personagens/77_caramelo_cauda.png` | Caramelo — cauda isolada | 772×575 | azul |
+
+**Total após o lote: 161/342 assets — 84 de vida urbana + 77 de personagens.**
+
+- Exatamente **10 gerações**, sem regenerações; nove fundos verdes #00FF00
+  e cauda em azul #0047BB com `--key blue`.
+- Recorte de todos os arquivos com `assets/tools/chroma_key.py` (verde com
+  `--key auto`, que mede o #00FF00 na moldura; o preset green usa outra cor).
+- Cabeças `68` e `69` registradas via `registra_cabecas.py` na base `45`:
+  bbox com 713 px de altura; `74` registrada na base `44`: 779 px após resize
+  para a altura-alvo de 780 px, conforme arredondamento do script.
+- O gerador de `72` manteve elementos da coletiva. Foi aplicada máscara manual
+  para isolar a Repórter antes de reaplicar o chroma key, sem nova geração.
+  Microfone ausente; contorno manual e resolução menor merecem atenção na
+  aprovação visual. A pose segue a coletiva da imagem `042`.
+- O bloco de notas de `73` veio com identificação TV Migalha na blusa.
+- A ação de abraço de `76` segue o roteiro (78); o still `078` foi referência
+  visual de personagens, não reprodução de cenário (o still mostra uma grade).
+- Limpeza adicional de um pixel residual azul na cauda após chroma key.
+- 10/10 PNGs RGBA com alpha mínimo 0 e máximo 255. Métricas individuais em
+  `assets/validacao/lote17.json`: zero pixels com distância RGB normalizada
+  < 0,32 da chave e alpha > 0,02. Essa métrica não substitui inspeção visual.
+- Revisão em fundo escuro dos dez assets e em fundo claro do recorte manual `72`.
+  Intermediários e prévias em `raw/` (ignorados pelo Git).
+
+**Status:** Lote 17 entregue para revisão; merge depende de autorização expressa.
