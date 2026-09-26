@@ -263,11 +263,35 @@ legítimos de arte preservados (faixa do Caramelo, gravata do Pardal, vestido da
 Marta). 10/10 validados como PNG RGBA com alpha real 0–255. 10 gerações no
 turno.
 
-**Próximo lote (10):** heróis de Cida (05), Seu Jorge (06), Fabinho (07) e
-Repórter (08) + Caramelo andando de perfil (09), Caramelo dormindo enrolado
-(10), Caramelo em pé apoiado na borda do pote (11), Caramelo cabeça 3/4 neutra
-para base de bocas (12), Pardal suando desesperado com calculadora (13) e Zeca
-com celular verde do WhatsApp (14) — 10 gerações.
+### Lote 10 — ✅ CONCLUÍDO (98/342) — heróis Cida/Jorge/Fabinho/Repórter + poses de Caramelo, Pardal e Zeca
+
+| Arquivo | Descrição |
+|---|---|
+| `personagens/05_cida_em_pe.png` | **Cida** herói: em pé 3/4, cabelo de bobes com rede, avental floral sobre blusa estampada, uma mão em concha na boca gritando e a outra na cintura (ref.: `personagens/05_cida.jpg` + `imagens/005.jpg`) |
+| `personagens/06_seu_jorge_sentado.png` | **Seu Jorge** herói: sentado na cadeira de plástico, chapéu bucket, camiseta manchada, garfo de plástico erguido e prato de papel na outra mão (ref.: `06_seu_jorge.jpg` + `imagens/007.jpg`) |
+| `personagens/07_fabinho_em_pe.png` | **Fabinho** herói: em pé 3/4, boné virado pra trás, camiseta larga com estampa de cachorro, lanterna na mão, olhos grandes esperançosos (ref.: `07_fabinho.jpg` + `imagens/059.jpg`) |
+| `personagens/08_reporter_em_pe.png` | **Repórter** herói: em pé 3/4, loira de blazer, microfone com bandeirinha da TV MIGALHA (sem texto legível) numa mão, outra mão aberta em gesto de entrevista (ref.: `08_reporter.jpg` + `imagens/030.jpg`) |
+| `personagens/09_caramelo_andando_perfil.png` | **Caramelo** andando em perfil exato, meio passo com as quatro patas, rabo estendido, faixa verde/ouro (ref.: `01_caramelo.jpg` + `imagens/005.jpg`) |
+| `personagens/10_caramelo_dormindo_enrolado.png` | **Caramelo** dormindo enrolado em bola, olhos fechados, focinho sob o rabo, "Zzz" de desenho animado (ref.: `01_caramelo.jpg` + `imagens/003.jpg`) |
+| `personagens/11_caramelo_pote_borda.png` | **Caramelo** em pé nas patas traseiras com as dianteiras apoiadas na borda do pote gigante de metal, espiando por cima (ref.: `01_caramelo.jpg` + `imagens/016.jpg`) |
+| `personagens/12_caramelo_cabeca_neutra.png` | **Caramelo** busto cabeça/ombros 3/4, boca fechada neutra, olhos semicerrados — base para encaixe de bocas e olhos (ref.: `01_caramelo.jpg` + `imagens/004.jpg`) |
+| `personagens/13_pardal_calculadora.png` | **Pardal** suando em bica, desespero, calculadora numa mão erguida e a outra enxugando a testa, botton 29 (ref.: `02_pardal.jpg` + `imagens/028.jpg`) |
+| `personagens/14_zeca_celular_whatsapp.png` | **Zeca** de terno cinza largo e gravata vermelha, 6 dedos, celular verde explodindo em notificações do WhatsApp (ref.: `03_zeca.jpg` + `imagens/027.jpg`) |
+
+Pós-processamento do lote: recorte croma padrão (`assets/tools/chroma_key.py`).
+Nenhuma das 10 gerações veio como folha de modelo (1 componente de alpha cada),
+então não houve recorte por colunas nem descarte para `raw/`. Franja de croma
+residual zero em 9/10; no `14` o verde restante (0,25% dos pixels) é arte
+legítima — tela do celular e bolhas de notificação do WhatsApp — preservada
+(mesmo critério dos verdes da faixa do Caramelo e da gravata do Pardal).
+10/10 validados como PNG RGBA com alpha real 0–255. 10 gerações no turno.
+
+**Próximo lote (11):** poses de cena dos protagonistas — Caramelo sentado no
+pote (15), Caramelo no pedestal farejando (16), Caramelo no juramento com a pata
+na constituição (17), cabeça do Caramelo em êxtase/ouvidos abaixados (18),
+Pardal com a coroa de linguiça (19), Zeca com a carteira da OAB de 6 dedos (20),
+Zeca de jaleco branco (21), Marta pregando na igreja (22), Cida atrás do balcão
+do mercadinho (23) e Fabinho com a lanterna no túnel (24) — 10 gerações.
 
 ### Progresso
 
@@ -280,5 +304,6 @@ com celular verde do WhatsApp (14) — 10 gerações.
 - [x] Lote 7 — 10 imagens (60–69: brindes, reações e cochilos; letreiro do 61 removido) — 69/342
 - [x] Lote 8 — 9 imagens (70–76, 78–79; 77 reservado por bloqueio de moderação) — 78/342
 - [x] Lote 9 — 10 imagens (77, 80–84 fecham Vida Urbana 84/84; personagens 01–04: heróis Caramelo, Pardal, Zeca, Marta) — 88/342
-- [ ] Lote 10 — heróis Cida/Jorge/Fabinho/Repórter + poses do Caramelo, Pardal e Zeca — 98/342
-- [ ] Personagens principais restantes (131) e demais categorias (123)
+- [x] Lote 10 — 10 imagens (personagens 05–14: heróis Cida, Seu Jorge, Fabinho, Repórter + Caramelo perfil/dormindo/pote/cabeça, Pardal calculadora, Zeca WhatsApp) — 98/342
+- [ ] Lote 11 — poses de cena dos protagonistas (15–24) — 108/342
+- [ ] Personagens principais restantes (121) e demais categorias (123)
