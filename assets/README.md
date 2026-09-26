@@ -394,12 +394,12 @@ Cada geração devolveu uma escala diferente, então todas foram normalizadas pe
 (32), todos em croma azul — e abre as **cabeças-base dos demais** para bocas:
 Pardal (33), Zeca (34), Marta (35), Cida (36) e Seu Jorge (37) — 10 gerações.
 
-### Lote 13 — 9/10 ENTREGUE (120/342) — visemas restantes do Caramelo + cabeças-base
+### Lote 13 — ✅ CONCLUÍDO (120/342) — visemas restantes do Caramelo + cabeças-base
 
 Fecha o set de cabeças do Caramelo (croma **azul**, registradas na escala da
 base `12`) e abre as **cabeças-base** de Pardal, Zeca, Cida e Seu Jorge
-(croma verde). Slot `35` Marta reservado: o gerador devolveu resposta sem
-imagem (falha do modelo, não moderação); sem re-tentativa no turno.
+(croma verde). O slot `35` de Marta falhou sem imagem na geração original e
+foi concluído no Lote 14, sem deslocar os demais assets do lote.
 
 | Arquivo | Descrição |
 |---|---|
@@ -410,7 +410,7 @@ imagem (falha do modelo, não moderação); sem re-tentativa no turno.
 | `personagens/32_caramelo_cabeca_extase.png` | Cabeça de **êxtase** — olhos fechados em prazer, sorriso contente, dente à mostra; orelhas mais abertas (croma azul; IoU vs `12` = 0,81, silhueta distinta pela pose) |
 | `personagens/33_pardal_cabeca_neutra.png` | **Pardal** cabeça-base 3/4: calvo suado, boca fechada nervosa, botton 29, gravata verde/laranja — base para troca de visemas (ref.: `02_pardal.jpg` + herói `02`) |
 | `personagens/34_zeca_cabeca_neutra.png` | **Zeca** cabeça-base 3/4: sorriso malandro fechado, terno cinza, gravata vermelha — base para troca de visemas (ref.: `03_zeca.jpg` + herói `03`) |
-| `personagens/35_marta_cabeca_neutra.png` | **RESERVADO** — gerador devolveu resposta sem imagem; entra no Lote 14 |
+| `personagens/35_marta_cabeca_neutra.png` | Finalizado no Lote 14: cabeça-base 3/4, boca fechada, olhos abertos — ver tabela abaixo |
 | `personagens/36_cida_cabeca_neutra.png` | **Cida** cabeça-base 3/4: bobes coloridos, lenço floral, óculos, boca fechada em sorriso — base para troca de visemas (ref.: `05_cida.jpg` + herói `05`) |
 | `personagens/37_seu_jorge_cabeca_neutra.png` | **Seu Jorge** cabeça-base 3/4: chapéu bucket oliva, barba grisalha, regata, boca fechada cansada — base para troca de visemas (ref.: `06_seu_jorge.jpg` + herói `06`) |
 
@@ -429,10 +429,37 @@ Pós-processamento do lote:
 - 9/9 validados como PNG RGBA com alpha real 0–255. **10 gerações no turno**
   (1 falhou sem imagem; sem re-tentativa).
 
-**Próximo lote (14):** Marta cabeça-base (35, slot reservado) + visemas de
-Pardal (boca A, O, olhos fechados) e Zeca (boca A, O, olhos fechados) +
-cabeça-base da Repórter e do Fabinho + Caramelo boca fechada extra / pata
-erguida — 10 gerações.
+### Lote 14 — ✅ CONCLUÍDO (130/342) — Marta + rig de visemas de Pardal/Zeca + novas cabeças
+
+| Arquivo | Descrição | Croma |
+|---|---|---|
+| `personagens/35_marta_cabeca_neutra.png` | **Marta** cabeça-base 3/4: boca fechada, olhos abertos, cachos pretos com mechas douradas, argolas e cruz; base para visemas | verde |
+| `personagens/38_pardal_cabeca_boca_a.png` | **Pardal** visema **"A"** — mandíbula caída, língua e dentes; mesma cabeça-base `33` | verde |
+| `personagens/39_pardal_cabeca_boca_o.png` | **Pardal** visema **"O"** — lábios arredondados; mesma cabeça-base `33` | verde |
+| `personagens/40_pardal_cabeca_olhos_fechados.png` | **Pardal** olhos fechados — frame de piscar, boca fechada | verde |
+| `personagens/41_zeca_cabeca_boca_a.png` | **Zeca** visema **"A"** — boca vertical aberta, língua e dentes; mesma cabeça-base `34` | verde |
+| `personagens/42_zeca_cabeca_boca_o.png` | **Zeca** visema **"O"** — focinho projetado e abertura redonda; mesma cabeça-base `34` | verde |
+| `personagens/43_zeca_cabeca_olhos_fechados.png` | **Zeca** olhos fechados — frame de piscar, boca fechada | verde |
+| `personagens/44_reporter_cabeca_neutra.png` | **Repórter** cabeça-base 3/4: expressão neutra de estúdio, cabelo loiro e ombro do blazer; microfone fica em camada própria | verde |
+| `personagens/45_fabinho_cabeca_neutra.png` | **Fabinho** cabeça-base 3/4: boné teal virado, olhos abertos e expressão esperançosa; lanterna fica em camada própria | verde |
+| `personagens/46_caramelo_pata_erguida.png` | **Caramelo**: uma única pata dianteira erguida, almofadas visíveis, para gesto/aceno em camada independente | azul |
+
+Pós-processamento e validação:
+
+- Foram feitas **exatamente 10 gerações** neste turno; uma por arquivo da tabela.
+- Os nove assets de personagem foram gerados em croma verde; a pata do Caramelo
+  usou croma azul para não conflitar com a faixa verde do personagem. Todos
+  passaram por `chroma_key.py` e são PNG **RGBA** com alpha real de 0 a 255.
+- Os visemas de Pardal foram registrados em alpha premultiplicado na altura de
+  bbox da cabeça `33` (**740 px**); os de Zeca, na altura da base `34`
+  (**718 px**). Assim, cada trio encaixa no rig sem redimensionamento manual.
+- Revisão visual em fundo escuro: silhuetas limpas, sem cenário ou fundo
+  incorporado; a Repórter não leva microfone e Fabinho não leva lanterna, pois
+  ambos são props/camadas independentes.
+
+**Próximo lote (15):** concluir visemas e piscadas de Marta, Cida e Seu Jorge,
+seguindo as folhas de modelo e stills das 79 cenas; depois retomar poses de
+corpo dos protagonistas. Serão novamente no máximo 10 assets isolados.
 
 ### Progresso
 
@@ -448,6 +475,7 @@ erguida — 10 gerações.
 - [x] Lote 10 — 9 imagens (personagens 06–14; 05 Cida reservado por falha do gerador; correção do 01 e da ferramenta) — 97/342
 - [x] Lote 11 — 4 novos de 10 gerações (05 Cida fecha o slot reservado do Lote 10; 15 Seu Jorge na cadeira, 16 Fabinho com lanterna, 17 Zeca notificações; 6 takes duplicados de 06–14 descartados) — 101/342
 - [x] Lote 12 — 10 imagens (visemas 18–21 + Caramelo farejando 22 em croma azul; poses 23–27 de Pardal/Zeca/Marta/Fabinho/Cida) — 111/342
-- [x] Lote 13 — 9 imagens (visemas 28–32 e cabeças-base 33–34, 36–37); `35_marta_cabeca_neutra` reservado após falha sem imagem — 120/342
-- [ ] Lote 14 — `35_marta_cabeca_neutra` (slot reservado) + visemas de Pardal/Zeca + cabeças-base de Repórter/Fabinho + pose extra do Caramelo — 10 gerações
+- [x] Lote 13 — 9 imagens (visemas 28–32 e cabeças-base 33–34, 36–37); o slot `35_marta_cabeca_neutra` foi concluído no Lote 14 — 120/342
+- [x] Lote 14 — 10 imagens (`35`, 38–46): Marta, rig de visemas/piscadas de Pardal e Zeca, cabeças-base de Repórter/Fabinho e pata do Caramelo — **130/342**
+- [ ] Lote 15 — visemas/piscadas de Marta, Cida e Seu Jorge; continuidade das poses principais
 - [ ] Personagens principais restantes e demais categorias
