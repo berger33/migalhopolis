@@ -543,3 +543,4 @@ modelo e os stills das 79 imagens — até 10 gerações por turno.
 |---|---|---|---|
 | `personagens/68_fabinho_cabeca_boca_ei.png` | Fabinho — visema E/I com dentes, base 45 | 661×718 | verde |
 | `personagens/69_fabinho_cabeca_boca_u.png` | Fabinho — visema U com lábios em bico, base 45 | 660×718 | verde |
+| `personagens/70_seu_jorge_fila_garfo.png` | Seu Jorge — em pé na fila com garfo e prato, ação 7 | 304×722 | verde |
